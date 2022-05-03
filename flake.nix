@@ -96,8 +96,8 @@
           overlays = [ nix2vim.overlay overlay ];
         };
       in {
-        # The packages: our custom neovim and the config text file
-        packages = { inherit (pkgs) customNeovim neovimConfig; };
+        # The packages: our custom neovim
+        packages = { inherit (pkgs) customNeovim; };
 
         # The package built by `nix build .`
         defaultPackage = pkgs.customNeovim;
