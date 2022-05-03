@@ -1,5 +1,5 @@
 {
-  description = "Tutorial Flake accompanying vimconf talk.";
+  description = "PrimaMateria neovim flake";
 
   # Input source for our derivation
   inputs = {
@@ -12,38 +12,12 @@
     };
     neovim = {
       url =
-        "github:neovim/neovim?rev=88336851ee1e9c3982195592ae2fc145ecfd3369&dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    telescope-src = {
-      url =
-        "github:nvim-telescope/telescope.nvim?rev=b5c63c6329cff8dd8e23047eecd1f581379f1587";
-      flake = false;
-    };
-    dracula-nvim = {
-      url = "github:Mofiqul/dracula.nvim";
-      flake = false;
-    };
-    nvim-cmp = {
-      url = "github:hrsh7th/nvim-cmp";
-      flake = false;
-    };
-    cmp-nvim-lsp = {
-      url = "github:hrsh7th/cmp-nvim-lsp";
-      flake = false;
-    };
-    cmp-buffer = {
-      url = "github:hrsh7th/cmp-buffer";
-      flake = false;
-    };
-    rnix-lsp = {
-      url = "github:nix-community/rnix-lsp";
+        "github:neovim/neovim?rev=e502e8106a4cde676190cd6d5c0c018eb6fd1d65&dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, flake-utils, nixpkgs, home-manager, neovim
-    , dracula-nvim, nix2vim, DSL, ... }:
+  outputs = inputs@{ self, flake-utils, nixpkgs, neovim, nix2vim, DSL, ... }:
     let
       # Function to override the source of a package
       withSrc = pkg: src: pkg.overrideAttrs (_: { inherit src; });
@@ -51,59 +25,61 @@
       dsl = nix2vim.lib.dsl;
 
       overlay = prev: final: rec {
-        # Example of packaging plugin with Nix
-        dracula = prev.vimUtils.buildVimPluginFrom2Nix {
-          pname = "dracula-nvim";
-          version = "master";
-          src = dracula-nvim;
-        };
-
-        # Generate our init.lua from neoConfig using vim2nix transpiler
-        neovimConfig = let
-          luaConfig = prev.luaConfigBuilder {
-            config = import ./neoConfig.nix {
-              inherit (nix2vim.lib) dsl;
-              pkgs = prev;
-            };
-          };
-        in prev.writeText "init.lua" luaConfig.lua;
-
         # Building neovim package with dependencies and custom config
         customNeovim = DSL.neovimBuilderWithDeps.legacyWrapper neovim.defaultPackage.x86_64-linux {
           # Dependencies to be prepended to PATH env variable at runtime. Needed by plugins at runtime.
           extraRuntimeDeps = with prev; [
             ripgrep
             clang
-            rust-analyzer
-            inputs.rnix-lsp.defaultPackage.x86_64-linux
+            xsel
           ];
 
           # Build with NodeJS
           withNodeJs = true;
 
           # Passing in raw lua config
-          configure.customRC = ''
-            colorscheme dracula
-            luafile ${neovimConfig}
-          '';
+          configure.customRC = import ./config;
 
           configure.packages.myVimPackage.start = with prev.vimPlugins; [
-            # Adding reference to our custom plugin
-            dracula
-
-            # Overwriting plugin sources with different version
-            (withSrc telescope-nvim inputs.telescope-src)
-            (withSrc cmp-buffer inputs.cmp-buffer)
-            (withSrc nvim-cmp inputs.nvim-cmp)
-            (withSrc cmp-nvim-lsp inputs.cmp-nvim-lsp)
-
             # Plugins from nixpkgs
-            lsp_signature-nvim
-            lspkind-nvim
-            nerdcommenter
-            nvim-lspconfig
+            fern-vim
+            goyo-vim
+            gruvbox-community
+            harpoon
+            lightline-gruvbox-vim
+            lightline-vim
+            lush-nvim
+            nvim-compe
+            nvim-treesitter
             plenary-nvim
             popup-nvim
+            tabular
+            telescope-nvim
+            telescope-project-nvim
+            ultisnips
+            vim-nix
+            vim-sandwich
+
+            # Git
+            gv-vim
+            vim-fugitive
+            vim-gitgutter
+
+            # Commenting
+            vim-commentary
+            nvim-ts-context-commentstring
+
+            # Completition
+            nvim-cmp
+            cmp-nvim-lsp
+            cmp-buffer
+            cmp-path
+            cmp-cmdline
+            cmp-nvim-ultisnips
+
+            nvim-lspconfig
+            nvim-lsp-ts-utils
+            null-ls-nvim
 
             # Compile syntaxes into treesitter
             (prev.vimPlugins.nvim-treesitter.withPlugins
