@@ -37,7 +37,10 @@
           # Build with NodeJS
           withNodeJs = true;
 
-          # Passing in raw lua config
+          # TODO: would extracting config to separate derivation prevent neovim
+          # rebuilds when it's changed?
+
+          # Passing in raw config
           configure.customRC = import ./config;
 
           configure.packages.myVimPackage.start = with prev.vimPlugins; [
@@ -86,7 +89,6 @@
               (plugins: with plugins; [ tree-sitter-nix tree-sitter-rust ]))
           ];
         };
-
       };
 
     in flake-utils.lib.eachDefaultSystem (system:
