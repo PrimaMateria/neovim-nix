@@ -52,7 +52,6 @@
             lightline-gruvbox-vim
             lightline-vim
             lush-nvim
-            nvim-compe
             nvim-treesitter
             plenary-nvim
             popup-nvim
@@ -62,6 +61,7 @@
             ultisnips
             vim-nix
             vim-sandwich
+            hop-nvim
 
             # Git
             gv-vim

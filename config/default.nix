@@ -1,5 +1,5 @@
 import ./nvim-init.nix
-+ import ./nvim-compe.nix
++ import ./nvim-cmp.nix
 + import ./nvim-fern.nix
 + import ./nvim-fugitive.nix
 + import ./nvim-harpoon.nix
