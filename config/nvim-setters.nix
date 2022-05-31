@@ -28,4 +28,5 @@ set ignorecase
 set shell=bash\ -l
 set clipboard+=unnamedplus
 set completeopt=menu,menuone,noselect
+set noswapfile
 ''
