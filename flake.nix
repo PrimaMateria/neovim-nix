@@ -25,13 +25,23 @@
       dsl = nix2vim.lib.dsl;
 
       overlay = prev: final: rec {
+        ultisnipsSnippets = prev.stdenv.mkDerivation {
+          name = "ultisnipsSnippets";
+          src = ./ultisnips;
+          installPhase = ''
+            mkdir -p $out/
+            cp ./*.snippets $out/
+          '';
+        };
+
         # Building neovim package with dependencies and custom config
         customNeovim = DSL.neovimBuilderWithDeps.legacyWrapper neovim.defaultPackage.x86_64-linux {
           # Dependencies to be prepended to PATH env variable at runtime. Needed by plugins at runtime.
-          extraRuntimeDeps = with prev; [
-            ripgrep
-            clang
-            xsel
+          extraRuntimeDeps = [
+            prev.ripgrep
+            prev.clang
+            prev.xsel
+            ultisnipsSnippets
           ];
 
           # Build with NodeJS
@@ -41,7 +51,7 @@
           # rebuilds when it's changed?
 
           # Passing in raw config
-          configure.customRC = import ./config;
+          configure.customRC = import ./config ultisnipsSnippets;
 
           configure.packages.myVimPackage.start = with prev.vimPlugins; [
             # Plugins from nixpkgs
