@@ -74,7 +74,6 @@ nvim_lsp.tsserver.setup {
     -- Mappings
     local opts = { noremap=true, silent=true }
 
-    buf_set_keymap("n", ",,", ":TSLspFixCurrent<CR>", opts)
     buf_set_keymap("n", ",i", ":TSLspImportAll<CR>", opts)
     buf_set_keymap("n", ",o", ":TSLspOrganize<CR>", opts)
 
