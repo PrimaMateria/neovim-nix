@@ -7,7 +7,7 @@ lua <<EOF
 local opt = { noremap = true }
 
 require('telescope').setup {
-  efaults = { layout_strategy = "vertical" }
+  defaults = { layout_strategy = "vertical" }
 }
 
 vim.api.nvim_set_keymap("n", "<leader><leader>", ":lua require('telescope.builtin').find_files()<CR>", opt);
