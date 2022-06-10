@@ -1,6 +1,3 @@
-# vim: ft=vim
-''
-lua << EOF
 local null_ls = require("null-ls")
 null_ls.setup({
   sources = {
@@ -10,5 +7,3 @@ null_ls.setup({
       null_ls.builtins.formatting.stylua,
   },
 })
-EOF
-''

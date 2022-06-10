@@ -36,7 +36,7 @@
 
         luaConfig = prev.stdenv.mkDerivation {
           name = "nvimLuaConfig";
-          src = ./lua-config/lua;
+          src = ./lua;
           installPhase = ''
             mkdir -p $out/
             cp ./* $out/
@@ -51,17 +51,13 @@
             prev.clang
             prev.xsel
             prev.stylua
-            ultisnipsSnippets
           ];
 
           # Build with NodeJS
           withNodeJs = true;
 
-          # TODO: would extracting config to separate derivation prevent neovim
-          # rebuilds when it's changed?
-
           # Passing in raw config
-          configure.customRC = (import ./config ultisnipsSnippets) + (import ./lua-config { inherit luaConfig; });
+          configure.customRC = import ./config { inherit ultisnipsSnippets luaConfig; };
 
           configure.packages.myVimPackage.start = with prev.vimPlugins; [
             # Plugins from nixpkgs
@@ -77,7 +73,6 @@
             popup-nvim
             tabular
             telescope-nvim
-            telescope-project-nvim
             ultisnips
             vim-nix
             vim-sandwich

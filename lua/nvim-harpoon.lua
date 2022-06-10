@@ -1,9 +1,3 @@
-# vim: ft=vim
-''
-"-------------------------------------------------- 
-" Harpoon
-"-------------------------------------------------- 
-lua << EOF
 require"harpoon".setup()
 
 local opt = { noremap = true }
@@ -18,5 +12,3 @@ vim.api.nvim_set_keymap("n", "<leader>q", ":lua require('harpoon.ui').nav_file(1
 vim.api.nvim_set_keymap("n", "<leader>w", ":lua require('harpoon.ui').nav_file(2)<CR>", opt);
 vim.api.nvim_set_keymap("n", "<leader>e", ":lua require('harpoon.ui').nav_file(3)<CR>", opt);
 vim.api.nvim_set_keymap("n", "<leader>r", ":lua require('harpoon.ui').nav_file(4)<CR>", opt);
-EOF
-''

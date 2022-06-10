@@ -1,6 +1,3 @@
-# vim: ft=vim
-''
-lua <<EOF
   local cmp = require'cmp'
 
   cmp.setup({
@@ -45,5 +42,3 @@ lua <<EOF
       { name = 'buffer' }
     }
   })
-EOF
-''

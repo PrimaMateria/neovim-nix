@@ -1,9 +1,3 @@
-# vim: ft=vim
-''
-"-------------------------------------------------- 
-" Telescope
-"-------------------------------------------------- 
-lua <<EOF
 local opt = { noremap = true }
 
 require('telescope').setup {
@@ -27,5 +21,3 @@ vim.api.nvim_set_keymap("n", ",d", ":lua require('telescope.builtin').lsp_docume
 vim.api.nvim_set_keymap("n", "gr", ":lua require('telescope.builtin').lsp_references()<cr>", opt);
 vim.api.nvim_set_keymap("n", "gd", ":lua require('telescope.builtin').lsp_definitions()<cr>", opt);
 --vim.api.nvim_set_keymap("n", "go", ":lua require('telescope.builtin').lsp_document_symbols()<cr>", opt);
-EOF
-''
