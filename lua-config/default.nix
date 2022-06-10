@@ -3,7 +3,7 @@ let
 in 
   builtins.concatStringsSep "" (
     builtins.map 
-      ( luaConfigFile: "luaFile ${luaConfig}/${luaConfigFile}\n") 
+      ( luaConfigFile: "luafile ${luaConfig}/${luaConfigFile}\n") 
       ( builtins.attrNames (builtins.readDir luaConfig))
   )
 

@@ -35,8 +35,8 @@
         };
 
         luaConfig = prev.stdenv.mkDerivation {
-          name = "nvim-lua-config";
-          src = ./lua;
+          name = "nvimLuaConfig";
+          src = ./lua-config/lua;
           installPhase = ''
             mkdir -p $out/
             cp ./* $out/
