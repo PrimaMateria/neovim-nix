@@ -34,6 +34,15 @@
           '';
         };
 
+        luaConfig = prev.stdenv.mkDerivation {
+          name = "nvim-lua-config";
+          src = ./lua;
+          installPhase = ''
+            mkdir -p $out/
+            cp ./* $out/
+          '';
+        };
+
         # Building neovim package with dependencies and custom config
         customNeovim = DSL.neovimBuilderWithDeps.legacyWrapper neovim.defaultPackage.x86_64-linux {
           # Dependencies to be prepended to PATH env variable at runtime. Needed by plugins at runtime.
@@ -41,6 +50,7 @@
             prev.ripgrep
             prev.clang
             prev.xsel
+            prev.stylua
             ultisnipsSnippets
           ];
 
@@ -51,7 +61,7 @@
           # rebuilds when it's changed?
 
           # Passing in raw config
-          configure.customRC = import ./config ultisnipsSnippets;
+          configure.customRC = (import ./config ultisnipsSnippets) + (import ./lua-config { inherit luaConfig; });
 
           configure.packages.myVimPackage.start = with prev.vimPlugins; [
             # Plugins from nixpkgs
