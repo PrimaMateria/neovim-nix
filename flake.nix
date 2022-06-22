@@ -53,6 +53,7 @@
             stylua
             pyright
             nodePackages.typescript-language-server
+            # jdt-language-server
           ];
 
           # Build with NodeJS

@@ -4,11 +4,18 @@ local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local client_capabilities = vim.lsp.protocol.make_client_capabilities()
 local capabilities = cmp_nvim_lsp.update_capabilities(client_capabilities)
 
+-- {
+-- 	name = "jdtls",
+-- 	setup = {
+-- 		cmd = { "jdt-language-server" },
+-- 	},
+-- },
+
 local servers = {
 	{ name = "pyright" },
 	{
 		name = "tsserver",
-		setup = function(client, bufnr)
+		on_attach = function(client, bufnr)
 			local ts_utils = require("nvim-lsp-ts-utils")
 			ts_utils.setup_client(client)
 
@@ -57,7 +64,7 @@ local servers = {
 }
 
 for _, server in pairs(servers) do
-	nvim_lsp[server.name].setup({
+	local setup = {
 		capabilities = capabilities,
 		flags = {
 			debounce_text_changes = 150,
@@ -72,9 +79,17 @@ for _, server in pairs(servers) do
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
 			vim.keymap.set("n", ",e", vim.diagnostic.open_float, bufopts)
 
-			if server.setup then
-				server.setup(client, bufnr)
+			if server.on_attach then
+				server.on_attach(client, bufnr)
 			end
 		end,
-	})
+	}
+
+	if server.setup then
+		for k, v in pairs(server.setup) do
+			setup[k] = v
+		end
+	end
+
+	nvim_lsp[server.name].setup(setup)
 end
