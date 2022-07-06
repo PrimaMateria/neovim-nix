@@ -3,7 +3,8 @@
 
   # Input source for our derivation
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/master";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
+    # nixpkgs.url = "nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     DSL.url = "github:DieracDelta/nix2lua";
     nix2vim = {
@@ -46,13 +47,13 @@
         # Building neovim package with dependencies and custom config
         customNeovim = DSL.neovimBuilderWithDeps.legacyWrapper neovim.defaultPackage.x86_64-linux {
           # Dependencies to be prepended to PATH env variable at runtime. Needed by plugins at runtime.
-          extraRuntimeDeps = with prev; [
-            ripgrep
-            clang
-            xsel
-            stylua
-            pyright
-            nodePackages.typescript-language-server
+          extraRuntimeDeps = [
+            prev.ripgrep
+            prev.clang
+            prev.xsel
+            prev.stylua
+            prev.pyright
+            prev.nodePackages.typescript-language-server
             # jdt-language-server
           ];
 
