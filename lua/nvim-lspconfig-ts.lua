@@ -58,7 +58,7 @@ local servers = {
 				watch_dir = nil,
 			})
 
-			client.resolved_capabilities.document_formatting = false
+			client.server_capabilities.documentFormattingProvider = false
 			vim.keymap.set("n", ",i", ":TSLspImportAll<CR>", bufopts)
 			vim.keymap.set("n", ",o", ":TSLspOrganize<CR>", bufopts)
 		end,
