@@ -12,9 +12,9 @@ local capabilities = cmp_nvim_lsp.update_capabilities(client_capabilities)
 -- },
 
 local servers = {
-	{ name = "pyright" },
+	-- { name = "pyright" },
 	-- { name = "grammarly", setup = { cmd = { "grammarly-languageserver", "--stdio" } } },
-	{ name = "ltex" },
+	-- { name = "ltex" },
 	{
 		name = "tsserver",
 		on_attach = function(client, bufnr)
