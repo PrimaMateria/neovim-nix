@@ -28,4 +28,6 @@ set clipboard+=unnamedplus
 set completeopt=menu,menuone,noselect
 set noswapfile
 set laststatus=3
+set cursorline
+set cursorcolumn
 ''

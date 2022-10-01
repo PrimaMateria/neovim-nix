@@ -15,6 +15,8 @@ augroup gruvboxColorScheme
    autocmd!
    autocmd ColorScheme * highlight SignColumn guibg=#1d2021
    autocmd ColorScheme * highlight ColorColumn guibg=#222222
+   autocmd ColorScheme * highlight CursorColumn guibg=#151515
+   autocmd ColorScheme * highlight CursorLine guibg=#151515
    autocmd ColorScheme * highlight LineNr guifg=#fabd2f
    autocmd ColorScheme * highlight LineNrAbove guifg=#504945
    autocmd ColorScheme * highlight LineNrBelow guifg=#504945
