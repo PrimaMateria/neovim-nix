@@ -15,6 +15,7 @@
       runtimeDeps = pkgs: with pkgs; [
         pyright
         nodePackages.typescript-language-server
+        nodePackages.eslint_d
       ];
 
       runtimeDeps2 = pkgs: with pkgs; [
@@ -98,6 +99,7 @@
 
         # Use wrapper from nixpkgs which will supply config file and plugins
         neovimPrimaMateria = prev.wrapNeovim neovim.packages.x86_64-linux.neovim {
+          withNodeJs = true;
           configure = {
             customRC = import ./config { inherit ultisnipsSnippets luaConfig; };
             packages.myVimPackage.start = plugins prev;
