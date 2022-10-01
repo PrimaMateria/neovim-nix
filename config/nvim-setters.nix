@@ -18,8 +18,6 @@ set undodir=~/.config/nvim/undodir
 set undofile
 set incsearch
 set updatetime=50
-set cursorline
-set cursorcolumn
 set splitbelow
 set splitright
 set relativenumber

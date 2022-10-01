@@ -1,31 +1,68 @@
 {
   description = "PrimaMateria neovim flake";
 
-  # Input source for our derivation
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
-    # nixpkgs.url = "nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    DSL.url = "github:DieracDelta/nix2lua";
-    nix2vim = {
-      url = "github:gytis-ivaskevicius/nix2vim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
     neovim = {
-      url =
-        "github:neovim/neovim/nightly?dir=contrib";
+      url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, flake-utils, nixpkgs, neovim, nix2vim, DSL, ... }:
+  outputs = inputs@{ self, flake-utils, nixpkgs, neovim, ... }:
     let
-      # Function to override the source of a package
-      withSrc = pkg: src: pkg.overrideAttrs (_: { inherit src; });
-      # Vim2Nix DSL
-      dsl = nix2vim.lib.dsl;
+      runtimeDeps = pkgs: with pkgs; [
+        ripgrep
+        clang
+        xsel
+        stylua
+        pyright
+        nodePackages.typescript-language-server
+        # jdt-language-server
+      ];
+
+      plugins = pkgs: with pkgs.vimPlugins; [
+        fern-vim
+        goyo-vim
+        gruvbox-community
+        harpoon
+        lualine-nvim
+        lush-nvim
+        nvim-treesitter
+        plenary-nvim
+        popup-nvim
+        tabular
+        telescope-nvim
+        ultisnips
+        vim-nix
+        vim-sandwich
+        hop-nvim
+
+        # Git
+        gv-vim
+        vim-fugitive
+        vim-gitgutter
+
+        # Commenting
+        vim-commentary
+        nvim-ts-context-commentstring
+
+        # Completition
+        nvim-cmp
+        cmp-nvim-lsp
+        cmp-buffer
+        cmp-path
+        cmp-cmdline
+        cmp-nvim-ultisnips
+
+        nvim-lspconfig
+        nvim-lsp-ts-utils
+        null-ls-nvim
+      ];
 
       overlay = prev: final: rec {
+        # Collection of snippets which are passed to UltiSnip plugins
         ultisnipsSnippets = prev.stdenv.mkDerivation {
           name = "ultisnipsSnippets";
           src = ./ultisnips;
@@ -35,6 +72,7 @@
           '';
         };
 
+        # Collection of "raw" lua config files which will be loaded from neovim RC
         luaConfig = prev.stdenv.mkDerivation {
           name = "nvimLuaConfig";
           src = ./lua;
@@ -44,69 +82,27 @@
           '';
         };
 
-        # Building neovim package with dependencies and custom config
-        customNeovim = DSL.neovimBuilderWithDeps.legacyWrapper neovim.defaultPackage.x86_64-linux {
-          # Dependencies to be prepended to PATH env variable at runtime. Needed by plugins at runtime.
-          extraRuntimeDeps = [
-            prev.ripgrep
-            prev.clang
-            prev.xsel
-            prev.stylua
-            prev.pyright
-            prev.nodePackages.typescript-language-server
-            # jdt-language-server
-          ];
+        # Collection of packages which will be available on PATH when running neovim
+        neovimRuntimeDependencies = prev.symlinkJoin {
+          name = "neovimRuntimeDependencies";
+          paths = runtimeDeps prev;
+        };
 
-          # Build with NodeJS
-          withNodeJs = true;
+        # Use wrapper from nixpkgs which will supply config file and plugins
+        neovimPrimaMateria = prev.wrapNeovim neovim.packages.x86_64-linux.neovim {
+          configure = {
+            customRC = import ./config { inherit ultisnipsSnippets luaConfig; };
+            packages.myVimPackage.start = plugins prev;
+          };
+        };
 
-          # Passing in raw config
-          configure.customRC = import ./config { inherit ultisnipsSnippets luaConfig; };
-
-          configure.packages.myVimPackage.start = with prev.vimPlugins; [
-            # Plugins from nixpkgs
-            fern-vim
-            goyo-vim
-            gruvbox-community
-            harpoon
-            lightline-gruvbox-vim
-            lightline-vim
-            lush-nvim
-            nvim-treesitter
-            plenary-nvim
-            popup-nvim
-            tabular
-            telescope-nvim
-            ultisnips
-            vim-nix
-            vim-sandwich
-            hop-nvim
-
-            # Git
-            gv-vim
-            vim-fugitive
-            vim-gitgutter
-
-            # Commenting
-            vim-commentary
-            nvim-ts-context-commentstring
-
-            # Completition
-            nvim-cmp
-            cmp-nvim-lsp
-            cmp-buffer
-            cmp-path
-            cmp-cmdline
-            cmp-nvim-ultisnips
-
-            nvim-lspconfig
-            nvim-lsp-ts-utils
-            null-ls-nvim
-
-            # Compile syntaxes into treesitter
-            (prev.vimPlugins.nvim-treesitter.withPlugins
-              (plugins: with plugins; [ tree-sitter-nix tree-sitter-rust ]))
-          ];
+        # Another wrapper which just enhances PATH with runtime dependencies
+        neovimPrimaMateriaWrapper = prev.writeShellApplication {
+          name = "nvim";
+          runtimeInputs = [ neovimRuntimeDependencies ];
+          text = ''
+            ${neovimPrimaMateria}/bin/nvim
+          '';
         };
       };
 
@@ -114,19 +110,20 @@
       let
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [ nix2vim.overlay overlay ];
+          overlays = [ overlay ];
         };
       in {
-        # The packages: our custom neovim
-        packages = { inherit (pkgs) customNeovim; };
+        packages = rec {
+          inherit (pkgs) neovimPrimaMateriaWrapper;
+          default = neovimPrimaMateriaWrapper;
+        };
 
-        # The package built by `nix build .`
-        defaultPackage = pkgs.customNeovim;
-
-        # The app run by `nix run .`
-        defaultApp = {
-          type = "app";
-          program = "${pkgs.customNeovim}/bin/nvim";
+        apps = rec {
+          neovimPrimaMateriaWrapper = {
+            type = "app";
+            program = "${pkgs.neovimPrimaMateriaWrapper}/bin/nvim";
+          };
+          default = neovimPrimaMateriaWrapper;
         };
       });
 }

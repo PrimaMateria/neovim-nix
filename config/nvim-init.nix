@@ -11,14 +11,17 @@ nnoremap <leader><BS> :b#<CR>
 "-------------------------------------------------- 
 " Gruvbox community Color scheme
 "-------------------------------------------------- 
-let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
-
 augroup gruvboxColorScheme
    autocmd!
-   autocmd ColorScheme * highlight CursorLine guibg=#222222
-   autocmd ColorScheme * highlight CursorColumn guibg=#222222
+   autocmd ColorScheme * highlight SignColumn guibg=#1d2021
+   autocmd ColorScheme * highlight ColorColumn guibg=#222222
+   autocmd ColorScheme * highlight LineNr guifg=#fabd2f
+   autocmd ColorScheme * highlight LineNrAbove guifg=#504945
+   autocmd ColorScheme * highlight LineNrBelow guifg=#504945
 augroup END
+
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
 
 "-------------------------------------------------- 
 " \
