@@ -13,13 +13,15 @@
   outputs = inputs@{ self, flake-utils, nixpkgs, neovim, ... }:
     let
       runtimeDeps = pkgs: with pkgs; [
+        pyright
+        nodePackages.typescript-language-server
+      ];
+
+      runtimeDeps2 = pkgs: with pkgs; [
         ripgrep
         clang
         xsel
         stylua
-        pyright
-        nodePackages.typescript-language-server
-        # jdt-language-server
       ];
 
       plugins = pkgs: with pkgs.vimPlugins; [
@@ -89,6 +91,10 @@
           name = "neovimRuntimeDependencies";
           paths = runtimeDeps prev;
         };
+        neovimRuntimeDependencies2 = prev.symlinkJoin {
+          name = "neovimRuntimeDependencies2";
+          paths = runtimeDeps2 prev;
+        };
 
         # Use wrapper from nixpkgs which will supply config file and plugins
         neovimPrimaMateria = prev.wrapNeovim neovim.packages.x86_64-linux.neovim {
@@ -101,7 +107,7 @@
         # Another wrapper which just enhances PATH with runtime dependencies
         neovimPrimaMateriaWrapper = prev.writeShellApplication {
           name = "nvim";
-          runtimeInputs = [ neovimRuntimeDependencies ];
+          runtimeInputs = [ neovimRuntimeDependencies2 neovimRuntimeDependencies ];
           text = ''
             ${neovimPrimaMateria}/bin/nvim
           '';
