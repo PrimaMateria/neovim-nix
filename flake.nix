@@ -23,7 +23,6 @@
       ];
 
       plugins = pkgs: with pkgs.vimPlugins; [
-        fern-vim
         goyo-vim
         gruvbox-community
         harpoon
@@ -38,11 +37,14 @@
         vim-nix
         vim-sandwich
         hop-nvim
+        nvim-web-devicons
+        nvim-tree-lua
 
         # Git
         gv-vim
         vim-fugitive
         vim-gitgutter
+        diffview-nvim
 
         # Commenting
         vim-commentary
