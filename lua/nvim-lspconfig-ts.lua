@@ -79,7 +79,6 @@ for _, server in pairs(servers) do
 			vim.keymap.set("n", ",ar", vim.lsp.buf.rename, bufopts)
 			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
-			vim.keymap.set("n", ",e", vim.diagnostic.open_float, bufopts)
 
 			if server.on_attach then
 				server.on_attach(client, bufnr)
