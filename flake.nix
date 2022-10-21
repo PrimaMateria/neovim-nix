@@ -112,7 +112,7 @@
           name = "nvim";
           runtimeInputs = [ neovimRuntimeDependencies2 neovimRuntimeDependencies ];
           text = ''
-            ${neovimPrimaMateria}/bin/nvim
+            ${neovimPrimaMateria}/bin/nvim "$@"
           '';
         };
       };
