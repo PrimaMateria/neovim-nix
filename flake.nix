@@ -37,6 +37,8 @@
         popup-nvim
         tabular
         telescope-nvim
+        sqlite-lua
+        telescope-frecency-nvim
         ultisnips
         vim-nix
         vim-sandwich
