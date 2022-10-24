@@ -81,10 +81,10 @@ for _, server in pairs(servers) do
 			--vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 			local bufopts = { noremap = true, silent = true, buffer = bufnr }
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-			vim.keymap.set("n", ",ar", vim.lsp.buf.rename, bufopts)
-			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
-			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
+			-- vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+			-- vim.keymap.set("n", ",ar", vim.lsp.buf.rename, bufopts)
+			-- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
+			-- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
 
 			if server.on_attach then
 				server.on_attach(client, bufnr)

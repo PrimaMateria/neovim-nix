@@ -42,9 +42,11 @@
         vim-sandwich
         nvim-web-devicons
         nvim-tree-lua
+        lspsaga-nvim
 
         # Git
-        gv-vim
+        # TODO: remove fugitive and gv in lazygit proves useful
+        gv-vim 
         vim-fugitive
         vim-gitgutter
         diffview-nvim
