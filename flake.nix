@@ -40,10 +40,8 @@
         ultisnips
         vim-nix
         vim-sandwich
-        hop-nvim
         nvim-web-devicons
         nvim-tree-lua
-        lsp_lines-nvim
 
         # Git
         gv-vim
