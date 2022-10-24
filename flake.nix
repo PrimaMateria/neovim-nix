@@ -2,15 +2,16 @@
   description = "PrimaMateria neovim flake";
 
   inputs = {
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
 
     neovim = {
       url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
-  outputs = inputs@{ self, flake-utils, nixpkgs, neovim, ... }:
+  outputs = inputs@{ self, flake-utils, nixpkgs-unstable, neovim, ... }:
     let
       runtimeDeps = pkgs: with pkgs; [
         pyright
@@ -45,6 +46,7 @@
         nvim-web-devicons
         nvim-tree-lua
         lspsaga-nvim
+        leap-nvim
 
         # Git
         # TODO: remove fugitive and gv in lazygit proves useful
@@ -122,7 +124,7 @@
 
     in flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = import nixpkgs {
+        pkgs = import nixpkgs-unstable {
           inherit system;
           overlays = [ overlay ];
         };
