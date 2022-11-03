@@ -18,8 +18,8 @@ augroup gruvboxColorScheme
    autocmd ColorScheme * highlight CursorColumn guibg=#151515
    autocmd ColorScheme * highlight CursorLine guibg=#151515
    autocmd ColorScheme * highlight LineNr guifg=#fabd2f
-   autocmd ColorScheme * highlight LineNrAbove guifg=#504945
-   autocmd ColorScheme * highlight LineNrBelow guifg=#504945
+   autocmd ColorScheme * highlight LineNrAbove guifg=#86817e
+   autocmd ColorScheme * highlight LineNrBelow guifg=#86817e
 augroup END
 
 let g:gruvbox_contrast_dark='hard'
