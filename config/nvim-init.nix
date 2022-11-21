@@ -20,6 +20,8 @@ augroup gruvboxColorScheme
    autocmd ColorScheme * highlight LineNr guifg=#fabd2f
    autocmd ColorScheme * highlight LineNrAbove guifg=#86817e
    autocmd ColorScheme * highlight LineNrBelow guifg=#86817e
+   autocmd ColorScheme * highlight Pmenu guibg=#1d2021 guifg=#ebdbb2
+   autocmd ColorScheme * highlight NormalFloat guifg=#ebdbb2
 augroup END
 
 let g:gruvbox_contrast_dark='hard'
