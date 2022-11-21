@@ -27,6 +27,3 @@ keymap(
 	"<cmd>lua vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })<CR>",
 	{ silent = true }
 )
-
-keymap("n", "<A-g>", "<cmd>Lspsaga open_floaterm lazygit<CR>", { silent = true })
-keymap("t", "<A-g>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })

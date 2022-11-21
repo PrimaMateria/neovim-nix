@@ -25,6 +25,7 @@
         clang
         xsel
         stylua
+        ltex-ls
       ];
 
       plugins = pkgs: with pkgs.vimPlugins; [
@@ -54,6 +55,7 @@
         vim-fugitive
         vim-gitgutter
         diffview-nvim
+        lazygit-nvim
 
         # Commenting
         vim-commentary
