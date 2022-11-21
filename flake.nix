@@ -26,6 +26,7 @@
         xsel
         stylua
         ltex-ls
+        lazygit
       ];
 
       plugins = pkgs: with pkgs.vimPlugins; [
