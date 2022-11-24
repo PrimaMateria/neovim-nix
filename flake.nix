@@ -9,10 +9,20 @@
       url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    telescope-recent-files-src = {
+      url = "github:smartpde/telescope-recent-files";
+      flake = false;
+    };
   };
 
-  outputs = inputs@{ self, flake-utils, nixpkgs-unstable, neovim, ... }:
+  outputs = inputs@{ self, flake-utils, nixpkgs-unstable, neovim, telescope-recent-files-src, ... }:
     let
+      telescope-recent-files = pkgs: pkgs.vimUtils.buildVimPlugin {
+        name = "telescope-recent-files";
+        src = telescope-recent-files-src;
+      };
+
       runtimeDeps = pkgs: with pkgs; [
         pyright
         nodePackages.typescript-language-server
@@ -40,7 +50,6 @@
         tabular
         telescope-nvim
         sqlite-lua
-        telescope-frecency-nvim
         ultisnips
         vim-nix
         vim-sandwich
@@ -110,7 +119,7 @@
           withNodeJs = true;
           configure = {
             customRC = import ./config { inherit ultisnipsSnippets luaConfig; };
-            packages.myVimPackage.start = plugins prev;
+            packages.myVimPackage.start = plugins final ++ [ (telescope-recent-files prev) ];
           };
         };
 

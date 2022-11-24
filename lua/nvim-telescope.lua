@@ -12,9 +12,14 @@ telescope.setup({
 	pickers = {
 		find_files = { hidden = true },
 	},
+	extensions = {
+		recent_files = {
+			only_cwd = true,
+		},
+	},
 })
 
-telescope.load_extension("frecency")
+telescope.load_extension("recent_files")
 
 vim.api.nvim_set_keymap("n", "<leader><leader>", ":lua require('telescope.builtin').find_files()<CR>", opt)
 -- vim.api.nvim_set_keymap("n", "<leader><tab>", ":lua require('telescope.builtin').buffers()<CR>", opt)
@@ -23,7 +28,7 @@ vim.api.nvim_set_keymap("n", "<leader>~", ":lua require('telescope.builtin').gre
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader><tab>",
-	"<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>",
+	"<Cmd>lua require('telescope').extensions.recent_files.pick()<CR>",
 	{ noremap = true, silent = true }
 )
 
