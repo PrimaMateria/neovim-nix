@@ -80,7 +80,6 @@
         cmp-nvim-ultisnips
 
         nvim-lspconfig
-        nvim-lsp-ts-utils
         null-ls-nvim
       ];
 

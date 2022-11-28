@@ -23,49 +23,9 @@ local servers = {
 	{
 		name = "tsserver",
 		on_attach = function(client, bufnr)
-			local ts_utils = require("nvim-lsp-ts-utils")
-			ts_utils.setup_client(client)
-
-			ts_utils.setup({
-				debug = false,
-				disable_commands = false,
-				enable_import_on_completion = true,
-
-				import_all_timeout = 5000,
-				import_all_priorities = {
-					buffers = 4,
-					buffer_content = 3,
-					local_files = 2,
-					same_file = 1,
-				},
-				import_all_scan_buffers = 100,
-				import_all_select_source = false,
-				always_organize_imports = true,
-
-				-- filter diagnostics
-				filter_out_diagnostics_by_severity = {},
-				filter_out_diagnostics_by_code = {},
-
-				-- inlay hints
-				auto_inlay_hints = true,
-				inlay_hints_highlight = "Comment",
-				inlay_hints_priority = 200,
-				inlay_hints_throttle = 150,
-				inlay_hints_format = {
-					Type = {},
-					Parameter = {},
-					Enum = {},
-				},
-
-				-- update imports on file move
-				update_imports_on_move = false,
-				require_confirmation_on_move = false,
-				watch_dir = nil,
-			})
-
 			client.server_capabilities.documentFormattingProvider = false
-			vim.keymap.set("n", ",i", ":TSLspImportAll<CR>", bufopts)
-			vim.keymap.set("n", ",o", ":TSLspOrganize<CR>", bufopts)
+			-- vim.keymap.set("n", ",i", ":TSLspImportAll<CR>", bufopts)
+			-- vim.keymap.set("n", ",o", ":TSLspOrganize<CR>", bufopts)
 		end,
 	},
 }
