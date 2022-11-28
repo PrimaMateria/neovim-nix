@@ -41,7 +41,6 @@
       ];
 
       plugins = pkgs: with pkgs.vimPlugins; [
-        goyo-vim
         gruvbox-community
         harpoon
         lualine-nvim
@@ -54,11 +53,9 @@
         sqlite-lua
         ultisnips
         vim-nix
-        vim-sandwich
         nvim-web-devicons
         nvim-tree-lua
         lspsaga-nvim
-        leap-nvim
 
         # Git
         # TODO: remove fugitive and gv in lazygit proves useful
