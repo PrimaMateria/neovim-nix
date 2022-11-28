@@ -28,7 +28,7 @@
         nodePackages.typescript
         nodePackages.typescript-language-server
         nodePackages.eslint_d
-        nodePackages.prettier_d_slim
+        nodePackages.prettier
       ];
 
       runtimeDeps2 = pkgs: with pkgs; [
