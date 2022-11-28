@@ -1,3 +1,6 @@
+# vim: ft=lua
+{ pkgs }:
+''
 local nvim_lsp = require("lspconfig")
 
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -22,6 +25,14 @@ local servers = {
 	},
 	{
 		name = "tsserver",
+    setup = {
+      init_options = {
+        maxTsServerMemory = 4096,
+        tsserver = {
+          path = "${pkgs.nodePackages.typescript}/lib/node_modules/typescript/lib",
+        },
+      },
+    },
 		on_attach = function(client, bufnr)
 			client.server_capabilities.documentFormattingProvider = false
 			-- vim.keymap.set("n", ",i", ":TSLspImportAll<CR>", bufopts)
@@ -34,7 +45,7 @@ for _, server in pairs(servers) do
 	local setup = {
 		capabilities = capabilities,
 		flags = {
-			debounce_text_changes = 150,
+			debounce_text_changes = 500, --150
 		},
 		on_attach = function(client, bufnr)
 			--vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -59,3 +70,4 @@ for _, server in pairs(servers) do
 
 	nvim_lsp[server.name].setup(setup)
 end
+''

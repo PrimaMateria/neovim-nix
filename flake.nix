@@ -25,6 +25,7 @@
 
       runtimeDeps = pkgs: with pkgs; [
         pyright
+        nodePackages.typescript
         nodePackages.typescript-language-server
         nodePackages.eslint_d
         nodePackages.prettier_d_slim
@@ -104,6 +105,11 @@
           '';
         };
 
+        luaConfigNix = prev.writeTextFile { 
+          name = "nvimLspConfig.lua";
+          text = import ./luanix/nvim-lspconfig.nix { pkgs = prev; };
+        };
+
         # Collection of packages which will be available on PATH when running neovim
         neovimRuntimeDependencies = prev.symlinkJoin {
           name = "neovimRuntimeDependencies";
@@ -118,7 +124,7 @@
         neovimPrimaMateria = prev.wrapNeovim neovim.packages.x86_64-linux.neovim {
           withNodeJs = true;
           configure = {
-            customRC = import ./config { inherit ultisnipsSnippets luaConfig; };
+            customRC = import ./config { inherit ultisnipsSnippets luaConfig luaConfigNix; };
             packages.myVimPackage.start = plugins final ++ [ (telescope-recent-files prev) ];
           };
         };
