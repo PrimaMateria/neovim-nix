@@ -31,11 +31,6 @@ colorscheme gruvbox
 " \
 "-------------------------------------------------- 
 nnoremap \\ :w<cr>
-nnoremap \s :so %<cr>
-nnoremap \w :bw!<cr>
-nnoremap \g :Goyo<cr>
-nnoremap \i :PlugInstall<cr>
-nnoremap \c :PlugClean<cr>
 
 "-------------------------------------------------- 
 " Autocommands
