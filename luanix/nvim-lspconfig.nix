@@ -27,10 +27,12 @@ local servers = {
 		name = "tsserver",
     setup = {
       init_options = {
-        maxTsServerMemory = 4096,
+        maxTsServerMemory = 8192,
         tsserver = {
           path = "${pkgs.nodePackages.typescript}/lib/node_modules/typescript/lib",
         },
+        -- preferences = {
+        -- },
       },
     },
 		on_attach = function(client, bufnr)
@@ -43,9 +45,10 @@ local servers = {
 
 for _, server in pairs(servers) do
 	local setup = {
+    debug=true,
 		capabilities = capabilities,
 		flags = {
-			debounce_text_changes = 500, --150
+			debounce_text_changes = 3000, --150
 		},
 		on_attach = function(client, bufnr)
 			--vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")

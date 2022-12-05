@@ -1,6 +1,16 @@
 local cmp = require("cmp")
 
+local bufopts = { noremap = true, silent = true, buffer = bufnr }
+vim.keymap.set("i", "<C-n>", cmp.complete, bufopts)
+
 cmp.setup({
+	completion = {
+		autocomplete = false,
+	},
+	-- performance = {
+	-- 	debounse = 120,
+	-- 	throttle = 60,
+	-- },
 	snippet = {
 		expand = function(args)
 			vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
@@ -22,15 +32,6 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "ultisnips" }, -- For ultisnips users.
-	}, {
-		{ name = "buffer" },
-	}),
-})
-
--- Set configuration for specific filetype.
-cmp.setup.filetype("gitcommit", {
-	sources = cmp.config.sources({
-		{ name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
 	}, {
 		{ name = "buffer" },
 	}),
