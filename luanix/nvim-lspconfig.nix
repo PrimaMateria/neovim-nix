@@ -1,10 +1,24 @@
 # vim: ft=lua
 { pkgs }:
 ''
-local nvim_lsp = require("lspconfig")
+local capabilities = {}
 
+local nvim_lsp = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local capabilities = cmp_nvim_lsp.default_capabilities()
+capabilities = vim.tbl_extend('keep', capabilities, cmp_nvim_lsp.default_capabilities())
+
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
+lsp_status.config {
+  status_symbol = "",
+  indicator_separator = "",
+  component_separator = "",
+  show_filename = false,
+  diagnostics = false,
+  current_function = false,
+}
+capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
+
 
 -- {
 -- 	name = "jdtls",
@@ -58,6 +72,8 @@ for _, server in pairs(servers) do
 			-- vim.keymap.set("n", ",ar", vim.lsp.buf.rename, bufopts)
 			-- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
 			-- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
+
+      lsp_status.on_attach(client)
 
 			if server.on_attach then
 				server.on_attach(client, bufnr)

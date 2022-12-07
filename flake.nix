@@ -78,6 +78,7 @@
         cmp-nvim-ultisnips
 
         nvim-lspconfig
+        lsp-status-nvim
         null-ls-nvim
       ];
 
