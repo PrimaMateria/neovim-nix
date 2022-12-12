@@ -56,6 +56,7 @@
         nvim-web-devicons
         nvim-tree-lua
         lspsaga-nvim
+        vim-abolish
 
         # Git
         # TODO: remove fugitive and gv in lazygit proves useful
