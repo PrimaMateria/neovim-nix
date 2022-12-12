@@ -5,12 +5,14 @@ telescope.setup({
 	defaults = {
 		layout_strategy = "vertical",
 		path_display = {
-			"smart",
+			"truncate",
 		},
 		file_ignore_patterns = { "^.git/" },
 	},
 	pickers = {
-		find_files = { hidden = true },
+		find_files = {
+			hidden = true,
+		},
 	},
 	extensions = {
 		recent_files = {
