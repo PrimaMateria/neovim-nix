@@ -1,5 +1,6 @@
 require("no-neck-pain").setup({
 	-- your custom config goes here
+	width = 150,
 })
 
 vim.api.nvim_create_augroup("OnVimEnter", { clear = true })
