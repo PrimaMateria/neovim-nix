@@ -17,6 +17,19 @@ telescope.setup({
 	extensions = {
 		recent_files = {
 			only_cwd = true,
+			attach_mappings = function(_, map)
+				map({ "i", "n" }, "<C-a>", function(prompt_bufnr)
+					local current_picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
+					local opts = {
+						hidden = true,
+						default_text = current_picker:_get_prompt(),
+					}
+
+					require("telescope.actions").close(prompt_bufnr)
+					require("telescope.builtin").find_files(opts)
+				end)
+				return true
+			end,
 		},
 	},
 })
