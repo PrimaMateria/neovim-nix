@@ -2,11 +2,11 @@
   "nodes": {
     "flake-utils": {
       "locked": {
-        "lastModified": 1659877975,
-        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
+        "lastModified": 1667395993,
+        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
+        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
         "type": "github"
       },
       "original": {
@@ -17,11 +17,11 @@
     },
     "flake-utils_2": {
       "locked": {
-        "lastModified": 1659877975,
-        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
+        "lastModified": 1667395993,
+        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
+        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
         "type": "github"
       },
       "original": {
@@ -39,11 +39,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1664560674,
-        "narHash": "sha256-l80zOhNZer0sj+HtFCDMFmVSSDQ8Wwh/ad66I58MB98=",
+        "lastModified": 1671211669,
+        "narHash": "sha256-W8ghifHesqbB6JogHKYfxB85ivqWXJT5UDNPz3sivM0=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "afb7efb3733962649f3c0897a25dc5fff60a66c6",
+        "rev": "37915cc5abd5c6f6ae89c1091304c8da2b0fa8fe",
         "type": "github"
       },
       "original": {
@@ -55,11 +55,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1666539104,
-        "narHash": "sha256-jeuC+d375wHHxMOFLgu7etseCQVJuPNKoEc9X9CsErg=",
+        "lastModified": 1671108576,
+        "narHash": "sha256-6ggOL6KoaELNA1562tnPjtAnQ9SwsKRTgeuaXvPzCwI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "0e6df35f39651504249a05191f9a78d251707e22",
+        "rev": "0f5996b524c91677891a432cc99c7567c7c402b1",
         "type": "github"
       },
       "original": {
@@ -71,11 +71,11 @@
     "noneckpain-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1671145535,
-        "narHash": "sha256-WB4rtNpgMV/UCHGN/SrMv4r68PG+hNPDqsBaSu7uzrU=",
+        "lastModified": 1671221817,
+        "narHash": "sha256-KceJXUBeYsZNPdSUuqLH4WR42DxSdWhB1FDKOTxQhWg=",
         "owner": "shortcuts",
         "repo": "no-neck-pain.nvim",
-        "rev": "fabad351410127200e963250915c0cac38dd0445",
+        "rev": "0a540bbc43c260fdf417f225aa295053d05169e3",
         "type": "github"
       },
       "original": {
