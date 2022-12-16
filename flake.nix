@@ -14,13 +14,24 @@
       url = "github:smartpde/telescope-recent-files";
       flake = false;
     };
+
+    noneckpain-src = {
+      url = "github:shortcuts/no-neck-pain.nvim";
+      flake = false;
+    };
   };
 
-  outputs = inputs@{ self, flake-utils, nixpkgs-unstable, neovim, telescope-recent-files-src, ... }:
+  outputs = inputs@{ self, flake-utils, nixpkgs-unstable, neovim, telescope-recent-files-src, noneckpain-src, ... }:
     let
       telescope-recent-files = pkgs: pkgs.vimUtils.buildVimPlugin {
         name = "telescope-recent-files";
         src = telescope-recent-files-src;
+      };
+
+      noneckpain = pkgs: pkgs.vimUtils.buildVimPlugin {
+        name = "noneckpain";
+        src = noneckpain-src;
+        dontBuild = true;
       };
 
       runtimeDeps = pkgs: with pkgs; [
@@ -124,7 +135,10 @@
           withNodeJs = true;
           configure = {
             customRC = import ./config { inherit ultisnipsSnippets luaConfig luaConfigNix; };
-            packages.myVimPackage.start = plugins final ++ [ (telescope-recent-files prev) ];
+            packages.myVimPackage.start = plugins final ++ [
+              (telescope-recent-files prev)
+              (noneckpain prev)
+            ];
           };
         };
 

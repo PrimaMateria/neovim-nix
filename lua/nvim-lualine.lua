@@ -3,7 +3,7 @@ require("lualine").setup({
 		theme = "gruvbox-material",
 		globalstatus = true,
 		disabled_filetypes = {
-			winbar = { "NvimTree", "fugitive" },
+			winbar = { "NvimTree", "fugitive", "no-neck-pain" },
 		},
 	},
 	sections = {

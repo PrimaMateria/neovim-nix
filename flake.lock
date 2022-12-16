@@ -68,11 +68,28 @@
         "type": "indirect"
       }
     },
+    "noneckpain-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1671145535,
+        "narHash": "sha256-WB4rtNpgMV/UCHGN/SrMv4r68PG+hNPDqsBaSu7uzrU=",
+        "owner": "shortcuts",
+        "repo": "no-neck-pain.nvim",
+        "rev": "fabad351410127200e963250915c0cac38dd0445",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shortcuts",
+        "repo": "no-neck-pain.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
         "neovim": "neovim",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "noneckpain-src": "noneckpain-src",
         "telescope-recent-files-src": "telescope-recent-files-src"
       }
     },
