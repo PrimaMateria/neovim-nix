@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "chatgpt-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1671313361,
+        "narHash": "sha256-oTDO9BgnnTPdKxUiEIKm6CIfR0bqFZrzWnHbM+a75+o=",
+        "owner": "jackMort",
+        "repo": "ChatGPT.nvim",
+        "rev": "ca989015fa29d79a3320bd202ef774a27cf37993",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jackMort",
+        "repo": "ChatGPT.nvim",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 1667395993,
@@ -86,6 +102,7 @@
     },
     "root": {
       "inputs": {
+        "chatgpt-src": "chatgpt-src",
         "flake-utils": "flake-utils",
         "neovim": "neovim",
         "nixpkgs-unstable": "nixpkgs-unstable",

@@ -19,10 +19,26 @@
       url = "github:shortcuts/no-neck-pain.nvim";
       flake = false;
     };
+
+    chatgpt-src = {
+      url = "github:jackMort/ChatGPT.nvim";
+      flake = false;
+    };
   };
 
-  outputs = inputs@{ self, flake-utils, nixpkgs-unstable, neovim, telescope-recent-files-src, noneckpain-src, ... }:
+  outputs = inputs@{
+    self,
+    flake-utils,
+    nixpkgs-unstable,
+    neovim,
+    telescope-recent-files-src,
+    noneckpain-src,
+    chatgpt-src,
+    ...
+  }:
     let
+      secrets = import ./.secrets/secrets.nix;
+
       telescope-recent-files = pkgs: pkgs.vimUtils.buildVimPlugin {
         name = "telescope-recent-files";
         src = telescope-recent-files-src;
@@ -32,6 +48,11 @@
         name = "noneckpain";
         src = noneckpain-src;
         dontBuild = true;
+      };
+
+      chatgpt = pkgs: pkgs.vimUtils.buildVimPlugin {
+        name = "chatgpt";
+        src = chatgpt-src;
       };
 
       runtimeDeps = pkgs: with pkgs; [
@@ -58,6 +79,7 @@
         lush-nvim
         nvim-treesitter
         plenary-nvim
+        nui-nvim
         popup-nvim
         tabular
         telescope-nvim
@@ -138,6 +160,7 @@
             packages.myVimPackage.start = plugins final ++ [
               (telescope-recent-files prev)
               (noneckpain prev)
+              (chatgpt prev)
             ];
           };
         };
@@ -147,7 +170,7 @@
           name = "nvim";
           runtimeInputs = [ neovimRuntimeDependencies2 neovimRuntimeDependencies ];
           text = ''
-            ${neovimPrimaMateria}/bin/nvim "$@"
+            OPENAI_API_KEY=${secrets.openai-api-key} ${neovimPrimaMateria}/bin/nvim "$@"
           '';
         };
       };
