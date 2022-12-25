@@ -19,11 +19,6 @@
       url = "github:shortcuts/no-neck-pain.nvim";
       flake = false;
     };
-
-    chatgpt-src = {
-      url = "github:jackMort/ChatGPT.nvim";
-      flake = false;
-    };
   };
 
   outputs = inputs@{
@@ -33,7 +28,6 @@
     neovim,
     telescope-recent-files-src,
     noneckpain-src,
-    chatgpt-src,
     ...
   }:
     let
@@ -48,11 +42,6 @@
         name = "noneckpain";
         src = noneckpain-src;
         dontBuild = true;
-      };
-
-      chatgpt = pkgs: pkgs.vimUtils.buildVimPlugin {
-        name = "chatgpt";
-        src = chatgpt-src;
       };
 
       runtimeDeps = pkgs: with pkgs; [
@@ -90,9 +79,9 @@
         nvim-tree-lua
         lspsaga-nvim
         vim-abolish
+        ChatGPT-nvim
 
         # Git
-        # TODO: remove fugitive and gv in lazygit proves useful
         gv-vim 
         vim-fugitive
         vim-gitgutter
@@ -160,7 +149,6 @@
             packages.myVimPackage.start = plugins final ++ [
               (telescope-recent-files prev)
               (noneckpain prev)
-              (chatgpt prev)
             ];
           };
         };
