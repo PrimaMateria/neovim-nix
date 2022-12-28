@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
 
     neovim = {
       url = "github:neovim/neovim?dir=contrib";
@@ -23,7 +22,6 @@
 
   outputs = inputs@{
     self,
-    flake-utils,
     nixpkgs-unstable,
     neovim,
     telescope-recent-files-src,
@@ -163,24 +161,27 @@
         };
       };
 
-    in flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs-unstable {
-          inherit system;
-          overlays = [ overlay ];
-        };
-      in {
-        packages = rec {
-          inherit (pkgs) neovimPrimaMateriaWrapper;
-          default = neovimPrimaMateriaWrapper;
-        };
+      inherit (nixpkgs-unstable.lib) genAttrs systems;
+      defaultForEachFlakeSystem = definition: 
+        genAttrs systems.flakeExposed (system: 
+          let
+            pkgs = import nixpkgs-unstable {
+              inherit system;
+              overlays = [ overlay ];
+            };
+          in {
+            default = definition pkgs;
+          }
+        );
 
-        apps = rec {
-          neovimPrimaMateriaWrapper = {
-            type = "app";
-            program = "${pkgs.neovimPrimaMateriaWrapper}/bin/nvim";
-          };
-          default = neovimPrimaMateriaWrapper;
-        };
+    in {
+      packages = defaultForEachFlakeSystem (pkgs:
+        pkgs.neovimPrimaMateriaWrapper
+      );
+
+      apps = defaultForEachFlakeSystem (pkgs: { 
+        type = "app";
+        program = "${pkgs.neovimPrimaMateriaWrapper}/bin/nvim";
       });
+    };
 }
