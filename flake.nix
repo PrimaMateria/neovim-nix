@@ -59,52 +59,8 @@
         lazygit
       ];
 
-      plugins = pkgs: with pkgs.vimPlugins; [
-        gruvbox-community
-        harpoon
-        lualine-nvim
-        lush-nvim
-        nvim-treesitter
-        plenary-nvim
-        nui-nvim
-        popup-nvim
-        tabular
-        telescope-nvim
-        sqlite-lua
-        ultisnips
-        vim-nix
-        nvim-web-devicons
-        nvim-tree-lua
-        lspsaga-nvim
-        vim-abolish
-        ChatGPT-nvim
-
-        # Git
-        gv-vim 
-        vim-fugitive
-        vim-gitgutter
-        diffview-nvim
-        lazygit-nvim
-
-        # Commenting
-        vim-commentary
-        nvim-ts-context-commentstring
-
-        # Completition
-        nvim-cmp
-        cmp-nvim-lsp
-        cmp-buffer
-        cmp-path
-        cmp-cmdline
-        cmp-nvim-ultisnips
-
-        nvim-lspconfig
-        lsp-status-nvim
-        null-ls-nvim
-      ];
-
       overlay = import ./overlay.nix { 
-        inherit runtimeDeps runtimeDeps2 plugins telescope-recent-files noneckpain secrets neovim;
+        inherit runtimeDeps runtimeDeps2 telescope-recent-files noneckpain secrets neovim;
       };
 
       lib = import ./packages/lib.nix  {pkgs = nixpkgs-unstable; inherit overlay; };

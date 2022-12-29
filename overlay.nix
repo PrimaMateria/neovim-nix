@@ -1,7 +1,9 @@
 {
- runtimeDeps, runtimeDeps2, plugins, telescope-recent-files, noneckpain, secrets, neovim
+ runtimeDeps, runtimeDeps2, telescope-recent-files, noneckpain, secrets, neovim
 
-}: prev: final:  rec {
+}: prev: final: let
+    plugins = import ./plugins.nix;
+  in rec {
         # Collection of snippets which are passed to UltiSnip plugins
         ultisnipsSnippets = prev.stdenv.mkDerivation {
           name = "ultisnipsSnippets";
