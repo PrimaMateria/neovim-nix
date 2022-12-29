@@ -34,14 +34,8 @@
         src = telescope-recent-files-src;
       };
 
-      noneckpain = pkgs: pkgs.vimUtils.buildVimPlugin {
-        name = "noneckpain";
-        src = noneckpain-src;
-        dontBuild = true;
-      };
-
       overlay = import ./overlay.nix { 
-        inherit telescope-recent-files noneckpain neovim;
+        inherit telescope-recent-files noneckpain-src neovim;
       };
 
       lib = import ./packages/lib.nix  {pkgs = nixpkgs-unstable; inherit overlay; };
