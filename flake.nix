@@ -29,13 +29,8 @@
     ...
   }:
     let
-      telescope-recent-files = pkgs: pkgs.vimUtils.buildVimPlugin {
-        name = "telescope-recent-files";
-        src = telescope-recent-files-src;
-      };
-
       overlay = import ./overlay.nix { 
-        inherit telescope-recent-files noneckpain-src neovim;
+        inherit telescope-recent-files-src noneckpain-src neovim;
       };
 
       lib = import ./packages/lib.nix  {pkgs = nixpkgs-unstable; inherit overlay; };

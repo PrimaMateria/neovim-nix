@@ -1,11 +1,12 @@
 {
- telescope-recent-files, noneckpain-src, neovim
+ telescope-recent-files-src, noneckpain-src, neovim
 
 }: prev: final: let
     plugins = import ./plugins.nix;
     runtimeDeps = import ./runtimeDeps.nix;
     secrets = import ./.secrets/secrets.nix;
     noneckpain = import ./packages/vimPlugins/noneckpain.nix { src = noneckpain-src; };
+    telescope-recent-files = import ./packages/vimPlugins/telescopeRecentFiles.nix { src = telescope-recent-files-src; };
   in rec {
         # Collection of snippets which are passed to UltiSnip plugins
         ultisnipsSnippets = prev.stdenv.mkDerivation {
