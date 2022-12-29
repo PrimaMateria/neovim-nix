@@ -29,8 +29,6 @@
     ...
   }:
     let
-      secrets = import ./.secrets/secrets.nix;
-
       telescope-recent-files = pkgs: pkgs.vimUtils.buildVimPlugin {
         name = "telescope-recent-files";
         src = telescope-recent-files-src;
@@ -42,9 +40,8 @@
         dontBuild = true;
       };
 
-
       overlay = import ./overlay.nix { 
-        inherit telescope-recent-files noneckpain secrets neovim;
+        inherit telescope-recent-files noneckpain neovim;
       };
 
       lib = import ./packages/lib.nix  {pkgs = nixpkgs-unstable; inherit overlay; };
