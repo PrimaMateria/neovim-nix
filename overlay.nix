@@ -7,22 +7,8 @@
     noneckpain = import ./packages/vimPlugins/noneckpain.nix { src = noneckpain-src; };
     telescope-recent-files = import ./packages/vimPlugins/telescopeRecentFiles.nix { src = telescope-recent-files-src; };
     ultisnipsSnippets = import ./packages/ultisnipsSnippets.nix { pkgs = prev; };
+    luaConfigs = import ./packages/luaConfigs.nix { pkgs = prev; };
   in rec {
-        # Collection of "raw" lua config files which will be loaded from neovim RC
-        luaConfig = prev.stdenv.mkDerivation {
-          name = "nvimLuaConfig";
-          src = ./lua;
-          installPhase = ''
-            mkdir -p $out/
-            cp ./* $out/
-          '';
-        };
-
-        luaConfigNix = prev.writeTextFile { 
-          name = "nvimLspConfig.lua";
-          text = import ./luanix/nvim-lspconfig.nix { pkgs = prev; };
-        };
-
         # Collection of packages which will be available on PATH when running neovim
         neovimRuntimeDependencies = prev.symlinkJoin {
           name = "neovimRuntimeDependencies";
@@ -37,7 +23,7 @@
         neovimPrimaMateria = prev.wrapNeovim neovim.packages.x86_64-linux.neovim {
           withNodeJs = true;
           configure = {
-            customRC = import ./config { inherit ultisnipsSnippets luaConfig luaConfigNix; };
+            customRC = import ./config { inherit ultisnipsSnippets luaConfigs; };
             packages.myVimPackage.start = plugins final ++ [
               # TODO: put both in the overlay and then just list them in plugins. Maybe it will work when we pass final as the pkgs.
               (telescope-recent-files prev)
