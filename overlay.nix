@@ -1,23 +1,13 @@
 {
  telescope-recent-files-src, noneckpain-src, neovim
-
 }: prev: final: let
     plugins = import ./plugins.nix;
     runtimeDeps = import ./runtimeDeps.nix;
     secrets = import ./.secrets/secrets.nix;
     noneckpain = import ./packages/vimPlugins/noneckpain.nix { src = noneckpain-src; };
     telescope-recent-files = import ./packages/vimPlugins/telescopeRecentFiles.nix { src = telescope-recent-files-src; };
+    ultisnipsSnippets = import ./packages/ultisnipsSnippets.nix { pkgs = prev; };
   in rec {
-        # Collection of snippets which are passed to UltiSnip plugins
-        ultisnipsSnippets = prev.stdenv.mkDerivation {
-          name = "ultisnipsSnippets";
-          src = ./ultisnips;
-          installPhase = ''
-            mkdir -p $out/
-            cp ./*.snippets $out/
-          '';
-        };
-
         # Collection of "raw" lua config files which will be loaded from neovim RC
         luaConfig = prev.stdenv.mkDerivation {
           name = "nvimLuaConfig";
@@ -49,6 +39,7 @@
           configure = {
             customRC = import ./config { inherit ultisnipsSnippets luaConfig luaConfigNix; };
             packages.myVimPackage.start = plugins final ++ [
+              # TODO: put both in the overlay and then just list them in plugins. Maybe it will work when we pass final as the pkgs.
               (telescope-recent-files prev)
               (noneckpain prev)
             ];
