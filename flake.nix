@@ -161,27 +161,18 @@
         };
       };
 
-      inherit (nixpkgs-unstable.lib) genAttrs systems;
-      defaultForEachFlakeSystem = definition: 
-        genAttrs systems.flakeExposed (system: 
-          let
-            pkgs = import nixpkgs-unstable {
-              inherit system;
-              overlays = [ overlay ];
-            };
-          in {
-            default = definition pkgs;
-          }
-        );
+      lib = import ./packages/lib.nix  {pkgs = nixpkgs-unstable; inherit overlay; };
 
     in {
-      packages = defaultForEachFlakeSystem (pkgs:
+      packages = lib.defaultForEachFlakeSystem (pkgs:
         pkgs.neovimPrimaMateriaWrapper
       );
 
-      apps = defaultForEachFlakeSystem (pkgs: { 
+      apps = lib.defaultForEachFlakeSystem (pkgs: { 
         type = "app";
         program = "${pkgs.neovimPrimaMateriaWrapper}/bin/nvim";
       });
+
+      formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.nixfmt;
     };
 }
