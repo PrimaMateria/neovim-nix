@@ -29,20 +29,23 @@
     ...
   }:
     let
-      overlay = import ./overlay.nix { 
-        inherit telescope-recent-files-src noneckpain-src neovim;
+      overlay = prev: final: {
+        neovimPrimaMateria = import ./packages/neovimPrimaMateria.nix { 
+          pkgs = prev;
+          inherit telescope-recent-files-src noneckpain-src neovim;
+        };
       };
 
       lib = import ./packages/lib.nix  {pkgs = nixpkgs-unstable; inherit overlay; };
 
     in {
       packages = lib.defaultForEachFlakeSystem (pkgs:
-        pkgs.neovimPrimaMateriaWrapper
+        pkgs.neovimPrimaMateria
       );
 
       apps = lib.defaultForEachFlakeSystem (pkgs: { 
         type = "app";
-        program = "${pkgs.neovimPrimaMateriaWrapper}/bin/nvim";
+        program = "${pkgs.neovimPrimaMateria}/bin/nvim";
       });
 
       formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.nixfmt;
