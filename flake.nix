@@ -20,34 +20,30 @@
     };
   };
 
-  outputs = inputs@{
-    self,
-    nixpkgs-unstable,
-    neovim,
-    telescope-recent-files-src,
-    noneckpain-src,
-    ...
-  }:
+  outputs = inputs@{ self, nixpkgs-unstable, neovim, telescope-recent-files-src
+    , noneckpain-src, ... }:
     let
       overlay = prev: final: {
-        neovimPrimaMateria = import ./packages/neovimPrimaMateria.nix { 
+        neovimPrimaMateria = import ./packages/neovimPrimaMateria.nix {
           pkgs = prev;
           inherit telescope-recent-files-src noneckpain-src neovim;
         };
       };
 
-      lib = import ./packages/lib.nix  {pkgs = nixpkgs-unstable; inherit overlay; };
+      lib = import ./packages/lib.nix {
+        pkgs = nixpkgs-unstable;
+        inherit overlay;
+      };
 
     in {
-      packages = lib.defaultForEachFlakeSystem (pkgs:
-        pkgs.neovimPrimaMateria
-      );
+      packages = lib.defaultForEachFlakeSystem (pkgs: pkgs.neovimPrimaMateria);
 
-      apps = lib.defaultForEachFlakeSystem (pkgs: { 
+      apps = lib.defaultForEachFlakeSystem (pkgs: {
         type = "app";
         program = "${pkgs.neovimPrimaMateria}/bin/nvim";
       });
 
-      formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.nixfmt;
+      formatter.x86_64-linux =
+        nixpkgs-unstable.legacyPackages.x86_64-linux.nixfmt;
     };
 }

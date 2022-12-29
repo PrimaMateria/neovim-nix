@@ -1,6 +1,5 @@
 # vim: ft=vim
-ultisnipsSnippets:
-  ''
+ultisnipsSnippets: ''
   "-------------------------------------------------- 
   " UltiSnips
   "-------------------------------------------------- 
@@ -15,4 +14,4 @@ ultisnipsSnippets:
     autocmd FileType javascript,javascriptreact,typescript,typescriptreact
       \ UltiSnipsAddFiletypes javascript.javascriptreact.typescript.typescriptreact
   augroup END
-  ''
+''
