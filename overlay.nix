@@ -3,6 +3,7 @@
 
 }: prev: final: let
     plugins = import ./plugins.nix;
+    runtimeDeps = import ./runtimeDeps.nix;
   in rec {
         # Collection of snippets which are passed to UltiSnip plugins
         ultisnipsSnippets = prev.stdenv.mkDerivation {
@@ -32,11 +33,11 @@
         # Collection of packages which will be available on PATH when running neovim
         neovimRuntimeDependencies = prev.symlinkJoin {
           name = "neovimRuntimeDependencies";
-          paths = runtimeDeps prev;
+          paths = runtimeDeps.deps1 prev;
         };
         neovimRuntimeDependencies2 = prev.symlinkJoin {
           name = "neovimRuntimeDependencies2";
-          paths = runtimeDeps2 prev;
+          paths = runtimeDeps.deps2 prev;
         };
 
         # Use wrapper from nixpkgs which will supply config file and plugins

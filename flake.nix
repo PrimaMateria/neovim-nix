@@ -42,25 +42,9 @@
         dontBuild = true;
       };
 
-      runtimeDeps = pkgs: with pkgs; [
-        pyright
-        nodePackages.typescript
-        nodePackages.typescript-language-server
-        nodePackages.eslint_d
-        nodePackages.prettier
-      ];
-
-      runtimeDeps2 = pkgs: with pkgs; [
-        ripgrep
-        clang
-        xsel
-        stylua
-        ltex-ls
-        lazygit
-      ];
 
       overlay = import ./overlay.nix { 
-        inherit runtimeDeps runtimeDeps2 telescope-recent-files noneckpain secrets neovim;
+        inherit telescope-recent-files noneckpain secrets neovim;
       };
 
       lib = import ./packages/lib.nix  {pkgs = nixpkgs-unstable; inherit overlay; };
