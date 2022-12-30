@@ -19,7 +19,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
-          "nixpkgs-unstable"
+          "nixpkgs"
         ]
       },
       "locked": {
@@ -38,19 +38,19 @@
         "type": "github"
       }
     },
-    "nixpkgs-unstable": {
+    "nixpkgs": {
       "locked": {
-        "lastModified": 1671722432,
-        "narHash": "sha256-ojcZUekIQeOZkHHzR81st7qxX99dB1Eaaq6PU5MNeKc=",
+        "lastModified": 1672415114,
+        "narHash": "sha256-k1+UZPnr+41Vg5wKbjRZZoeRgkNAt5ODrrCzbiHOP50=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "652e92b8064949a11bc193b90b74cb727f2a1405",
+        "rev": "c45eae43341be47dccd741aa2423a47d009b52d9",
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "ref": "nixos-unstable",
-        "type": "indirect"
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "noneckpain-src": {
@@ -72,7 +72,7 @@
     "root": {
       "inputs": {
         "neovim": "neovim",
-        "nixpkgs-unstable": "nixpkgs-unstable",
+        "nixpkgs": "nixpkgs",
         "noneckpain-src": "noneckpain-src",
         "telescope-recent-files-src": "telescope-recent-files-src"
       }

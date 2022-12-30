@@ -2,25 +2,24 @@
   description = "PrimaMateria neovim flake";
 
   inputs = {
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs";
+    };
     neovim = {
       url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-
     telescope-recent-files-src = {
       url = "github:smartpde/telescope-recent-files";
       flake = false;
     };
-
     noneckpain-src = {
       url = "github:shortcuts/no-neck-pain.nvim";
       flake = false;
     };
   };
 
-  outputs = inputs@{ self, nixpkgs-unstable, neovim, telescope-recent-files-src
+  outputs = inputs@{ self, nixpkgs, neovim, telescope-recent-files-src
     , noneckpain-src, ... }:
     let
       overlay = prev: final: {
@@ -31,7 +30,7 @@
       };
 
       lib = import ./packages/lib.nix {
-        pkgs = nixpkgs-unstable;
+        pkgs = nixpkgs;
         inherit overlay;
       };
 
@@ -44,6 +43,6 @@
       });
 
       formatter.x86_64-linux =
-        nixpkgs-unstable.legacyPackages.x86_64-linux.nixfmt;
+        nixpkgs.legacyPackages.x86_64-linux.nixfmt;
     };
 }
