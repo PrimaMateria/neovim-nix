@@ -1,5 +1,7 @@
 # vim: ft=vim
-ultisnipsSnippets: ''
+{ pkgs } : let
+  ultisnipsSnippets = import ../../packages/ultisnipsSnippets.nix { inherit pkgs; };
+in ''
   "-------------------------------------------------- 
   " UltiSnips
   "-------------------------------------------------- 

@@ -2,8 +2,7 @@
 let
   runtimeDeps = import ../runtimeDeps.nix;
   secrets = import ../.secrets/secrets.nix;
-  ultisnipsSnippets = import ./ultisnipsSnippets.nix { inherit pkgs; };
-  luaConfigs = import ./luaConfigs.nix { inherit pkgs; };
+  customRC = import ../config { inherit pkgs; };
   plugins = import ../plugins.nix;
 
   noneckpain = import ./vimPlugins/noneckpain.nix { src = noneckpain-src; };
@@ -24,8 +23,8 @@ let
     pkgs.wrapNeovim neovim.packages.x86_64-linux.neovim {
       withNodeJs = true;
       configure = {
-        customRC = import ../config { inherit ultisnipsSnippets luaConfigs; };
-        packages.myVimPackage.start = plugins pkgs
+        inherit customRC;
+        packages.all.start = plugins pkgs
           ++ [ (telescope-recent-files pkgs) (noneckpain pkgs) ];
       };
     };
