@@ -5,33 +5,46 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs";
     };
+
     neovim = {
       url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     telescope-recent-files-src = {
       url = "github:smartpde/telescope-recent-files";
       flake = false;
     };
+
     noneckpain-src = {
       url = "github:shortcuts/no-neck-pain.nvim";
       flake = false;
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, neovim, telescope-recent-files-src
-    , noneckpain-src, ... }:
+  outputs = inputs@{ self, ... }:
     let
-      overlay = prev: final: {
-        neovimPrimaMateria = import ./packages/neovimPrimaMateria.nix {
+      overlayFlakeInputs = prev: final: {
+        neovim = inputs.neovim.packages.x86_64-linux.neovim;
+
+        noneckpain = import ./packages/vimPlugins/noneckpain.nix { src = inputs.noneckpain-src; pkgs = prev; };
+
+        telescope-recent-files = import ./packages/vimPlugins/telescopeRecentFiles.nix {
+          src = inputs.telescope-recent-files-src;
           pkgs = prev;
-          inherit telescope-recent-files-src noneckpain-src neovim;
+        };
+
+      };
+
+      overlayNeovimPrimaMateria = prev: final: {
+        neovimPrimaMateria = import ./packages/neovimPrimaMateria.nix {
+          pkgs = final;
         };
       };
 
       lib = import ./packages/lib.nix {
-        pkgs = nixpkgs;
-        inherit overlay;
+        pkgs = inputs.nixpkgs;
+        overlays = [ overlayFlakeInputs overlayNeovimPrimaMateria ];
       };
 
     in {
@@ -43,6 +56,6 @@
       });
 
       formatter.x86_64-linux =
-        nixpkgs.legacyPackages.x86_64-linux.nixfmt;
+        inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt;
     };
 }

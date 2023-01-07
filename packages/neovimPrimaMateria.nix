@@ -1,14 +1,9 @@
-{ pkgs, neovim, noneckpain-src, telescope-recent-files-src }:
+{ pkgs }:
 let
   runtimeDeps = import ../runtimeDeps.nix;
   secrets = import ../.secrets/secrets.nix;
   customRC = import ../config { inherit pkgs; };
   plugins = import ../plugins.nix;
-
-  noneckpain = import ./vimPlugins/noneckpain.nix { src = noneckpain-src; };
-  telescope-recent-files = import ./vimPlugins/telescopeRecentFiles.nix {
-    src = telescope-recent-files-src;
-  };
 
   neovimRuntimeDependencies = pkgs.symlinkJoin {
     name = "neovimRuntimeDependencies";
@@ -19,18 +14,20 @@ let
     paths = runtimeDeps.deps2 pkgs;
   };
 
+  # foo = builtins.trace pkgs "foo";
+
   neovimPrimaMateriaUnwrapped =
-    pkgs.wrapNeovim neovim.packages.x86_64-linux.neovim {
+    pkgs.wrapNeovim pkgs.neovim {
       withNodeJs = true;
       configure = {
         inherit customRC;
-        packages.all.start = plugins pkgs
-          ++ [ (telescope-recent-files pkgs) (noneckpain pkgs) ];
+        packages.all.start = plugins pkgs;
       };
     };
 
 in pkgs.writeShellApplication {
   name = "nvim";
+  # name = "nvim" + foo;
   runtimeInputs = [ neovimRuntimeDependencies2 neovimRuntimeDependencies ];
   text = ''
     OPENAI_API_KEY=${secrets.openai-api-key} ${neovimPrimaMateriaUnwrapped}/bin/nvim "$@"
