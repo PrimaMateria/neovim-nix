@@ -13,9 +13,6 @@ let
     name = "neovimRuntimeDependencies2";
     paths = runtimeDeps.deps2;
   };
-
-  # foo = builtins.trace pkgs "foo";
-
   neovimPrimaMateriaUnwrapped =
     pkgs.wrapNeovim pkgs.neovim {
       withNodeJs = true;
@@ -26,8 +23,7 @@ let
     };
 
 in pkgs.writeShellApplication {
-  name = "nvim";
-  # name = "nvim" + foo;
+  name = "nvimPrimaMateria";
   runtimeInputs = [ neovimRuntimeDependencies2 neovimRuntimeDependencies ];
   text = ''
     OPENAI_API_KEY=${secrets.openai-api-key} ${neovimPrimaMateriaUnwrapped}/bin/nvim "$@"
