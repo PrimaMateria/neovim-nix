@@ -1,5 +1,5 @@
 pkgs:
-(with pkgs.vimPlugins; [
+with pkgs.vimPlugins; [
   gruvbox-community
   harpoon
   lualine-nvim
@@ -41,7 +41,6 @@ pkgs:
   nvim-lspconfig
   lsp-status-nvim
   null-ls-nvim
-]) ++ (with pkgs; [
   telescope-recent-files
   noneckpain
-])
+]

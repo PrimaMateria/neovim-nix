@@ -27,13 +27,17 @@
       overlayFlakeInputs = prev: final: {
         neovim = inputs.neovim.packages.x86_64-linux.neovim;
 
-        noneckpain = import ./packages/vimPlugins/noneckpain.nix { src = inputs.noneckpain-src; pkgs = prev; };
+        vimPlugins = final.vimPlugins // {
+          noneckpain = import ./packages/vimPlugins/noneckpain.nix {
+            src = inputs.noneckpain-src;
+            pkgs = prev;
+          };
 
-        telescope-recent-files = import ./packages/vimPlugins/telescopeRecentFiles.nix {
-          src = inputs.telescope-recent-files-src;
-          pkgs = prev;
+          telescope-recent-files = import ./packages/vimPlugins/telescopeRecentFiles.nix {
+            src = inputs.telescope-recent-files-src;
+            pkgs = prev;
+          };
         };
-
       };
 
       overlayNeovimPrimaMateria = prev: final: {
