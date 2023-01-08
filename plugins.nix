@@ -1,4 +1,4 @@
-pkgs:
+{ pkgs }:
 with pkgs.vimPlugins; [
   gruvbox-community
   harpoon

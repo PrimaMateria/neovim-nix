@@ -1,6 +1,6 @@
+{ pkgs }:
 {
-  deps1 = pkgs:
-    with pkgs; [
+  deps1 = with pkgs; [
       pyright
       nodePackages.typescript
       nodePackages.typescript-language-server
@@ -8,5 +8,5 @@
       nodePackages.prettier
     ];
 
-  deps2 = pkgs: with pkgs; [ ripgrep clang xsel stylua ltex-ls lazygit ];
+  deps2 =  with pkgs; [ ripgrep clang xsel stylua ltex-ls lazygit ];
 }
