@@ -42,6 +42,7 @@ local servers = {
     setup = {
       init_options = {
         maxTsServerMemory = 8192,
+        disableAutomaticTypingAcquisition = true,
         tsserver = {
           path = "${pkgs.nodePackages.typescript}/lib/node_modules/typescript/lib",
         },
