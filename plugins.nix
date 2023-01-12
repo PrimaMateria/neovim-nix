@@ -1,6 +1,7 @@
 { pkgs }:
 with pkgs.vimPlugins; [
   gruvbox-community
+  nvim-base16
   harpoon
   lualine-nvim
   lush-nvim

@@ -9,6 +9,25 @@ nnoremap <leader><BS> :b#<CR>
 "-------------------------------------------------- 
 " Gruvbox community Color scheme
 "-------------------------------------------------- 
+" augroup gruvboxColorScheme
+"    autocmd!
+"    autocmd ColorScheme * highlight SignColumn guibg=#1d2021
+"    autocmd ColorScheme * highlight ColorColumn guibg=#222222
+"    autocmd ColorScheme * highlight CursorColumn guibg=#151515
+"    autocmd ColorScheme * highlight CursorLine guibg=#151515
+"    autocmd ColorScheme * highlight LineNr guifg=#fabd2f
+"    autocmd ColorScheme * highlight LineNrAbove guifg=#86817e
+"    autocmd ColorScheme * highlight LineNrBelow guifg=#86817e
+"    autocmd ColorScheme * highlight Pmenu guibg=#1d2021 guifg=#ebdbb2
+"    autocmd ColorScheme * highlight NormalFloat guifg=#ebdbb2
+" augroup END
+
+" let g:gruvbox_contrast_dark='hard'
+" colorscheme gruvbox
+
+"-------------------------------------------------- 
+" Base16 theme
+"-------------------------------------------------- 
 augroup gruvboxColorScheme
    autocmd!
    autocmd ColorScheme * highlight SignColumn guibg=#1d2021
@@ -21,9 +40,7 @@ augroup gruvboxColorScheme
    autocmd ColorScheme * highlight Pmenu guibg=#1d2021 guifg=#ebdbb2
    autocmd ColorScheme * highlight NormalFloat guifg=#ebdbb2
 augroup END
-
-let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
+colorscheme base16-gruvbox-dark-hard
 
 "-------------------------------------------------- 
 " \
