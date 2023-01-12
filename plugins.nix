@@ -42,5 +42,4 @@ with pkgs.vimPlugins; [
   lsp-status-nvim
   null-ls-nvim
   telescope-recent-files
-  noneckpain
 ]
