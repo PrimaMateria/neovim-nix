@@ -23,7 +23,7 @@ let
     };
 
 in pkgs.writeShellApplication {
-  name = "nvimPrimaMateria";
+  name = "nvim";
   runtimeInputs = [ neovimRuntimeDependencies2 neovimRuntimeDependencies ];
   text = ''
     OPENAI_API_KEY=${secrets.openai-api-key} ${neovimPrimaMateriaUnwrapped}/bin/nvim "$@"
