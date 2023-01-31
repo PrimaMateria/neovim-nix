@@ -11,4 +11,4 @@ vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#ebdbb2" })
 require("base16-colorscheme").with_config({
 	telescope = false,
 })
-vim.cmd.colorscheme("base16-default-dark")
+vim.cmd.colorscheme("base16-gruvbox-dark-hard")
