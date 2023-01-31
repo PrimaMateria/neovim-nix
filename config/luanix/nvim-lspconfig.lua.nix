@@ -19,26 +19,6 @@ lsp_status.config {
 }
 capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 
-local function lsp_highlight_document(client, bufnr)
-  -- Set autocommands conditional on server_capabilities
-  if client.server_capabilities.documentHighlightProvider then
-    vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
-    vim.api.nvim_clear_autocmds({ buffer = bufnr, group = "lsp_document_highlight" })
-    vim.api.nvim_create_autocmd("CursorHold", {
-      callback = vim.lsp.buf.document_highlight,
-      buffer = bufnr,
-      group = "lsp_document_highlight",
-      desc = "Document Highlight",
-    })
-    vim.api.nvim_create_autocmd("CursorMoved", {
-      callback = vim.lsp.buf.clear_references,
-      buffer = bufnr,
-      group = "lsp_document_highlight",
-      desc = "Clear All the References",
-    })
-  end
-end
-
 -- {
 --  name = "jdtls",
 --  setup = {
@@ -94,7 +74,6 @@ for _, server in pairs(servers) do
       -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
       -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
 
-      lsp_highlight_document(client, bufnr)
       lsp_status.on_attach(client)
 
       if server.on_attach then
