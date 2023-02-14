@@ -33,6 +33,20 @@ if system('uname -r') =~ "Microsoft"
   augroup END
 endif
 
+augroup theme
+   autocmd!
+   autocmd ColorScheme * highlight SignColumn guibg=#1d2021
+   autocmd ColorScheme * highlight ColorColumn guibg=#222222
+   autocmd ColorScheme * highlight CursorColumn guibg=#151515
+   autocmd ColorScheme * highlight CursorLine guibg=#151515
+   autocmd ColorScheme * highlight LineNr guifg=#fabd2f
+   autocmd ColorScheme * highlight LineNrAbove guifg=#86817e
+   autocmd ColorScheme * highlight LineNrBelow guifg=#86817e
+   autocmd ColorScheme * highlight Pmenu guibg=#1d2021 guifg=#ebdbb2
+   autocmd ColorScheme * highlight NormalFloat guifg=#ebdbb2
+   autocmd ColorScheme * highlight Comment guifg=#bbbbbb
+augroup END
+
 "-------------------------------------------------- 
 " Tabs
 "-------------------------------------------------- 
