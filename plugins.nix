@@ -18,6 +18,7 @@ with pkgs.vimPlugins; [
   nvim-tree-lua
   lspsaga-nvim
   vim-abolish
+  vim-dirdiff
   ChatGPT-nvim
 
   # Git
