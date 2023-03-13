@@ -2,7 +2,7 @@ local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
-	debug = true,
+	debug = false,
 	sources = {
 		null_ls.builtins.diagnostics.eslint_d,
 		null_ls.builtins.code_actions.eslint_d,
