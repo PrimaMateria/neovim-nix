@@ -24,23 +24,23 @@
 
   outputs = inputs@{ self, ... }:
     let
-      overlayFlakeInputs = prev: final: {
+      overlayFlakeInputs = final: prev: {
         neovim = inputs.neovim.packages.x86_64-linux.neovim;
 
-        vimPlugins = final.vimPlugins // {
+        vimPlugins = prev.vimPlugins // {
           noneckpain = import ./packages/vimPlugins/noneckpain.nix {
             src = inputs.noneckpain-src;
-            pkgs = prev;
+            pkgs = final;
           };
 
           telescope-recent-files = import ./packages/vimPlugins/telescopeRecentFiles.nix {
             src = inputs.telescope-recent-files-src;
-            pkgs = prev;
+            pkgs = final;
           };
         };
       };
 
-      overlayNeovimPrimaMateria = prev: final: {
+      overlayNeovimPrimaMateria = final: prev: {
         neovimPrimaMateria = import ./packages/neovimPrimaMateria.nix {
           pkgs = final;
         };
