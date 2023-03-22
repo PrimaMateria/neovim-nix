@@ -5,6 +5,8 @@ let mapleader = " "
 inoremap <C-j><C-j> <C-\><C-n>
 tnoremap <C-j><C-j> <C-\><C-n>
 nnoremap <leader><BS> :b#<CR>
+" copy last message to clipboard
+nnoremap <leader>m :let @+=trim(execute('1messages')) \| echo 'copied' <cr>
 
 "-------------------------------------------------- 
 " \
