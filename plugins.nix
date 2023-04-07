@@ -21,6 +21,7 @@ with pkgs.vimPlugins; [
   vim-dirdiff
   ChatGPT-nvim
   noneckpain
+  lsplens
 
   # Git
   gv-vim

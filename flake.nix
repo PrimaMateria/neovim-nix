@@ -20,6 +20,11 @@
       url = "github:shortcuts/no-neck-pain.nvim";
       flake = false;
     };
+
+    lsplens-src = {
+      url = "github:VidocqH/lsp-lens.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, ... }:
@@ -35,6 +40,11 @@
 
           telescope-recent-files = import ./packages/vimPlugins/telescopeRecentFiles.nix {
             src = inputs.telescope-recent-files-src;
+            pkgs = final;
+          };
+
+          lsplens = import ./packages/vimPlugins/lsplens.nix {
+            src = inputs.lsplens-src;
             pkgs = final;
           };
         };
