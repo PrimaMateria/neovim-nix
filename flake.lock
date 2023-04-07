@@ -2,11 +2,11 @@
   "nodes": {
     "flake-utils": {
       "locked": {
-        "lastModified": 1667395993,
-        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
+        "lastModified": 1659877975,
+        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
+        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
         "type": "github"
       },
       "original": {
@@ -24,27 +24,28 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1672766654,
-        "narHash": "sha256-269XRMrMI71kiNFhCXdIFqQ82R6Mrrd8DBqpTaUQGhI=",
+        "lastModified": 1675344803,
+        "narHash": "sha256-ItJ8aX/WUfcAovxRsXXyWKBAI92hFloYIZiv7viPIdQ=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "1b3c255f608a6c1a4a31bcd4a640ea6696403341",
+        "rev": "129264dbb41404b94b835baadfc3fa25ffac3d3e",
         "type": "github"
       },
       "original": {
         "dir": "contrib",
         "owner": "neovim",
+        "ref": "v0.8.3",
         "repo": "neovim",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1672766405,
-        "narHash": "sha256-nAI28zoCEuuO4Bl/q9qzt2Zs6KrZ2nFd4JpfO+f1gZo=",
+        "lastModified": 1680894065,
+        "narHash": "sha256-z3VxoXy/qflSV3dYxxpTr6cZweqbegqWO2q2RPEvRXo=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4b87e3b61de3ca1032f2b74b1fbb5d7eccfae36d",
+        "rev": "0a023762fc097047c0a16fa4d2bc3ef6012f4f44",
         "type": "github"
       },
       "original": {
@@ -56,11 +57,11 @@
     "noneckpain-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1672675468,
-        "narHash": "sha256-p+BPIGQCuKllJ3zpsZoOXjVlggoMGjyNsMyrrsoMYIY=",
+        "lastModified": 1679830473,
+        "narHash": "sha256-Yq68nxfapBbjZa4Gd6tRz8JNg8bWvCQjhzl1lCH+8bA=",
         "owner": "shortcuts",
         "repo": "no-neck-pain.nvim",
-        "rev": "8c3c951ab64972821d8338365bce946bc66f4ba5",
+        "rev": "33db10e593edc7d720c0f5c0320899bd1dd014e1",
         "type": "github"
       },
       "original": {
