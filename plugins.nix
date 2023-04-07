@@ -20,6 +20,7 @@ with pkgs.vimPlugins; [
   vim-abolish
   vim-dirdiff
   ChatGPT-nvim
+  noneckpain
 
   # Git
   gv-vim
