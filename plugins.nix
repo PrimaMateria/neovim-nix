@@ -23,6 +23,7 @@ with pkgs.vimPlugins; [
   noneckpain
   lsplens
   autoclose-nvim
+  nvimSpider
 
   # Git
   gv-vim

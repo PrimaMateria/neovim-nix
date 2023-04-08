@@ -25,6 +25,11 @@
       url = "github:VidocqH/lsp-lens.nvim";
       flake = false;
     };
+
+    nvimSpider-src = {
+      url = "github:chrisgrieser/nvim-spider";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, ... }:
@@ -45,6 +50,11 @@
 
           lsplens = import ./packages/vimPlugins/lsplens.nix {
             src = inputs.lsplens-src;
+            pkgs = final;
+          };
+
+          nvimSpider = import ./packages/vimPlugins/nvimSpider.nix {
+            src = inputs.nvimSpider-src;
             pkgs = final;
           };
         };

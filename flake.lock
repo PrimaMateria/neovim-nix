@@ -86,12 +86,29 @@
         "type": "github"
       }
     },
+    "nvimSpider-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1680966183,
+        "narHash": "sha256-BjvnO9XB6eKmVhdpehih9EIx9nDX+jGuQJqswdOOInU=",
+        "owner": "chrisgrieser",
+        "repo": "nvim-spider",
+        "rev": "3bd8110fda28f225c2ecbe1107bf7b633977c877",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chrisgrieser",
+        "repo": "nvim-spider",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "lsplens-src": "lsplens-src",
         "neovim": "neovim",
         "nixpkgs": "nixpkgs",
         "noneckpain-src": "noneckpain-src",
+        "nvimSpider-src": "nvimSpider-src",
         "telescope-recent-files-src": "telescope-recent-files-src"
       }
     },
