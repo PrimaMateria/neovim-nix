@@ -24,6 +24,7 @@ with pkgs.vimPlugins; [
   lsplens
   autoclose-nvim
   nvimSpider
+  indent-blankline-nvim
 
   # Git
   gv-vim
