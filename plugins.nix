@@ -22,6 +22,7 @@ with pkgs.vimPlugins; [
   ChatGPT-nvim
   noneckpain
   lsplens
+  autoclose-nvim
 
   # Git
   gv-vim
