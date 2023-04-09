@@ -27,7 +27,6 @@ with pkgs.vimPlugins; [
   indent-blankline-nvim
 
   # Git
-  gv-vim
   vim-fugitive
   vim-gitgutter
   diffview-nvim
