@@ -22,8 +22,6 @@ with pkgs.vimPlugins; [
   ChatGPT-nvim
   noneckpain
   lsplens
-  autoclose-nvim
-  nvimSpider
   indent-blankline-nvim
 
   # Git
@@ -31,6 +29,7 @@ with pkgs.vimPlugins; [
   vim-gitgutter
   diffview-nvim
   lazygit-nvim
+  git-messenger-vim
 
   # Commenting
   vim-commentary
