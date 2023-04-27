@@ -5,7 +5,19 @@ with pkgs.vimPlugins; [
   harpoon
   lualine-nvim
   lush-nvim
-  nvim-treesitter
+  (nvim-treesitter.withPlugins (
+    p: [
+      p.javascript
+      p.typescript
+      p.lua
+      p.html
+      p.bash
+      p.css
+      p.jsdoc
+      p.nix
+      p.scss
+      p.tsx
+    ]))
   plenary-nvim
   nui-nvim
   popup-nvim
@@ -23,6 +35,8 @@ with pkgs.vimPlugins; [
   noneckpain
   lsplens
   indent-blankline-nvim
+  nvim-colorizer-lua
+  neogen
 
   # Git
   vim-fugitive
