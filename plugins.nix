@@ -32,7 +32,6 @@ with pkgs.vimPlugins; [
   vim-abolish
   vim-dirdiff
   ChatGPT-nvim
-  noneckpain
   lsplens
   indent-blankline-nvim
   nvim-colorizer-lua
@@ -56,6 +55,7 @@ with pkgs.vimPlugins; [
   cmp-path
   cmp-cmdline
   cmp-nvim-ultisnips
+  cmp-emoji
 
   nvim-lspconfig
   lsp-status-nvim
