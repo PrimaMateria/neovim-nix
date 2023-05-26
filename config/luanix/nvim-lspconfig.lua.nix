@@ -19,6 +19,8 @@ lsp_status.config {
 }
 capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 
+local navbuddy = require("nvim-navbuddy")
+
 -- {
 --  name = "jdtls",
 --  setup = {
@@ -75,6 +77,7 @@ for _, server in pairs(servers) do
       -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
 
       lsp_status.on_attach(client)
+      navbuddy.attach(client, bufnr)
 
       if server.on_attach then
         server.on_attach(client, bufnr)

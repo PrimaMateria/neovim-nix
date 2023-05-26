@@ -30,6 +30,11 @@
       url = "github:AckslD/muren.nvim";
       flake = false;
     };
+
+    navbuddy-src = {
+      url = "github:SmiteshP/nvim-navbuddy";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, ... }:
@@ -55,6 +60,11 @@
 
           lsplens = import ./packages/vimPlugins/lsplens.nix {
             src = inputs.lsplens-src;
+            pkgs = final;
+          };
+
+          navbuddy = import ./packages/vimPlugins/navbuddy.nix {
+            src = inputs.navbuddy-src;
             pkgs = final;
           };
         };

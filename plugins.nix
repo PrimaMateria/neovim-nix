@@ -37,6 +37,9 @@ with pkgs.vimPlugins; [
   neogen
   muren
 
+  nvim-navic
+  navbuddy
+
   # Git
   vim-fugitive
   vim-gitgutter

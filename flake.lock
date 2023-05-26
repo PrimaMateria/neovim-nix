@@ -47,6 +47,22 @@
         "type": "github"
       }
     },
+    "navbuddy-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1684044793,
+        "narHash": "sha256-6wcZ2wMwl+bQLFfSXBIaM9eZA3wjtXJshm0EcjWPuqM=",
+        "owner": "SmiteshP",
+        "repo": "nvim-navbuddy",
+        "rev": "71424b01051913eee6db0cc4b34b1b9a1a31f5c1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SmiteshP",
+        "repo": "nvim-navbuddy",
+        "type": "github"
+      }
+    },
     "neovim": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -106,6 +122,7 @@
       "inputs": {
         "lsplens-src": "lsplens-src",
         "muren-src": "muren-src",
+        "navbuddy-src": "navbuddy-src",
         "neovim": "neovim",
         "nixpkgs": "nixpkgs",
         "noneckpain-src": "noneckpain-src",
