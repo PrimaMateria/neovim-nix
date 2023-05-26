@@ -31,7 +31,6 @@ with pkgs.vimPlugins; [
   lspsaga-nvim
   vim-abolish
   vim-dirdiff
-  ChatGPT-nvim
   lsplens
   indent-blankline-nvim
   nvim-colorizer-lua
