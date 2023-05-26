@@ -16,4 +16,10 @@ require("lualine").setup({
 	inactive_winbar = {
 		lualine_c = { "filename" },
 	},
+	tabline = {
+		lualine_a = { {
+			"tabs",
+			mode = 2,
+		} },
+	},
 })
