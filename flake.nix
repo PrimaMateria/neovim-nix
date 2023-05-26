@@ -25,6 +25,11 @@
       url = "github:VidocqH/lsp-lens.nvim";
       flake = false;
     };
+
+    muren-src = {
+      url = "github:AckslD/muren.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, ... }:
@@ -35,6 +40,11 @@
         vimPlugins = prev.vimPlugins // {
           noneckpain = import ./packages/vimPlugins/noneckpain.nix {
             src = inputs.noneckpain-src;
+            pkgs = final;
+          };
+
+          muren = import ./packages/vimPlugins/muren.nix {
+            src = inputs.muren-src;
             pkgs = final;
           };
 

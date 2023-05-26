@@ -35,6 +35,7 @@ with pkgs.vimPlugins; [
   indent-blankline-nvim
   nvim-colorizer-lua
   neogen
+  muren
 
   # Git
   vim-fugitive
