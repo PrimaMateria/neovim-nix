@@ -42,59 +42,59 @@
   };
 
   outputs = inputs@{ self, ... }:
-    let
-      overlayFlakeInputs = final: prev: {
-        neovim = inputs.neovim.packages.x86_64-linux.neovim;
+    inputs.flake-utils.lib.eachDefaultSystem (system:
+      let
+        overlayFlakeInputs = prev: final: {
+          neovim = inputs.neovim.packages.${prev.system}.neovim;
 
-        vimPlugins = prev.vimPlugins // {
-          noneckpain = import ./packages/vimPlugins/noneckpain.nix {
-            src = inputs.noneckpain-src;
-            pkgs = final;
-          };
+          vimPlugins = final.vimPlugins // {
+            noneckpain = import ./packages/vimPlugins/noneckpain.nix {
+              src = inputs.noneckpain-src;
+              pkgs = prev;
+            };
 
-          muren = import ./packages/vimPlugins/muren.nix {
-            src = inputs.muren-src;
-            pkgs = final;
-          };
+            muren = import ./packages/vimPlugins/muren.nix {
+              src = inputs.muren-src;
+              pkgs = prev;
+            };
 
-          telescope-recent-files = import ./packages/vimPlugins/telescopeRecentFiles.nix {
-            src = inputs.telescope-recent-files-src;
-            pkgs = final;
-          };
+            telescope-recent-files = import ./packages/vimPlugins/telescopeRecentFiles.nix {
+              src = inputs.telescope-recent-files-src;
+              pkgs = prev;
+            };
 
-          lsplens = import ./packages/vimPlugins/lsplens.nix {
-            src = inputs.lsplens-src;
-            pkgs = final;
-          };
+            lsplens = import ./packages/vimPlugins/lsplens.nix {
+              src = inputs.lsplens-src;
+              pkgs = prev;
+            };
 
-          navbuddy = import ./packages/vimPlugins/navbuddy.nix {
-            src = inputs.navbuddy-src;
-            pkgs = final;
+            navbuddy = import ./packages/vimPlugins/navbuddy.nix {
+              src = inputs.navbuddy-src;
+              pkgs = prev;
+            };
           };
         };
-      };
 
-      overlayNeovimPrimaMateria = final: prev: {
-        neovimPrimaMateria = import ./packages/neovimPrimaMateria.nix {
-          pkgs = final;
+        overlayNeovimPrimaMateria = prev: final: {
+          neovimPrimaMateria = import ./packages/neovimPrimaMateria.nix {
+            pkgs = prev;
+          };
         };
-      };
 
-      lib = import ./packages/lib.nix {
-        pkgs = inputs.nixpkgs;
-        overlays = [ overlayFlakeInputs overlayNeovimPrimaMateria ];
-      };
+        pkgs = import inputs.nixpkgs {
+          system = system;
+          overlays = [ overlayFlakeInputs overlayNeovimPrimaMateria ];
+        };
+      in
+      {
+        packages = rec {
+          nvim = pkgs.neovimPrimaMateria;
+          default = nvim;
+        };
 
-    in
-    {
-      packages = lib.defaultForEachFlakeSystem (pkgs: pkgs.neovimPrimaMateria);
-
-      apps = lib.defaultForEachFlakeSystem (pkgs: {
-        type = "app";
-        program = "${pkgs.neovimPrimaMateria}/bin/nvim";
+        apps = rec {
+          nvim = inputs.flake-utils.lib.mkApp { drv = self.packages.${system}.nvim; };
+          default = nvim;
+        };
       });
-
-      formatter.x86_64-linux =
-        inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt;
-    };
 }
