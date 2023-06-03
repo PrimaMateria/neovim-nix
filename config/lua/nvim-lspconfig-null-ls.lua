@@ -11,6 +11,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.prettier.with({
 			disabled_filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 		}),
+		null_ls.builtins.code_actions.statix,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then

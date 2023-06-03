@@ -35,6 +35,10 @@
       url = "github:SmiteshP/nvim-navbuddy";
       flake = false;
     };
+
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+    };
   };
 
   outputs = inputs@{ self, ... }:
@@ -81,7 +85,8 @@
         overlays = [ overlayFlakeInputs overlayNeovimPrimaMateria ];
       };
 
-    in {
+    in
+    {
       packages = lib.defaultForEachFlakeSystem (pkgs: pkgs.neovimPrimaMateria);
 
       apps = lib.defaultForEachFlakeSystem (pkgs: {

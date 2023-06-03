@@ -58,6 +58,18 @@ local servers = {
       -- vim.keymap.set("n", ",o", ":TSLspOrganize<CR>", bufopts)
     end,
   },
+  { 
+    name = "rnix",
+    on_attach = function(client, bufnr)
+      -- autoformat buffer on save
+      local augroup = vim.api.nvim_create_augroup('rnix autoformat', { clear = true })
+      vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+        buffer = bufnr,
+        group = augroup,
+        command = 'lua vim.lsp.buf.format()',
+      })
+    end,
+  },
 }
 
 for _, server in pairs(servers) do
@@ -77,7 +89,10 @@ for _, server in pairs(servers) do
       -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
 
       lsp_status.on_attach(client)
-      navbuddy.attach(client, bufnr)
+
+      if client.server_capabilities.documentSymbolProvider then
+        navbuddy.attach(client, bufnr)
+      end
 
       if server.on_attach then
         server.on_attach(client, bufnr)
