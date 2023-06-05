@@ -29,3 +29,4 @@ set laststatus=3
 set cursorline
 set cursorcolumn
 set re=0
+set eol
