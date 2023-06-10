@@ -12,6 +12,7 @@ null_ls.setup({
 			disabled_filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 		}),
 		null_ls.builtins.code_actions.statix,
+		null_ls.builtins.formatting.rustfmt,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
