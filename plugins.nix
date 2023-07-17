@@ -17,7 +17,9 @@ with pkgs.vimPlugins; [
       p.nix
       p.scss
       p.tsx
-    ]))
+      p.rust
+    ]
+  ))
   plenary-nvim
   nui-nvim
   popup-nvim
