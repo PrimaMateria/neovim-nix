@@ -2,9 +2,11 @@ vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
 require("nvim-tree").setup({
+	renderer = {
+		root_folder_label = false,
+	},
 	view = {
 		adaptive_size = true,
-		hide_root_folder = true,
 		number = true,
 		relativenumber = true,
 	},

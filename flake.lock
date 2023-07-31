@@ -68,11 +68,11 @@
     "navbuddy-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1688569844,
-        "narHash": "sha256-011RT/wnQdBR1vMrXFwxbicBAgdcd4eQYPbok/o3CIE=",
+        "lastModified": 1690773567,
+        "narHash": "sha256-eQr/BWngNLRJvgT+CsZNyPPpMsITTpVM0VwAqKgK3GU=",
         "owner": "SmiteshP",
         "repo": "nvim-navbuddy",
-        "rev": "244a4cded6f2b568403684131d148048efe4e8af",
+        "rev": "15184582a786d6b32b2724a4799891d0d69f0cdd",
         "type": "github"
       },
       "original": {
@@ -107,11 +107,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1689582805,
-        "narHash": "sha256-Qx/DVhF2+8pA8jC1o+mcwOaSVkMr4+e943JzfaoFmsQ=",
+        "lastModified": 1690798134,
+        "narHash": "sha256-6d5mTiR9X6xeRdTDnXide3EJxoXQcAfsZaGSDvn7fA0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1211e44d5b89641d47cedbec89dd2210a0a1aca8",
+        "rev": "c4147cd27248a85624f238413818c05c25ff3c0b",
         "type": "github"
       },
       "original": {
