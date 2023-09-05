@@ -4,7 +4,7 @@ filetype plugin indent on
 let mapleader = " "
 " inoremap <C-j><C-j> <C-\><C-n>
 " tnoremap <C-j><C-j> <C-\><C-n>
-tnoremap <leader><C-[> <C-\><C-n>
+tnoremap <C-]><C-[> <C-\><C-n>
 
 " nnoremap <leader><BS> :b#<CR>
 " copy last message to clipboard
