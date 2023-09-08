@@ -1,6 +1,7 @@
 { pkgs }:
 let
   runtimeDeps = import ../runtimeDeps.nix { inherit pkgs; };
+  secrets = import ../.secrets/secrets.nix;
   customRC = import ../config { inherit pkgs; };
   plugins = import ../plugins.nix { inherit pkgs; };
 
@@ -28,7 +29,7 @@ in pkgs.writeShellApplication {
   name = "nvim";
   runtimeInputs = [ neovimRuntimeDependencies ];
   text = ''
-    ${neovimPrimaMateriaUnwrapped}/bin/nvim "$@"
+    OPENAI_API_KEY=${secrets.openai-api-key} ${neovimPrimaMateriaUnwrapped}/bin/nvim "$@"
   '';
 }
 
