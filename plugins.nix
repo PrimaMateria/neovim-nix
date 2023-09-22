@@ -18,6 +18,7 @@ with pkgs.vimPlugins; [
       p.scss
       p.tsx
       p.rust
+      p.kotlin
     ]
   ))
   plenary-nvim
