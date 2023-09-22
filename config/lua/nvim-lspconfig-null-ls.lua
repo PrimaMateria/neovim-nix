@@ -10,6 +10,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettier.with({
 			disabled_filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+			extra_args = { "--prose-wrap", "always" },
 		}),
 		null_ls.builtins.code_actions.statix,
 		null_ls.builtins.formatting.rustfmt,
