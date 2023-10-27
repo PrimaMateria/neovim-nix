@@ -19,6 +19,8 @@ with pkgs.vimPlugins; [
       p.tsx
       p.rust
       p.kotlin
+      p.markdown
+      p.markdown_inline
     ]
   ))
   plenary-nvim

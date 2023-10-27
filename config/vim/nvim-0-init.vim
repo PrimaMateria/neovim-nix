@@ -2,7 +2,7 @@ syntax on
 filetype plugin indent on
 
 let mapleader = " "
-" inoremap <C-j><C-j> <C-\><C-n>
+" inoremap <C-j><C-j> <C-\><C-n>init
 " tnoremap <C-j><C-j> <C-\><C-n>
 tnoremap <C-]><C-[> <C-\><C-n>
 inoremap <C-]><C-[> <C-\><C-n>
