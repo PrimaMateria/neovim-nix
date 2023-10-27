@@ -1,7 +1,5 @@
 local keymap = vim.keymap.set
-local saga = require("lspsaga")
-
-saga.init_lsp_saga()
+require("lspsaga").setup({})
 
 keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
