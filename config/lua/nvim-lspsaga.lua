@@ -1,5 +1,9 @@
 local keymap = vim.keymap.set
-require("lspsaga").setup({})
+require("lspsaga").setup({
+	lightbulb = {
+		virtual_text = false,
+	},
+})
 
 keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
@@ -25,3 +29,4 @@ keymap(
 	"<cmd>lua vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })<CR>",
 	{ silent = true }
 )
+keymap({ "n", "t" }, "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { silent = true })
