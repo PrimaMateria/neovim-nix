@@ -1,10 +1,17 @@
 { pkgs }:
 with pkgs.vimPlugins; [
-  gruvbox-community
+  # plenary-nvim
+  # nui-nvim
+  # popup-nvim
+  # lush-nvim
+  # sqlite-lua
+  # diffview-nvim 
+  # git-messenger-vim
+
   nvim-base16
   harpoon
   lualine-nvim
-  lush-nvim
+
   (nvim-treesitter.withPlugins (
     p: [
       p.javascript
@@ -23,35 +30,30 @@ with pkgs.vimPlugins; [
       p.markdown_inline
     ]
   ))
-  plenary-nvim
-  nui-nvim
-  popup-nvim
+
   tabular
   telescope-nvim
-  sqlite-lua
+
   ultisnips
   vim-nix
+
   nvim-web-devicons
   nvim-tree-lua
   lspsaga-nvim
-  vim-abolish
+
+  vim-abolish # Subvert
   vim-dirdiff
+
   ChatGPT-nvim
-  lsplens
+  lsplens # references
   indent-blankline-nvim
   nvim-colorizer-lua
-  neogen
   muren
-
-  nvim-navic
-  navbuddy
 
   # Git
   vim-fugitive
   vim-gitgutter
-  diffview-nvim
   lazygit-nvim
-  git-messenger-vim
 
   # Commenting
   vim-commentary

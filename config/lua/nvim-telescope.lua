@@ -26,6 +26,7 @@ telescope.setup({
 					}
 
 					require("telescope.actions").close(prompt_bufnr)
+					-- require("telescope.builtin").find_files(opts)
 					require("telescope.builtin").find_files(opts)
 				end)
 				return true
@@ -40,6 +41,7 @@ vim.api.nvim_set_keymap("n", "<leader><tab>", ":lua require('telescope.builtin')
 -- vim.api.nvim_set_keymap("n", "<leader><tab>", ":lua require('telescope.builtin').buffers()<CR>", opt)
 vim.api.nvim_set_keymap("n", "<leader>`", ":lua require('telescope.builtin').live_grep()<CR>", opt)
 vim.api.nvim_set_keymap("n", "<leader>~", ":lua require('telescope.builtin').grep_string()<CR>", opt)
+-- vim.api.nvim_set_keymap("n", "<leader><leader>", ":lua require('telescope').extensions.recent_files.pick()<CR>", opt)
 vim.api.nvim_set_keymap("n", "<leader><leader>", ":lua require('telescope').extensions.recent_files.pick()<CR>", opt)
 
 -- LSP

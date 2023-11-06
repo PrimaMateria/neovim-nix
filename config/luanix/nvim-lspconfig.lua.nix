@@ -19,8 +19,6 @@
   }
   capabilities = vim.tbl_extend('keep', capabilities, lsp_status.capabilities)
 
-  local navbuddy = require("nvim-navbuddy")
-
   -- {
   --  name = "jdtls",
   --  setup = {
@@ -92,10 +90,6 @@
         -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
 
         lsp_status.on_attach(client)
-
-        if client.server_capabilities.documentSymbolProvider then
-          navbuddy.attach(client, bufnr)
-        end
 
         if server.on_attach then
           server.on_attach(client, bufnr)
