@@ -6,9 +6,11 @@ require("nvim-tree").setup({
 		root_folder_label = false,
 	},
 	view = {
-		adaptive_size = true,
 		number = true,
 		relativenumber = true,
+		width = {
+			max = 40,
+		},
 	},
 	git = {
 		ignore = false,
