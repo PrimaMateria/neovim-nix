@@ -3,6 +3,9 @@ require("lspsaga").setup({
 	lightbulb = {
 		virtual_text = false,
 	},
+	symbol_in_winbar = {
+		enable = false,
+	},
 })
 
 keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })

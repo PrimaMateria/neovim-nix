@@ -10,6 +10,12 @@ require("lualine").setup({
 		lualine_c = { "require'lsp-status'.status()" },
 	},
 
+	winbar = {
+		lualine_c = { "filename" },
+	},
+	inactive_winbar = {
+		lualine_c = { "filename" },
+	},
 	tabline = {
 		lualine_a = { {
 			"tabs",
