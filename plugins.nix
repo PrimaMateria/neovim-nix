@@ -49,6 +49,7 @@ with pkgs.vimPlugins; [
   indent-blankline-nvim
   nvim-colorizer-lua
   muren
+  vim-illuminate
 
   # Git
   vim-fugitive

@@ -4,12 +4,13 @@ vim.g.loaded_netrwPlugin = 1
 require("nvim-tree").setup({
 	renderer = {
 		root_folder_label = false,
+		symlink_destination = false,
 	},
 	view = {
 		number = true,
 		relativenumber = true,
 		width = {
-			max = 40,
+			max = -1,
 		},
 	},
 	git = {
