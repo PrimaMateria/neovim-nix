@@ -16,7 +16,7 @@ keymap({ "n", "v" }, ",aa", "<cmd>Lspsaga code_action<CR>", { silent = true })
 
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 
-keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+keymap("n", "gh", "<cmd>Lspsaga finder<CR>", { silent = true })
 
 keymap("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
 
