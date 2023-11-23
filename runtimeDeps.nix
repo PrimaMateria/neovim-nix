@@ -1,5 +1,6 @@
 { pkgs }:
 with pkgs; [
+  bashInteractive
   ripgrep
   clang
   xsel
