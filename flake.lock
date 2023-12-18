@@ -36,11 +36,11 @@
     "lsplens-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1698780936,
-        "narHash": "sha256-J6NAxvtUFW46Xnuayh9HXQmOYIJ93nF8bIWQ/bW2+r8=",
+        "lastModified": 1699953967,
+        "narHash": "sha256-xp3AYQhpjYFYar/UTVvm+X0TCY4K1oc+i0HAMtBaO20=",
         "owner": "VidocqH",
         "repo": "lsp-lens.nvim",
-        "rev": "34b6aa13b0196d6b0d5a87cca6d7104ac5071a59",
+        "rev": "d055ed2d3b199bcdfb409b8b184c26c8d9899ac6",
         "type": "github"
       },
       "original": {
@@ -107,11 +107,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1699298696,
-        "narHash": "sha256-dz44A1PS8yeIk69HShN5gIF/cu/onf92VJFpy5YbkK4=",
+        "lastModified": 1700837364,
+        "narHash": "sha256-UFuhCXlUn5yxbhTV7isl+dql7VCK6yM9VgYxSmdk8ZM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a3708ce91cb36b05a57bb900f567ea6d567949bf",
+        "rev": "a78de4f116747585ebdb6f3d725268a7e068c554",
         "type": "github"
       },
       "original": {
@@ -123,11 +123,11 @@
     "noneckpain-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1698317254,
-        "narHash": "sha256-JzNz+f7kCaBl52aVGWUYbY32bIvZBPVRFtACZGQNdsg=",
+        "lastModified": 1699653050,
+        "narHash": "sha256-CUVjsG+ldsLgulLjIaowh9LQZGFLxNI65CvvN9jHot0=",
         "owner": "shortcuts",
         "repo": "no-neck-pain.nvim",
-        "rev": "e32701cd26c590be614fc85d7cf36c9994c3a936",
+        "rev": "2bcb6b761a34c69739da9aab642839b59236b801",
         "type": "github"
       },
       "original": {
