@@ -5,7 +5,7 @@ with pkgs.vimPlugins; [
   # popup-nvim
   # lush-nvim
   # sqlite-lua
-  # diffview-nvim 
+  diffview-nvim
   # git-messenger-vim
 
   nvim-base16
