@@ -51,6 +51,9 @@ with pkgs.vimPlugins; [
   muren
   vim-illuminate
 
+  noice-nvim
+  nvim-notify
+
   # Git
   vim-fugitive
   vim-gitgutter
