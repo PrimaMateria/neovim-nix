@@ -74,6 +74,7 @@ with pkgs.vimPlugins; [
 
   nvim-lspconfig
   lsp-status-nvim
-  null-ls-nvim
   telescope-recent-files
+  nvim-lint
+  conform-nvim
 ]
