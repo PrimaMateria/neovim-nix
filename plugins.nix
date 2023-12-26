@@ -5,7 +5,6 @@ with pkgs.vimPlugins; [
   # popup-nvim
   # lush-nvim
   # sqlite-lua
-  diffview-nvim
   # git-messenger-vim
 
   nvim-base16
@@ -32,17 +31,20 @@ with pkgs.vimPlugins; [
   ))
 
   tabular
+
   telescope-nvim
+  telescope-recent-files
+  telescope-frecency-nvim
 
   ultisnips
-  vim-nix
+  # vim-nix
 
   nvim-web-devicons
   nvim-tree-lua
-  lspsaga-nvim
 
   vim-abolish # Subvert
   vim-dirdiff
+  diffview-nvim
 
   ChatGPT-nvim
   lsplens # references
@@ -74,7 +76,7 @@ with pkgs.vimPlugins; [
 
   nvim-lspconfig
   lsp-status-nvim
-  telescope-recent-files
+  lspsaga-nvim
   nvim-lint
   conform-nvim
 ]
