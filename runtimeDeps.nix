@@ -5,6 +5,8 @@ with pkgs; [
   clang
   xsel
   stylua
+  luajitPackages.luacheck
+
   ltex-ls
   lazygit
   # nix
