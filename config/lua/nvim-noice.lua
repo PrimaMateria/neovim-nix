@@ -9,8 +9,8 @@ require("noice").setup({
 	},
 	-- you can enable a preset for easier configuration
 	presets = {
-		bottom_search = true, -- use a classic bottom cmdline for search
-		command_palette = true, -- position the cmdline and popupmenu together
+		bottom_search = false, -- use a classic bottom cmdline for search
+		command_palette = false, -- position the cmdline and popupmenu together
 		long_message_to_split = true, -- long messages will be sent to a split
 		inc_rename = false, -- enables an input dialog for inc-rename.nvim
 		lsp_doc_border = false, -- add a border to hover docs and signature help
@@ -21,6 +21,39 @@ require("noice").setup({
 		view_error = "notify", -- view for errors
 		view_warn = "notify", -- view for warnings
 		view_history = "messages", -- view for :messages
-		view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+		view_search = false, -- view for search count messages. Set to `false` to disable
+	},
+	views = {
+		cmdline_popup = {
+			position = {
+				row = 30,
+				col = "50%",
+			},
+			size = {
+				width = 150,
+				height = "auto",
+			},
+			border = {
+				style = "single",
+			},
+		},
+		popupmenu = {
+			relative = "editor",
+			position = {
+				row = 33,
+				col = "50%",
+			},
+			size = {
+				width = 150,
+				height = 10,
+			},
+			border = {
+				style = "single",
+				padding = { 0, 1 },
+			},
+			win_options = {
+				winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+			},
+		},
 	},
 })
