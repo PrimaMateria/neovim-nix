@@ -1,11 +1,6 @@
 { pkgs }:
 with pkgs.vimPlugins; [
-  # plenary-nvim
-  # nui-nvim
-  # popup-nvim
-  # lush-nvim
-  # sqlite-lua
-  # git-messenger-vim
+  # vim-nix
 
   nvim-base16
   harpoon
@@ -37,7 +32,6 @@ with pkgs.vimPlugins; [
   telescope-frecency-nvim
 
   ultisnips
-  # vim-nix
 
   nvim-web-devicons
   nvim-tree-lua
@@ -55,6 +49,7 @@ with pkgs.vimPlugins; [
 
   noice-nvim
   nvim-notify
+  hardtime-nvim
 
   # Git
   vim-fugitive
