@@ -34,7 +34,7 @@ telescope.setup({
 		},
 
 		frecency = {
-			show_scores = true,
+			show_scores = false,
 			show_unindexed = true,
 			default_workspace = "CWD",
 		},
