@@ -24,11 +24,6 @@ augroup primamateria-usability
   " Don't add comment sign on new line automatically
   autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
   autocmd FileType help wincmd L
-
-  " Issue with resetting eol
-  autocmd BufEnter * set eol
-  autocmd BufEnter * set textwidth=80
-  autocmd BufEnter * set formatexpr=
 augroup END
 
 augroup highlight_yank
