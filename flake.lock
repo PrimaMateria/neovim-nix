@@ -5,11 +5,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1694529238,
-        "narHash": "sha256-zsNZZGTGnMOf9YpHKJqMSsa0dXbfmxeoJ7xHlrt+xmY=",
+        "lastModified": 1701680307,
+        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "ff7b65b44d01cf9ba6a71320833626af21126384",
+        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
         "type": "github"
       },
       "original": {
@@ -36,11 +36,11 @@
     "lsplens-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1699953967,
-        "narHash": "sha256-xp3AYQhpjYFYar/UTVvm+X0TCY4K1oc+i0HAMtBaO20=",
+        "lastModified": 1701948425,
+        "narHash": "sha256-zj/Gn/40jnDNh05OFc23LNNuFn1PnIAUDfPquEWpAlk=",
         "owner": "VidocqH",
         "repo": "lsp-lens.nvim",
-        "rev": "d055ed2d3b199bcdfb409b8b184c26c8d9899ac6",
+        "rev": "48bb1a7e271424c15f3d588d54adc9b7c319d977",
         "type": "github"
       },
       "original": {
@@ -107,15 +107,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1700837364,
-        "narHash": "sha256-UFuhCXlUn5yxbhTV7isl+dql7VCK6yM9VgYxSmdk8ZM=",
-        "owner": "NixOS",
+        "lastModified": 1705058962,
+        "narHash": "sha256-9VDFc5UgDSM5n3GZtwQqR7I8m82EL4OUffaKOmqSDoY=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a78de4f116747585ebdb6f3d725268a7e068c554",
+        "rev": "ae53c7551ffdd7f3038ebc131732053511ae87fc",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
+        "owner": "nixos",
+        "ref": "master",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -123,11 +124,11 @@
     "noneckpain-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1699653050,
-        "narHash": "sha256-CUVjsG+ldsLgulLjIaowh9LQZGFLxNI65CvvN9jHot0=",
+        "lastModified": 1703460188,
+        "narHash": "sha256-q+3+DI5j/DVrCK/U9UP+SOpbepyHUZNNDw0zabVymL8=",
         "owner": "shortcuts",
         "repo": "no-neck-pain.nvim",
-        "rev": "2bcb6b761a34c69739da9aab642839b59236b801",
+        "rev": "b305821ca45897db6276e9ae5893747bb24040c7",
         "type": "github"
       },
       "original": {
