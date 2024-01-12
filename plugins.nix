@@ -74,4 +74,6 @@ with pkgs.vimPlugins; [
   lspsaga-nvim
   nvim-lint
   conform-nvim
+
+  fzf-lua
 ]

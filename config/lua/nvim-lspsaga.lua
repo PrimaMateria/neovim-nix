@@ -6,6 +6,12 @@ require("lspsaga").setup({
 	symbol_in_winbar = {
 		enable = false,
 	},
+	finder = {
+		layout = "float",
+		max_height = 0.8,
+		left_width = 0.4,
+		right_width = 0.4,
+	},
 })
 
 keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
@@ -16,7 +22,7 @@ keymap({ "n", "v" }, ",aa", "<cmd>Lspsaga code_action<CR>", { silent = true })
 
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 
-keymap("n", "gh", "<cmd>Lspsaga finder<CR>", { silent = true })
+-- keymap("n", "gh", "<cmd>Lspsaga finder<CR>", { silent = true })
 
 keymap("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
 
