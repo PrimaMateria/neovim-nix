@@ -37,7 +37,7 @@ telescope.setup({
 			show_scores = false,
 			show_unindexed = true,
 			default_workspace = "CWD",
-			ignore_patterns = { "*.git/*", "*node_modules/*" },
+			ignore_patterns = { "*.git/*", "*node_modules/*", "*dist/*", "*build/*" },
 		},
 	},
 })
