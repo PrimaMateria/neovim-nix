@@ -49,7 +49,6 @@ with pkgs.vimPlugins; [
 
   noice-nvim
   nvim-notify
-  hardtime-nvim
 
   # Git
   vim-fugitive
