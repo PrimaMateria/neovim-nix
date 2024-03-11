@@ -2,7 +2,7 @@
 with pkgs.vimPlugins; [
   # vim-nix
 
-  nvim-base16
+  base16-nvim
   harpoon
   lualine-nvim
 

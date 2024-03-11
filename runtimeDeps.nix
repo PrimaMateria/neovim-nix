@@ -9,14 +9,18 @@ with pkgs; [
 
   ltex-ls
   lazygit
+
   # nix
   statix
-  rnix-lsp
+  #TODO: nix security issue
+  # rnix-lsp
+
   # rust 
   rustc
   rust-analyzer
   rustfmt
   cargo
+
   # packages with results in /lib/node_modules/.bin must come at the end
   pyright
   nodePackages.typescript

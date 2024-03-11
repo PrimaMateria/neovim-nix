@@ -56,18 +56,19 @@
         -- vim.keymap.set("n", ",o", ":TSLspOrganize<CR>", bufopts)
       end,
     },
-    { 
-      name = "rnix",
-      on_attach = function(client, bufnr)
-        -- autoformat buffer on save
-        local augroup = vim.api.nvim_create_augroup('rnix autoformat', { clear = true })
-        vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
-          buffer = bufnr,
-          group = augroup,
-          command = 'lua vim.lsp.buf.format()',
-        })
-      end,
-    },
+    -- TODO: nix security issue 
+    -- { 
+    --   name = "rnix",
+    --   on_attach = function(client, bufnr)
+    --     -- autoformat buffer on save
+    --     local augroup = vim.api.nvim_create_augroup('rnix autoformat', { clear = true })
+    --     vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+    --       buffer = bufnr,
+    --       group = augroup,
+    --       command = 'lua vim.lsp.buf.format()',
+    --     })
+    --   end,
+    -- },
     {
       name = "rust_analyzer"
     }
