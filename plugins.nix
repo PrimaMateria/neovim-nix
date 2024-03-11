@@ -44,7 +44,6 @@ with pkgs.vimPlugins; [
   lsplens # references
   indent-blankline-nvim
   nvim-colorizer-lua
-  muren
   vim-illuminate
 
   noice-nvim
