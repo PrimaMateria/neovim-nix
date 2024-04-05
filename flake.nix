@@ -29,10 +29,10 @@
   outputs = inputs@{ self, ... }:
     inputs.flake-utils.lib.eachDefaultSystem (system:
       let
-        overlayFlakeInputs = prev: final: {
+        overlayFlakeInputs = final: prev: {
           neovim = inputs.neovim.packages.${prev.system}.neovim;
 
-          vimPlugins = final.vimPlugins // {
+          vimPlugins = prev.vimPlugins // {
             telescope-recent-files = import ./packages/vimPlugins/telescopeRecentFiles.nix {
               src = inputs.telescope-recent-files-src;
               pkgs = prev;
@@ -45,9 +45,13 @@
           };
         };
 
-        overlayNeovimPrimaMateria = prev: final: {
+        overlayNeovimPrimaMateria = final: prev: {
           neovimPrimaMateria = import ./packages/neovimPrimaMateria.nix {
-            pkgs = prev;
+            pkgs = final;
+          };
+
+          lazygit = import ./packages/lazygit.nix {
+            inherit final prev;
           };
         };
 
