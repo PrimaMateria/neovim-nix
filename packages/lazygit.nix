@@ -4,11 +4,12 @@ let
     name = "lazygitConfig.yaml";
     text = ''
       os:
-        # TODO: this still doesn't work. nvim command not found. Maybe I could
-        # replicate the
-        # https://github.com/jesseduffield/lazygit/blob/53f0c4aeffadabfc0bad783831843fdd128b51be/pkg/config/editor_presets.go#L54a
-        # but feed the nvim from final 
-        editPreset: 'nvim-remote'
+        edit: '$NVIM_PRIMAMATERIA --server "$NVIM" --remote-tab {{filename}}'
+        editAtLine: '$NVIM_PRIMAMATERIA --server "$NVIM" --remote-tab {{filename}}; [ -z "$NVIM" ] || $NVIM_PRIMAMATERIA --server "$NVIM" --remote-send ":{{line}}<CR>"'
+        editAtLineAndWait: '$NVIM_PRIMAMATERIA +{{line}} {{filename}}'
+        openDirInEditor: '$NVIM_PRIMAMATERIA --server "$NVIM" --remote-tab {{dir}}'
+        suspend: false
+
       git:
         commitPrefixes:
           # TODO: add real projects' names or create a generator

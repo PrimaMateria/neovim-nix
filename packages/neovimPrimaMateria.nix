@@ -24,12 +24,10 @@ let
         packages.all.start = plugins;
       };
     };
-
 in pkgs.writeShellApplication {
   name = "nvim";
   runtimeInputs = [ neovimRuntimeDependencies ];
   text = ''
-    OPENAI_API_KEY=${secrets.openai-api-key} ${neovimPrimaMateriaUnwrapped}/bin/nvim "$@"
+    NVIM_PRIMAMATERIA=${neovimPrimaMateriaUnwrapped}/bin/nvim OPENAI_API_KEY=${secrets.openai-api-key} ${neovimPrimaMateriaUnwrapped}/bin/nvim "$@"
   '';
 }
-
