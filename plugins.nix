@@ -1,4 +1,4 @@
-{ pkgs }:
+{pkgs}:
 with pkgs.vimPlugins; [
   # vim-nix
 
@@ -74,4 +74,5 @@ with pkgs.vimPlugins; [
   conform-nvim
 
   fzf-lua
+  todo-comments-nvim
 ]
