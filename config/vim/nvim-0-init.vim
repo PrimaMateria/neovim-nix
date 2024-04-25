@@ -62,17 +62,3 @@ augroup theme
    autocmd ColorScheme * highlight Comment guifg=#bbbbbb
 augroup END
 
-"-------------------------------------------------- 
-" Tabs
-"-------------------------------------------------- 
-nnoremap <A-j> :tabprevious<cr>
-nnoremap <A-k> :tabnext<cr>
-nnoremap <A-1> :tabnext1<cr>
-nnoremap <A-2> :tabnext2<cr>
-nnoremap <A-3> :tabnext3<cr>
-nnoremap <A-4> :tabnext4<cr>
-nnoremap <A-5> :tabnext5<cr>
-nnoremap <A-6> :tabnext6<cr>
-nnoremap <A-7> :tabnext7<cr>
-nnoremap <A-8> :tabnext8<cr>
-nnoremap <A-9> :tabnext9<cr>
