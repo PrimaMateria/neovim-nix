@@ -7,7 +7,8 @@
     };
 
     neovim = {
-      url = "github:neovim/neovim/v0.9.5?dir=contrib";
+      # url = "github:neovim/neovim/v0.9.5?dir=contrib";
+      url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -26,13 +27,14 @@
     };
   };
 
-  outputs = inputs@{ self, ... }:
-    inputs.flake-utils.lib.eachDefaultSystem (system:
-      let
-        overlayFlakeInputs = final: prev: {
-          neovim = inputs.neovim.packages.${prev.system}.neovim;
+  outputs = inputs @ {self, ...}:
+    inputs.flake-utils.lib.eachDefaultSystem (system: let
+      overlayFlakeInputs = final: prev: {
+        neovim = inputs.neovim.packages.${prev.system}.neovim;
 
-          vimPlugins = prev.vimPlugins // {
+        vimPlugins =
+          prev.vimPlugins
+          // {
             telescope-recent-files = import ./packages/vimPlugins/telescopeRecentFiles.nix {
               src = inputs.telescope-recent-files-src;
               pkgs = prev;
@@ -43,32 +45,31 @@
               pkgs = prev;
             };
           };
+      };
+
+      overlayNeovimPrimaMateria = final: prev: {
+        neovimPrimaMateria = import ./packages/neovimPrimaMateria.nix {
+          pkgs = final;
         };
 
-        overlayNeovimPrimaMateria = final: prev: {
-          neovimPrimaMateria = import ./packages/neovimPrimaMateria.nix {
-            pkgs = final;
-          };
+        lazygit = import ./packages/lazygit.nix {
+          inherit final prev;
+        };
+      };
 
-          lazygit = import ./packages/lazygit.nix {
-            inherit final prev;
-          };
-        };
+      pkgs = import inputs.nixpkgs {
+        system = system;
+        overlays = [overlayFlakeInputs overlayNeovimPrimaMateria];
+      };
+    in {
+      packages = rec {
+        nvim = pkgs.neovimPrimaMateria;
+        default = nvim;
+      };
 
-        pkgs = import inputs.nixpkgs {
-          system = system;
-          overlays = [ overlayFlakeInputs overlayNeovimPrimaMateria ];
-        };
-      in
-      {
-        packages = rec {
-          nvim = pkgs.neovimPrimaMateria;
-          default = nvim;
-        };
-
-        apps = rec {
-          nvim = inputs.flake-utils.lib.mkApp { drv = self.packages.${system}.nvim; };
-          default = nvim;
-        };
-      });
+      apps = rec {
+        nvim = inputs.flake-utils.lib.mkApp {drv = self.packages.${system}.nvim;};
+        default = nvim;
+      };
+    });
 }
