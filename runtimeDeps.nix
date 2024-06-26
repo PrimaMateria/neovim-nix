@@ -1,4 +1,4 @@
-{ pkgs }:
+{pkgs}:
 with pkgs; [
   bashInteractive
   ripgrep
@@ -7,7 +7,6 @@ with pkgs; [
   stylua
   luajitPackages.luacheck
 
-  ltex-ls
   lazygit
 
   # nix
@@ -16,7 +15,7 @@ with pkgs; [
   #TODO: nix security issue
   # rnix-lsp
 
-  # rust 
+  # rust
   rustc
   rust-analyzer
   rustfmt
@@ -29,4 +28,3 @@ with pkgs; [
   nodePackages.eslint_d
   nodePackages.prettier
 ]
-

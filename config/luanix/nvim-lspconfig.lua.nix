@@ -30,13 +30,6 @@
     -- { name = "pyright" },
     -- { name = "grammarly", setup = { cmd = { "grammarly-languageserver", "--stdio" } } },
     {
-      name = "ltex",
-      setup = {
-        autostart = false,
-        filetypes = { "markdown", "gitcommit", "plaintext" },
-      },
-    },
-    {
       name = "tsserver",
       setup = {
         init_options = {

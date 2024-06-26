@@ -32,3 +32,4 @@ set re=0
 set eol
 set textwidth=80
 set formatexpr=
+set spelllang=en
