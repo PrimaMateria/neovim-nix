@@ -11,6 +11,11 @@ inoremap <C-]><C-[> <C-\><C-n>
 " copy last message to clipboard
 nnoremap <leader>m :let @+=trim(execute('1messages')) \| echo 'copied' <cr>
 
+" Remap Ctrl+q to start recording a macro
+nnoremap <C-q> q
+" Disable the original q keybinding
+nnoremap q <Nop>
+
 "-------------------------------------------------- 
 " \
 "-------------------------------------------------- 
