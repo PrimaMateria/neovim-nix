@@ -75,4 +75,7 @@ with pkgs.vimPlugins; [
 
   fzf-lua
   todo-comments-nvim
+
+  # Find and Replace
+  nvim-spectre
 ]
