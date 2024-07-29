@@ -15,36 +15,25 @@ telescope.setup({
 		},
 	},
 	extensions = {
-		recent_files = {
-			only_cwd = true,
-			attach_mappings = function(_, map)
-				map({ "i", "n" }, "<C-a>", function(prompt_bufnr)
-					local current_picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
-					local opts = {
-						hidden = true,
-						default_text = current_picker:_get_prompt(),
-					}
-
-					require("telescope.actions").close(prompt_bufnr)
-					-- require("telescope.builtin").find_files(opts)
-					require("telescope.builtin").find_files(opts)
-				end)
-				return true
-			end,
-		},
-
 		frecency = {
 			db_safe_mode = false,
 			show_scores = false,
 			show_unindexed = true,
 			default_workspace = "CWD",
 			ignore_patterns = { "*.git/*", "*node_modules/*", "*dist/*", "*build/*" },
+			sorter = require("telescope.config").values.file_sorter(),
+		},
+		fzf = {
+			fuzzy = true,
+			override_generic_sorter = true,
+			override_file_sorter = true,
+			case_mode = "smart_case",
 		},
 	},
 })
 
-telescope.load_extension("recent_files")
 telescope.load_extension("frecency")
+telescope.load_extension("fzf")
 
 vim.api.nvim_set_keymap("n", "gd", ":lua require('telescope.builtin').lsp_definitions()<cr>", opt)
 vim.api.nvim_set_keymap("n", "<leader><tab>", ":lua require('telescope.builtin').find_files()<CR>", opt)

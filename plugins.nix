@@ -28,8 +28,8 @@ with pkgs.vimPlugins; [
   tabular
 
   telescope-nvim
-  telescope-recent-files
   telescope-frecency-nvim
+  telescope-fzf-native-nvim
 
   ultisnips
 
