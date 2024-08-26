@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "avante-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724660222,
+        "narHash": "sha256-rjt8WK4LL5rs6KUDeYn+UQmlTgm6TZ+tMYnd5VCn3Wc=",
+        "owner": "yetone",
+        "repo": "avante.nvim",
+        "rev": "0769cef29114cea25a6f6a4d5b065e4a09e72326",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yetone",
+        "repo": "avante.nvim",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -238,6 +254,7 @@
     },
     "root": {
       "inputs": {
+        "avante-src": "avante-src",
         "flake-utils": "flake-utils",
         "lsplens-src": "lsplens-src",
         "neovim": "neovim",

@@ -78,4 +78,8 @@ with pkgs.vimPlugins; [
 
   # Find and Replace
   nvim-spectre
+
+  # AI helper
+  render-markdown
+  avante
 ]

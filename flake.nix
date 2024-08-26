@@ -22,6 +22,11 @@
       flake = false;
     };
 
+    avante-src = {
+      url = "github:yetone/avante.nvim";
+      flake = false;
+    };
+
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
@@ -42,6 +47,11 @@
 
             lsplens = import ./packages/vimPlugins/lsplens.nix {
               src = inputs.lsplens-src;
+              pkgs = prev;
+            };
+
+            avante = import ./packages/vimPlugins/avante.nix {
+              src = inputs.avante-src;
               pkgs = prev;
             };
           };
