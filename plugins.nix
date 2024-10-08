@@ -81,6 +81,6 @@ with pkgs.vimPlugins; [
   nvim-spectre
 
   # AI helper
-  render-markdown
+  render-markdown-nvim
   avante
 ]
