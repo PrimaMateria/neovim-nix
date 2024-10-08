@@ -1,4 +1,5 @@
 require("avante").setup({
+	provider = "openai",
 	mappings = {
 		ask = ",sd",
 		edit = ",sf",
