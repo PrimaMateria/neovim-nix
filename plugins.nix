@@ -35,6 +35,7 @@ with pkgs.vimPlugins; [
 
   nvim-web-devicons
   nvim-tree-lua
+  oil-nvim
 
   vim-abolish # Subvert
   vim-dirdiff
