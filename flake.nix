@@ -12,6 +12,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    neovim-plugins = {
+      url = "github:zachcoyle/neovim-plugins-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     telescope-recent-files-src = {
       url = "github:smartpde/telescope-recent-files";
       flake = false;
@@ -69,7 +74,11 @@
 
       pkgs = import inputs.nixpkgs {
         system = system;
-        overlays = [overlayFlakeInputs overlayNeovimPrimaMateria];
+        overlays = [
+          inputs.neovim-plugins.overlays.default
+          overlayFlakeInputs
+          overlayNeovimPrimaMateria
+        ];
       };
     in {
       packages = rec {
