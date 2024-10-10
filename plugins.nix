@@ -14,6 +14,7 @@ with pkgs.vimPlugins; [
       p.html
       p.bash
       p.css
+      p.json
       p.jsdoc
       p.nix
       p.scss
@@ -22,6 +23,7 @@ with pkgs.vimPlugins; [
       p.kotlin
       p.markdown
       p.markdown_inline
+      p.regex
     ]
   ))
 

@@ -30,25 +30,28 @@
     -- { name = "pyright" },
     -- { name = "grammarly", setup = { cmd = { "grammarly-languageserver", "--stdio" } } },
     {
-      name = "tsserver",
-      setup = {
-        init_options = {
-          maxTsServerMemory = 8192,
-          disableAutomaticTypingAcquisition = true,
-          tsserver = {
-            path = "${pkgs.nodePackages.typescript}/lib/node_modules/typescript/lib",
-          },
-          -- preferences = {
-          -- },
-        },
-      },
-      on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.semanticTokensProvider = false
-        -- vim.keymap.set("n", ",i", ":TSLspImportAll<CR>", bufopts)
-        -- vim.keymap.set("n", ",o", ":TSLspOrganize<CR>", bufopts)
-      end,
+      name = "ts_ls"
     },
+    -- {
+    --   name = "tsserver",
+    --   setup = {
+    --     init_options = {
+    --       maxTsServerMemory = 8192,
+    --       disableAutomaticTypingAcquisition = true,
+    --       tsserver = {
+    --         path = "${pkgs.nodePackages.typescript}/lib/node_modules/typescript/lib",
+    --       },
+    --       -- preferences = {
+    --       -- },
+    --     },
+    --   },
+    --   on_attach = function(client, bufnr)
+    --     client.server_capabilities.documentFormattingProvider = false
+    --     client.server_capabilities.semanticTokensProvider = false
+    --     -- vim.keymap.set("n", ",i", ":TSLspImportAll<CR>", bufopts)
+    --     -- vim.keymap.set("n", ",o", ":TSLspOrganize<CR>", bufopts)
+    --   end,
+    -- },
     -- TODO: nix security issue 
     -- { 
     --   name = "rnix",
