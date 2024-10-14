@@ -1,5 +1,9 @@
-{ pkgs, src }:
+{
+  pkgs,
+  src,
+}:
 pkgs.vimUtils.buildVimPlugin {
-  name = "lsplens";
+  name = "avante";
   inherit src;
+  dontBuild = true;
 }

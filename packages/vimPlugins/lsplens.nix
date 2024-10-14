@@ -3,7 +3,6 @@
   src,
 }:
 pkgs.vimUtils.buildVimPlugin {
-  name = "avante";
+  name = "lsplens";
   inherit src;
-  dontBuild = true;
 }

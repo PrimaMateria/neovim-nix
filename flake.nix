@@ -12,11 +12,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovim-plugins = {
-      url = "github:zachcoyle/neovim-plugins-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     telescope-recent-files-src = {
       url = "github:smartpde/telescope-recent-files";
       flake = false;
@@ -24,11 +19,6 @@
 
     lsplens-src = {
       url = "github:VidocqH/lsp-lens.nvim";
-      flake = false;
-    };
-
-    avante-src = {
-      url = "github:yetone/avante.nvim";
       flake = false;
     };
 
@@ -54,11 +44,6 @@
               src = inputs.lsplens-src;
               pkgs = prev;
             };
-
-            avante = import ./packages/vimPlugins/avante.nix {
-              src = inputs.avante-src;
-              pkgs = prev;
-            };
           };
       };
 
@@ -75,7 +60,6 @@
       pkgs = import inputs.nixpkgs {
         system = system;
         overlays = [
-          inputs.neovim-plugins.overlays.default
           overlayFlakeInputs
           overlayNeovimPrimaMateria
         ];
