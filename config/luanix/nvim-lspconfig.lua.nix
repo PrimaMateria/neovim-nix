@@ -1,6 +1,5 @@
 # vim: ft=lua
-{ pkgs }:
-''
+{pkgs}: ''
   local capabilities = {}
 
   local nvim_lsp = require("lspconfig")
@@ -52,8 +51,8 @@
     --     -- vim.keymap.set("n", ",o", ":TSLspOrganize<CR>", bufopts)
     --   end,
     -- },
-    -- TODO: nix security issue 
-    -- { 
+    -- TODO: nix security issue
+    -- {
     --   name = "rnix",
     --   on_attach = function(client, bufnr)
     --     -- autoformat buffer on save
