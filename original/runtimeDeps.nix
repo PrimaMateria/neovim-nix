@@ -21,6 +21,7 @@ with pkgs; [
   rustfmt
   cargo
 
+  # puml
   zulu
   graphviz
 

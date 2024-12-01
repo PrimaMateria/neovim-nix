@@ -1,0 +1,2 @@
+- treesitter plugins as separate list, then later combine
+- nodepackages dependencies as separate list
