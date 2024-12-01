@@ -85,4 +85,8 @@ with pkgs.vimPlugins; [
   render-markdown-nvim
   # AI helper
   # avante-nvim
+
+  plantuml-previewer-vim
+  open-browser-vim
+  plantuml-syntax
 ]
