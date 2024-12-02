@@ -17,6 +17,7 @@
       in (haumea.lib.load {
         src = ./src;
         inputs = {inherit pkgs;};
+        transformer = haumea.lib.transformers.liftDefault;
       })
     );
 
