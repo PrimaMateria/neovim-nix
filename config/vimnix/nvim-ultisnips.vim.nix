@@ -1,10 +1,10 @@
 # vim: ft=vim
-{ pkgs } : let
-  ultisnipsSnippets = import ../../packages/ultisnipsSnippets.nix { inherit pkgs; };
+{pkgs}: let
+  ultisnipsSnippets = import ../../packages/ultisnipsSnippets.nix {inherit pkgs;};
 in ''
-  "-------------------------------------------------- 
+  "--------------------------------------------------
   " UltiSnips
-  "-------------------------------------------------- 
+  "--------------------------------------------------
   let g:UltiSnipsExpandTrigger="<tab>"
   let g:UltiSnipsJumpForwardTrigger="<c-j>"
   let g:UltiSnipsJumpBackwardTrigger="<c-k>"
