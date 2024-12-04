@@ -6,6 +6,7 @@
     nixpkgs,
     utils,
     haumea,
+    neovimNightlyOverlay,
     ...
   }:
     utils.lib.eachDefaultSystem (
@@ -16,7 +17,10 @@
         };
       in (haumea.lib.load {
         src = ./src;
-        inputs = {inherit pkgs;};
+        inputs = {
+          inherit pkgs;
+          neovimNightly = neovimNightlyOverlay.packages.${system}.neovim;
+        };
         transformer = haumea.lib.transformers.liftDefault;
       })
     );
@@ -26,6 +30,12 @@
     utils.url = "github:numtide/flake-utils";
     haumea = {
       url = "github:nix-community/haumea";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+  inputs = {
+    neovimNightlyOverlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

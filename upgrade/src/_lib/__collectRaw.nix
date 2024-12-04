@@ -2,7 +2,7 @@
   # config dir is a united derivation that holds oll the raw config filex
   configDir = pkgs.stdenv.mkDerivation {
     name = "nvim-${dir}-configs";
-    src = ./${dir};
+    src = dir;
     installPhase = ''
       mkdir -p $out/
       cp ./* $out/

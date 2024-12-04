@@ -1,13 +1,10 @@
 {
   pkgs,
   super,
-}: {
-  vimDir,
-  vimnixDir,
-  luaDir,
-  luanixDir,
-}: let
-  # todo
+}: {configDir}: let
+  # It maps file to a vimscript source command. If the file has lua extenstion,
+  # then it sources it via `luafile`, otherwise it is assumed that it is
+  # vimscript file, and it sources it with `source`.
   sourceConfigFiles = files:
     builtins.concatStringsSep "\n" (builtins.map (file:
       (
@@ -19,11 +16,27 @@
     files);
 
   # Collect arrays of paths of all the configs.
-  vim = super.collectRaw {dir = vimDir;};
-  vimnix = super.collectNix {dir = vimnixDir;};
-  lua = super.collectRaw {dir = luaDir;};
-  luanix = super.collectNix {dir = luanixDir;};
+  vim =
+    if builtins.pathExists "${configDir}/vim"
+    then super.collectRaw {dir = "${configDir}/vim";}
+    else [];
+
+  vimnix =
+    if builtins.pathExists "${configDir}/vimnix"
+    then super.collectNix {dir = "${configDir}/vimnix";}
+    else [];
+
+  lua =
+    if builtins.pathExists "${configDir}/lua"
+    then super.collectRaw {dir = "${configDir}/lua";}
+    else [];
+
+  luanix =
+    if builtins.pathExists "${configDir}/luanix"
+    then super.collectNix {dir = "${configDir}/luanix";}
+    else [];
 in
-  # todo
+  # Transform config file sets to source command block and concatenate the
+  # blocks with new line.
   builtins.concatStringsSep "\n"
   (builtins.map (configs: sourceConfigFiles configs) [vim vimnix lua luanix])

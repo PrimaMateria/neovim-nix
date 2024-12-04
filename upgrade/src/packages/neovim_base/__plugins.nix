@@ -1,4 +1,5 @@
-{pkgs}: with pkgs.vimPlugins; [
+{pkgs}:
+with pkgs.vimPlugins; [
   # Look & feel
   # ----------------
   base16-nvim
@@ -14,6 +15,7 @@
 
   # Navigation
   # ----------------
+  harpoon
   nvim-tree-lua
   telescope-frecency-nvim
   telescope-fzf-native-nvim
@@ -36,7 +38,7 @@
   # ----------------
   ultisnips
 
-  # AI 
+  # AI
   # ----------------
   # avante-nvim
   ChatGPT-nvim
@@ -54,7 +56,7 @@
   # Language Server Protocol
   # ----------------
   lsp-status-nvim
-  lsplens # references
+  # lsplens # references #todo inputs
   lspsaga-nvim
   nvim-lspconfig
 
@@ -62,4 +64,4 @@
   # ----------------
   nvim-lint
   conform-nvim
-];
+]
