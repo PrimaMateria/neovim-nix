@@ -14,13 +14,11 @@
         pkgs = import nixpkgs {
           inherit system;
           config = {allowUnfree = true;};
+          overlays = [neovimNightlyOverlay.overlays.default];
         };
       in (haumea.lib.load {
         src = ./src;
-        inputs = {
-          inherit pkgs;
-          neovimNightly = neovimNightlyOverlay.packages.${system}.neovim;
-        };
+        inputs = {inherit pkgs;};
         transformer = haumea.lib.transformers.liftDefault;
       })
     );

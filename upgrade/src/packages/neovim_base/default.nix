@@ -1,6 +1,5 @@
 {
   pkgs,
-  neovimNightly,
   super,
   root,
 }: let
@@ -8,7 +7,7 @@
     configDir = ./__config;
   };
 
-  configuredNeovim = pkgs.wrapNeovim neovimNightly {
+  configuredNeovim = pkgs.wrapNeovim pkgs.neovim {
     configure = {
       inherit customRC;
       packages.all.start =

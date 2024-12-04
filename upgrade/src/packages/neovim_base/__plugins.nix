@@ -1,5 +1,9 @@
-{pkgs}:
-with pkgs.vimPlugins; [
+{
+  pkgs,
+  root,
+}:
+with pkgs.vimPlugins;
+with root.packages.vimPlugins; [
   # Look & feel
   # ----------------
   base16-nvim
@@ -20,6 +24,7 @@ with pkgs.vimPlugins; [
   telescope-frecency-nvim
   telescope-fzf-native-nvim
   telescope-nvim
+  fzf-lua # TODO: it shows lsp references on gh, not sure why telescope is not used
 
   # Refactoring
   # ----------------
@@ -56,7 +61,7 @@ with pkgs.vimPlugins; [
   # Language Server Protocol
   # ----------------
   lsp-status-nvim
-  # lsplens # references #todo inputs
+  lsplens # references
   lspsaga-nvim
   nvim-lspconfig
 
