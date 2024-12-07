@@ -32,7 +32,7 @@ with root.packages.vimPlugins; [
 
   # Snippets
   # ----------------
-  ultisnips
+  # ultisnips # TODO: replace
 
   # AI
   # ----------------
