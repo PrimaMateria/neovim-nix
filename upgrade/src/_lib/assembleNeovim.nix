@@ -7,10 +7,9 @@
   dependencies,
   plugins,
   treesitterPlugins,
-  configDir,
 }: let
   # Collect all configurations into one Resource Configuration (RC) text content.
-  customRC = super.collectConfig {inherit configDir;};
+  customRC = super.collectConfig {configDir = ../packages/neovim/${name}/__config;};
 
   # Join the plugins and treesitter plugins into one plugins list.
   allPlugins = plugins ++ [(pkgs.vimPlugins.nvim-treesitter.withPlugins treesitterPlugins)];
