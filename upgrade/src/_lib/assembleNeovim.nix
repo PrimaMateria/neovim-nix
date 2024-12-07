@@ -5,6 +5,7 @@
 }: {
   name,
   dependencies,
+  dependenciesEnd,
   plugins,
   treesitterPlugins,
 }: let
@@ -25,7 +26,7 @@
   # Create a derivation that aggregates symlinks of all runtime dependencies
   # from the list.
   joinedRuntimeDependencies = super.joinRuntimeDependencies {
-    inherit dependencies;
+    inherit dependencies ++ dependenciesEnd;
   };
 in
   # Create a shell application that runs Neovim with the specified runtime

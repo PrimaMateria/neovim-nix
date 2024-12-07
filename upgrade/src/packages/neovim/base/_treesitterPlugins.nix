@@ -4,4 +4,17 @@ with treesitterPlugins; [
   markdown
   markdown_inline
   regex
+  lua
+  nix
+  json
+
+  javascript
+  typescript
+  html
+  css
+  jsdoc
+  scss
+  tsx
+  rust
+  kotlin
 ]

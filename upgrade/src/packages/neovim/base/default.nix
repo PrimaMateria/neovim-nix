@@ -4,5 +4,6 @@
 }:
 root.lib.assembleNeovim {
   name = "base";
-  inherit (super) dependencies plugins treesitterPlugins;
+  # basedOn = "light";
+  inherit (super) dependencies dependenciesEnd plugins treesitterPlugins;
 }
