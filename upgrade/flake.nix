@@ -18,7 +18,10 @@
         };
       in (haumea.lib.load {
         src = ./src;
-        inputs = {inherit pkgs;};
+        inputs = {
+          inherit pkgs;
+          inherit (pkgs.lib) debug;
+        };
         transformer = haumea.lib.transformers.liftDefault;
       })
     );

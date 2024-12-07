@@ -1,7 +1,10 @@
+# Collect all configurations into one Resource Configuration (RC) text content.
 {
   pkgs,
   super,
-}: {configDir}: let
+}: edition: let
+  configDir = ../packages/neovim/${edition.manifest.name}/__config;
+
   # It maps file to a vimscript source command. If the file has lua extenstion,
   # then it sources it via `luafile`, otherwise it is assumed that it is
   # vimscript file, and it sources it with `source`.
@@ -18,22 +21,22 @@
   # Collect arrays of paths of all the configs.
   vim =
     if builtins.pathExists "${configDir}/vim"
-    then super.collectConfigRaw {dir = "${configDir}/vim";}
+    then super.collectEditionConfigRaw {dir = "${configDir}/vim";}
     else [];
 
   vimnix =
     if builtins.pathExists "${configDir}/vimnix"
-    then super.collectConfigNix {dir = "${configDir}/vimnix";}
+    then super.collectEditionConfigNix {dir = "${configDir}/vimnix";}
     else [];
 
   lua =
     if builtins.pathExists "${configDir}/lua"
-    then super.collectConfigRaw {dir = "${configDir}/lua";}
+    then super.collectEditionConfigRaw {dir = "${configDir}/lua";}
     else [];
 
   luanix =
     if builtins.pathExists "${configDir}/luanix"
-    then super.collectConfigNix {dir = "${configDir}/luanix";}
+    then super.collectEditionConfigNix {dir = "${configDir}/luanix";}
     else [];
 in
   # Transform config file sets to source command block and concatenate the

@@ -1,8 +1,2 @@
-{
-  super,
-  root,
-}:
-root.lib.assembleNeovim {
-  name = "light";
-  inherit (super) dependencies plugins treesitterPlugins;
-}
+{root}:
+root.lib.assembleNeovim {name = "light";}
