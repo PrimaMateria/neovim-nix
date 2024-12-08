@@ -1,7 +1,4 @@
-{
-  pkgs,
-  debug,
-}: hierarchy:
+{pkgs}: hierarchy:
 with builtins; let
   plugins = concatMap (edition:
     if edition ? plugins

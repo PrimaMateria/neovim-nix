@@ -1,4 +1,4 @@
-{super}: hierarchy:
+{root}: hierarchy:
 with builtins; let
   dependencies = concatMap (edition:
     if edition ? dependencies
@@ -13,6 +13,6 @@ with builtins; let
 in
   # Create a derivation that aggregates symlinks of all runtime dependencies
   # from the list.
-  super.joinRuntimeDependencies {
+  root.lib.joinRuntimeDeps {
     dependencies = dependencies ++ dependenciesEnd;
   }

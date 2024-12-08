@@ -2,15 +2,14 @@
   pkgs,
   root,
   super,
-  debug,
 }: {name}: let
-  inputs = super.collectHierarchyInputs name;
+  spec = super.getSpec name;
 
   # Configure neovim with the RC and with the plugins list
   configuredNeovim = pkgs.wrapNeovim pkgs.neovim {
     configure = {
-      customRC = inputs.customRC;
-      packages.all.start = inputs.allPlugins;
+      customRC = spec.config;
+      packages.all.start = spec.plugins;
     };
   };
 in
@@ -19,7 +18,7 @@ in
   # TODO: env vars should also be passed from config
   pkgs.writeShellApplication {
     name = "nvim-${name}";
-    runtimeInputs = [inputs.joinedRuntimeDependencies];
+    runtimeInputs = [spec.runtimeDeps];
 
     text = ''
       NVIM_PRIMAMATERIA=${configuredNeovim}/bin/nvim \
