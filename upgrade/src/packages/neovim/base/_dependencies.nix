@@ -18,8 +18,4 @@ with pkgs; [
   rust-analyzer
   rustfmt
   cargo
-
-  # puml
-  zulu
-  graphviz
 ]

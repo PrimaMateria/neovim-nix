@@ -65,10 +65,4 @@ with root.packages.vimPlugins; [
   # ----------------
   vim-commentary
   nvim-ts-context-commentstring
-
-  # Plantuml
-  # ----------------
-  plantuml-previewer-vim
-  open-browser-vim
-  plantuml-syntax
 ]
