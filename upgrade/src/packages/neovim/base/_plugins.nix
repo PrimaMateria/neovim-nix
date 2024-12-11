@@ -45,13 +45,11 @@ with root.packages.vimPlugins; [
   cmp-cmdline
   cmp-emoji
   cmp-nvim-lsp
-  cmp-nvim-ultisnips
   cmp-path
   nvim-cmp
 
   # Language Server Protocol
   # ----------------
-  lsp-status-nvim
   lsplens # references
   lspsaga-nvim
   nvim-lspconfig

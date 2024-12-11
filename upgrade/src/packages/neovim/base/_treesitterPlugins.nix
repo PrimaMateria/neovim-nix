@@ -7,13 +7,4 @@ with treesitterPlugins; [
   lua
   nix
   json
-
-  javascript
-  typescript
-  html
-  css
-  jsdoc
-  scss
-  tsx
-  kotlin
 ]

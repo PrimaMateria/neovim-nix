@@ -10,6 +10,4 @@ with pkgs; [
   # nix
   statix
   alejandra
-  #TODO: nix security issue
-  # rnix-lsp
 ]
