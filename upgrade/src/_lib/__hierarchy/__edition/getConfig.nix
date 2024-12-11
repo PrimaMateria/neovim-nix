@@ -41,5 +41,11 @@
 in
   # Transform config file sets to source command block and concatenate the
   # blocks with new line.
-  builtins.concatStringsSep "\n"
-  (builtins.map (configs: sourceConfigFiles configs) [vim vimnix lua luanix])
+  if builtins.pathExists configDir
+  then
+    builtins.concatStringsSep "\n" (
+      builtins.map
+      (configs: sourceConfigFiles configs)
+      [vim vimnix lua luanix]
+    )
+  else ""

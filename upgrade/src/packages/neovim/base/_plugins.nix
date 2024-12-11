@@ -62,5 +62,4 @@ with root.packages.vimPlugins; [
   # Commenting
   # ----------------
   vim-commentary
-  nvim-ts-context-commentstring
 ]
