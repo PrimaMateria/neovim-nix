@@ -7,7 +7,6 @@ require("conform").setup({
 		typescriptreact = { "eslint_d" },
 		nix = { "alejandra" },
 		markdown = { "prettier" },
-		rust = { "rustfmt" },
 	},
 	format_on_save = function(bufnr)
 		-- Disable with a global or buffer-local variable
