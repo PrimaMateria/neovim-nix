@@ -1,8 +1,10 @@
-{pkgs}:
-with pkgs; [
+{
+  root,
+  pkgs,
+}:
+(with pkgs; [
   ripgrep
   clang # ?
-  lazygit
 
   stylua
   luajitPackages.luacheck
@@ -10,4 +12,7 @@ with pkgs; [
   # nix
   statix
   alejandra
-]
+])
+++ (with root.packages; [
+  lazygit
+])
