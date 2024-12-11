@@ -1,0 +1,4 @@
+{}: {
+  name = "puml";
+  basedOn = "base";
+}
