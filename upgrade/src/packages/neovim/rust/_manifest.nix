@@ -1,0 +1,4 @@
+{}: {
+  name = "rust";
+  basedOn = "base";
+}

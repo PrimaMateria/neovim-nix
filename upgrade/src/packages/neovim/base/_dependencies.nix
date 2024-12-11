@@ -12,10 +12,4 @@ with pkgs; [
   alejandra
   #TODO: nix security issue
   # rnix-lsp
-
-  # rust
-  rustc
-  rust-analyzer
-  rustfmt
-  cargo
 ]

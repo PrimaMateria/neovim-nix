@@ -15,6 +15,5 @@ with treesitterPlugins; [
   jsdoc
   scss
   tsx
-  rust
   kotlin
 ]
