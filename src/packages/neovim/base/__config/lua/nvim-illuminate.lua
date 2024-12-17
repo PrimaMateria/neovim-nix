@@ -6,15 +6,6 @@ require("illuminate").configure({
 	under_cursor = false,
 })
 
-vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-	pattern = { "*" },
-	command = "highlight IlluminatedWordText guibg=#555555 gui=NONE",
-})
-vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-	pattern = { "*" },
-	command = "highlight IlluminatedWordRead guibg=#555555 gui=NONE",
-})
-vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-	pattern = { "*" },
-	command = "highlight IlluminatedWordWrite guibg=#555555 gui=NONE",
-})
+vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { reverse = true })
+vim.api.nvim_set_hl(0, "IlluminatedWordRead", { reverse = true })
+vim.api.nvim_set_hl(0, "IlluminatedWordText", { reverse = true })
