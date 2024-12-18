@@ -41,12 +41,7 @@ with root.packages.vimPlugins; [
 
   # Completition
   # ----------------
-  cmp-buffer
-  cmp-cmdline
-  cmp-emoji
-  cmp-nvim-lsp
-  cmp-path
-  nvim-cmp
+  blink-cmp
 
   # Language Server Protocol
   # ----------------
