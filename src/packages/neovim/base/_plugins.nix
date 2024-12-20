@@ -15,7 +15,6 @@ with root.packages.vimPlugins; [
 
   # Navigation
   # ----------------
-  fzf-lua # TODO: it shows lsp references on gh, not sure why telescope is not used
 
   # Refactoring
   # ----------------
