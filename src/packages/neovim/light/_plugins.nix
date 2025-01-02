@@ -10,6 +10,7 @@ with root.packages.vimPlugins; [
   lualine-nvim
   noice-nvim
   nvim-notify
+  which-key-nvim
 
   # Navigation
   # ----------------

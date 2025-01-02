@@ -1,4 +1,5 @@
-local keymap = vim.keymap.set
+local wk = require("which-key")
+
 require("lspsaga").setup({
 	lightbulb = {
 		virtual_text = false,
@@ -14,28 +15,30 @@ require("lspsaga").setup({
 	},
 })
 
-keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
-keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
-
-keymap("n", ",ar", "<cmd>Lspsaga rename<CR>", { silent = true })
-keymap({ "n", "v" }, ",aa", "<cmd>Lspsaga code_action<CR>", { silent = true })
-
-keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
-
--- keymap("n", "gh", "<cmd>Lspsaga finder<CR>", { silent = true })
-
-keymap("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
-
 vim.diagnostic.config({
 	virtual_text = false,
 	virtual_lines = false,
 })
--- keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
-keymap("n", ",e", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
-keymap(
+
+vim.keymap.set({ "n", "t" }, "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { silent = true })
+vim.keymap.set("n", ",ep", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
+vim.keymap.set("n", ",en", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+vim.keymap.set("n", ",ar", "<cmd>Lspsaga rename<CR>", { silent = true })
+vim.keymap.set({ "n", "v" }, ",aa", "<cmd>Lspsaga code_action<CR>", { silent = true })
+vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+vim.keymap.set("n", ",ee", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+vim.keymap.set(
 	"n",
-	",E",
+	",eE",
 	"<cmd>lua vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })<CR>",
 	{ silent = true }
 )
-keymap({ "n", "t" }, "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { silent = true })
+
+wk.add({
+	{ ",ee", desc = "Under cursor" },
+	{ ",eE", desc = "Toggle inline" },
+	{ ",ep", desc = "Go to previous" },
+	{ ",en", desc = "Go to next" },
+	{ ",ar", desc = "Rename" },
+	{ ",aa", desc = "Actions" },
+})

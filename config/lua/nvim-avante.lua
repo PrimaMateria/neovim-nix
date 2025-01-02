@@ -2,8 +2,8 @@ require("avante_lib").load()
 require("avante").setup({
 	provider = "openai",
 	mappings = {
-		ask = ",sd",
-		edit = ",sf",
+		ask = ",d",
+		edit = ",f",
 		refresh = nil,
 		--- @class AvanteConflictMappings
 		diff = {
@@ -21,10 +21,6 @@ require("avante").setup({
 		submit = {
 			normal = "<CR>",
 			insert = "<C-s>",
-		},
-		toggle = {
-			debug = "<leader>ad",
-			hint = "<leader>ah",
 		},
 	},
 })

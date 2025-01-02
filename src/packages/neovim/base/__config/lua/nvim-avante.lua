@@ -22,9 +22,5 @@ require("avante").setup({
 			normal = "<CR>",
 			insert = "<C-s>",
 		},
-		toggle = {
-			debug = "<leader>ad",
-			hint = "<leader>ah",
-		},
 	},
 })

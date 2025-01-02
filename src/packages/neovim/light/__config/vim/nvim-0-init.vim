@@ -7,10 +7,6 @@ let mapleader = " "
 tnoremap <C-]><C-[> <C-\><C-n>
 inoremap <C-]><C-[> <C-\><C-n>
 
-" nnoremap <leader><BS> :b#<CR>
-" copy last message to clipboard
-nnoremap <leader>m :let @+=trim(execute('1messages')) \| echo 'copied' <cr>
-
 " Remap Ctrl+q to start recording a macro
 nnoremap <C-q> q
 " Disable the original q keybinding
