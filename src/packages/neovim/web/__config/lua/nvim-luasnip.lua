@@ -31,8 +31,6 @@ local function copy(args)
 	return args[1]
 end
 
-ls.setup({})
-
 -- simple doc string
 ls.add_snippets("javascript", {
 	s("doc", {

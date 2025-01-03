@@ -4,3 +4,5 @@ require("render-markdown").setup({
 	},
 	ft = { "markdown", "Avante" },
 })
+
+vim.keymap.set("n", ",m", "<cmd>lua require('render-markdown').toggle()<CR>", { silent = true })

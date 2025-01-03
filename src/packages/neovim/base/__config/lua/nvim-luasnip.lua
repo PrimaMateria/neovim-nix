@@ -1,4 +1,5 @@
 local ls = require("luasnip")
+ls.setup({})
 
 vim.keymap.set({ "i" }, "<C-K>", function()
 	ls.expand()
