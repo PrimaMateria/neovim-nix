@@ -31,7 +31,7 @@ with root.packages.vimPlugins; [
 
   # Snippets
   # ----------------
-  # ultisnips # TODO: replace
+  luasnip
 
   # AI
   # ----------------
