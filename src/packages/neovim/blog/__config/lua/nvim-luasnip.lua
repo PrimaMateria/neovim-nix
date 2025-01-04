@@ -105,11 +105,17 @@ ls.add_snippets("markdown", {
 		t({ '", width=450) }}', "</div>" }),
 	}),
 
-	-- Wrap the matched URL in brackets and set cursor to the square brackets to write the visible text.
-	postfix(".link", {
+	postfix({
+		trig = ".lnk",
+		match_pattern = "https?://%S+",
+	}, {
+		t("["),
+		i(1, "txt"),
+		t("]("),
 		f(function(_, parent)
-			return sn(nil, t("["), i(1), t("](" .. parent.snippet.env.POSTFIX_MATCH .. ")"))
+			return { parent.snippet.env.POSTFIX_MATCH }
 		end, {}),
+		t(")"),
 	}),
 }, { key = "markdown" })
 
