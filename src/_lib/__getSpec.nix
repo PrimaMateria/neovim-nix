@@ -4,4 +4,5 @@ in {
   config = super.hierarchy.getConfig hierarchy;
   plugins = super.hierarchy.getPlugins hierarchy;
   runtimeDeps = super.hierarchy.getRuntimeDeps hierarchy;
+  envVars = super.hierarchy.getEnvVars hierarchy;
 }

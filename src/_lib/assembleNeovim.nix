@@ -15,14 +15,12 @@
 in
   # Create a shell application that runs Neovim with the specified runtime
   # dependencies and environment variables.
-  # TODO: env vars should also be passed from config
   pkgs.writeShellApplication {
     name = "nvim-${name}";
     runtimeInputs = [spec.runtimeDeps];
 
     text = ''
-      NVIM_PRIMAMATERIA=${configuredNeovim}/bin/nvim \
-      OPENAI_API_KEY=${root.secrets.openai-api-key} \
-      ${configuredNeovim}/bin/nvim "$@"
+      NVIM_SELF=${configuredNeovim}/bin/nvim \
+      ${spec.envVars} ${configuredNeovim}/bin/nvim "$@"
     '';
   }
