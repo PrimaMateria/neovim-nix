@@ -1,5 +1,5 @@
 {
-  description = "PrimaMateria's neovim set";
+  description = "PrimaMateria's neovim editions flake";
 
   outputs = {
     self,
