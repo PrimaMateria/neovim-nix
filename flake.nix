@@ -37,7 +37,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-nix-utils = {
-      url = "/home/primamateria/dev/neovim-nix-utils";
+      url = "github:PrimaMateria/neovim-nix-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
