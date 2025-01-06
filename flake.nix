@@ -7,6 +7,7 @@
     utils,
     haumea,
     neovimNightlyOverlay,
+    neovim-nix-utils,
     ...
   }:
     utils.lib.eachDefaultSystem (
@@ -16,10 +17,12 @@
           config = {allowUnfree = true;};
           overlays = [neovimNightlyOverlay.overlays.default];
         };
+        neovimNixLib = pkgs.lib.debug.traceVal neovim-nix-utils.lib;
       in (haumea.lib.load {
         src = ./src;
         inputs = {
           inherit pkgs;
+          inherit neovimNixLib;
           inherit (pkgs.lib) debug;
         };
         transformer = haumea.lib.transformers.liftDefault;
@@ -31,6 +34,10 @@
     utils.url = "github:numtide/flake-utils";
     haumea = {
       url = "github:nix-community/haumea";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    neovim-nix-utils = {
+      url = "/home/primamateria/dev/neovim-nix-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
