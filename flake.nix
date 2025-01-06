@@ -17,7 +17,7 @@
           config = {allowUnfree = true;};
           overlays = [neovimNightlyOverlay.overlays.default];
         };
-        neovimNixLib = pkgs.lib.debug.traceVal neovim-nix-utils.lib;
+        neovimNixLib = neovim-nix-utils.lib.${system};
       in (haumea.lib.load {
         src = ./src;
         inputs = {
