@@ -33,8 +33,8 @@ end
 
 ls.setup({})
 
--- simple doc string
 ls.add_snippets("javascript", {
+	-- simple doc string
 	s("doc", {
 		t({ "/**", " * " }),
 		i(1),
@@ -42,8 +42,8 @@ ls.add_snippets("javascript", {
 	}),
 }, { key = "javascript" })
 
--- React component with props
 ls.add_snippets("typescriptreact", {
+	-- React component with props
 	s("component", {
 		t({ "type " }),
 		f(copy, 1),
@@ -69,6 +69,21 @@ ls.add_snippets("typescriptreact", {
 			"</>",
 			"  );",
 			"}",
+		}),
+	}),
+
+	-- Jest test
+	s("it", {
+		t({
+			'it("',
+		}),
+		i(1),
+		t({
+			'", () => {',
+			"  // given",
+			"  // when",
+			"  // then",
+			" });",
 		}),
 	}),
 }, { key = "typescriptreact" })
