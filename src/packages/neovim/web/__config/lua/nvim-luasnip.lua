@@ -70,6 +70,76 @@ ls.add_snippets("typescriptreact", {
 		}),
 	}),
 
+	-- React hook
+	s("hook", {
+		t({ "type Use" }),
+		f(copy, 1),
+		t({
+			"Props = {};",
+			"",
+			"export function use",
+		}),
+		i(1),
+		t({
+			"(props: Use",
+		}),
+		f(copy, 1),
+		t({
+			"Props) {",
+			"  const {} = props;",
+			"",
+			"  return;",
+			"",
+			"}",
+		}),
+	}),
+
+	-- React useMemo
+	s("memo", {
+		t({ "const " }),
+		i(1),
+		t({
+			" = useMemo(() => {",
+			"",
+		}),
+		i(2),
+		t({
+			"",
+			"}, []);",
+		}),
+	}),
+
+	-- React useCallback
+	s("callback", {
+		t({ "const " }),
+		i(1),
+		t({
+			" = useCallback(() => {",
+			"",
+		}),
+		i(2),
+		t({
+			"",
+			"}, []);",
+		}),
+	}),
+
+	-- React useEffect
+	s("effect", {
+		t({ "// " }),
+		i(1),
+		t({
+			"",
+			"useEffect(() => {",
+			"",
+		}),
+		i(2),
+		t({
+			"",
+			"}, []);",
+		}),
+	}),
+
 	-- Jest test
 	s("it", {
 		t({
