@@ -7,5 +7,4 @@ with treesitterPlugins; [
   jsdoc
   scss
   tsx
-  kotlin
 ]
