@@ -1,0 +1,4 @@
+{}: treesitterPlugins:
+with treesitterPlugins; [
+  c
+]
