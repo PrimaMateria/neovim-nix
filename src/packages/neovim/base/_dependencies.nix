@@ -7,7 +7,7 @@
   clang # ?
 
   stylua
-  luajitPackages.luacheck
+  lua-language-server
 
   # nix
   statix
