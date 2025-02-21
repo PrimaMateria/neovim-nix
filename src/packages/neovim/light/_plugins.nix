@@ -11,6 +11,7 @@ with root.packages.vimPlugins; [
   noice-nvim
   nvim-notify
   which-key-nvim
+  tiny-glimmer-nvim
 
   # Navigation
   # ----------------
