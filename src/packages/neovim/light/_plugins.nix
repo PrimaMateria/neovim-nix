@@ -25,4 +25,8 @@ with root.packages.vimPlugins; [
   # ----------------
   vim-abolish # subvert
   tabular
+
+  # Libraries
+  # ----------------
+  snacks-nvim
 ]
