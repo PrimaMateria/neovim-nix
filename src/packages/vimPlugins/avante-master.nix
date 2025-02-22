@@ -4,7 +4,7 @@
   src = fetchFromGitHub {
     owner = "yetone";
     repo = "avante.nvim";
-    tag = "v${version}";
+    tag = "${version}";
     hash = "sha256-fWNUDR37Ffosj7wCZ+BtW6EMFamVLlHr84KKqDydUuE=";
   };
   avante-nvim-lib = rustPlatform.buildRustPackage {
