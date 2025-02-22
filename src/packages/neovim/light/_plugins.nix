@@ -11,6 +11,7 @@ with root.packages.vimPlugins; [
   noice-nvim
   nvim-notify
   which-key-nvim
+  tiny-glimmer-nvim
 
   # Navigation
   # ----------------
@@ -24,4 +25,8 @@ with root.packages.vimPlugins; [
   # ----------------
   vim-abolish # subvert
   tabular
+
+  # Libraries
+  # ----------------
+  snacks-nvim
 ]

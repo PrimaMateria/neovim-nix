@@ -38,6 +38,13 @@ ls.add_snippets("javascript", {
 		i(1),
 		t({ "", " */" }),
 	}),
+
+	-- console log
+	s("cl", {
+		t({ 'console.log("' }),
+		i(1),
+		t({ '");' }),
+	}),
 }, { key = "javascript" })
 
 ls.add_snippets("typescriptreact", {
