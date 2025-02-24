@@ -48,8 +48,28 @@ ls.add_snippets("javascript", {
 }, { key = "javascript" })
 
 ls.add_snippets("typescriptreact", {
-	-- React component with props
+	-- React component
 	s("component", {
+		t({
+			"export function ",
+		}),
+		i(1),
+		t({
+			"() {",
+			"",
+			"  return (",
+			"    <>",
+		}),
+		f(copy, 1),
+		t({
+			"</>",
+			"  );",
+			"}",
+		}),
+	}),
+
+	-- React component with props
+	s("componentprops", {
 		t({ "type " }),
 		f(copy, 1),
 		t({
