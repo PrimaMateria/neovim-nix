@@ -26,7 +26,7 @@ vim.keymap.set("n", ",en", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = t
 vim.keymap.set("n", ",ar", "<cmd>Lspsaga rename<CR>", { silent = true })
 vim.keymap.set({ "n", "v" }, ",aa", "<cmd>Lspsaga code_action<CR>", { silent = true })
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
-vim.keymap.set("n", ",ee", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+vim.keymap.set("n", ",ee", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 vim.keymap.set(
 	"n",
 	",eE",
