@@ -262,12 +262,80 @@
         "type": "github"
       }
     },
+    "plugin-aider": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1740223909,
+        "narHash": "sha256-Nh6LMDsQJfuPKHGHn+J2GokY6cAzjebdzfgPlUa+JDc=",
+        "owner": "GeorgesAlkhouri",
+        "repo": "nvim-aider",
+        "rev": "fd89d9d36a8388d88a3bfa0628f1ee8fc45c9563",
+        "type": "github"
+      },
+      "original": {
+        "owner": "GeorgesAlkhouri",
+        "repo": "nvim-aider",
+        "type": "github"
+      }
+    },
+    "plugin-avante": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1740564351,
+        "narHash": "sha256-XAI+kPUCcWrnHN0SHt6wrQ6gS/F24WGUS9PrtDGyU6A=",
+        "owner": "yetone",
+        "repo": "avante.nvim",
+        "rev": "9c9fadd256d6138d771e17b9ca68905908e16c17",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yetone",
+        "repo": "avante.nvim",
+        "type": "github"
+      }
+    },
+    "plugin-lsplens": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1701948425,
+        "narHash": "sha256-zj/Gn/40jnDNh05OFc23LNNuFn1PnIAUDfPquEWpAlk=",
+        "owner": "VidocqH",
+        "repo": "lsp-lens.nvim",
+        "rev": "48bb1a7e271424c15f3d588d54adc9b7c319d977",
+        "type": "github"
+      },
+      "original": {
+        "owner": "VidocqH",
+        "repo": "lsp-lens.nvim",
+        "type": "github"
+      }
+    },
+    "plugin-tiny-glimmer-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1740585250,
+        "narHash": "sha256-hES9naUSEyJ5mS51SVIOWjJuOL1xrv5bHALjRZdNAaM=",
+        "owner": "rachartier",
+        "repo": "tiny-glimmer.nvim",
+        "rev": "f9099a9f37403bfea65c74bf0f8dff5f5412d453",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rachartier",
+        "repo": "tiny-glimmer.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "haumea": "haumea",
         "neovim-nix-utils": "neovim-nix-utils",
         "neovimNightlyOverlay": "neovimNightlyOverlay",
         "nixpkgs": "nixpkgs",
+        "plugin-aider": "plugin-aider",
+        "plugin-avante": "plugin-avante",
+        "plugin-lsplens": "plugin-lsplens",
+        "plugin-tiny-glimmer-nvim": "plugin-tiny-glimmer-nvim",
         "utils": "utils_2"
       }
     },

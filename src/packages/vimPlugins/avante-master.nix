@@ -1,12 +1,11 @@
-{pkgs}: let
+{
+  pkgs,
+  extraPlugins,
+}: let
   inherit (pkgs) lib fetchFromGitHub nix-update-script openssl pkg-config rustPlatform stdenv vimPlugins vimUtils;
-  version = "master";
-  src = fetchFromGitHub {
-    owner = "yetone";
-    repo = "avante.nvim";
-    tag = "${version}";
-    hash = "sha256-fWNUDR37Ffosj7wCZ+BtW6EMFamVLlHr84KKqDydUuE=";
-  };
+  version = "flake";
+  src = extraPlugins.plugin-avante;
+
   avante-nvim-lib = rustPlatform.buildRustPackage {
     pname = "avante-nvim-lib";
     inherit version src;

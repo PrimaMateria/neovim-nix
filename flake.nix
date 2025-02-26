@@ -8,6 +8,10 @@
     haumea,
     neovimNightlyOverlay,
     neovim-nix-utils,
+    plugin-avante,
+    plugin-lsplens,
+    plugin-aider,
+    plugin-tiny-glimmer-nvim,
     ...
   }:
     utils.lib.eachDefaultSystem (
@@ -24,6 +28,14 @@
           inherit pkgs;
           inherit neovimNixLib;
           inherit (pkgs.lib) debug;
+          extraPlugins = {
+            inherit
+              plugin-avante
+              plugin-lsplens
+              plugin-aider
+              plugin-tiny-glimmer-nvim
+              ;
+          };
         };
         transformer = haumea.lib.transformers.liftDefault;
       })
@@ -45,6 +57,24 @@
     neovimNightlyOverlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+  inputs = {
+    plugin-avante = {
+      url = "github:yetone/avante.nvim";
+      flake = false;
+    };
+    plugin-lsplens = {
+      url = "github:VidocqH/lsp-lens.nvim";
+      flake = false;
+    };
+    plugin-aider = {
+      url = "github:GeorgesAlkhouri/nvim-aider";
+      flake = false;
+    };
+    plugin-tiny-glimmer-nvim = {
+      url = "github:rachartier/tiny-glimmer.nvim";
+      flake = false;
     };
   };
 }
