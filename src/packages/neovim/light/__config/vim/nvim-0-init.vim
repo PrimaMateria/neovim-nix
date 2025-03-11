@@ -12,6 +12,10 @@ nnoremap <C-q> q
 " Disable the original q keybinding
 nnoremap q <Nop>
 
+" Quickfix list navigation
+nnoremap <C-j> :cnext<cr>
+nnoremap <C-k> :cprev<cr>
+
 "-------------------------------------------------- 
 " \
 "-------------------------------------------------- 
