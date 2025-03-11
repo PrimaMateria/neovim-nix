@@ -12,6 +12,7 @@ with root.packages.vimPlugins; [
   vim-illuminate # highlight word under cursor
   todo-comments-nvim
   render-markdown-nvim
+  trouble-nvim
 
   # Navigation
   # ----------------
