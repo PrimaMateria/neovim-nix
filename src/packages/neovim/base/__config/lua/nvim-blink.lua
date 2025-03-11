@@ -1,9 +1,7 @@
 local blink = require("blink.cmp")
-local luasnip = require("luasnip")
 
--- TODO: Luasnip is still not working
 blink.setup({
-	keymap = { preset = "default" },
+	keymap = { preset = "default", ["<C-n>"] = { "show", "select_next" } },
 	snippets = { preset = "luasnip" },
 	sources = {
 		default = { "lsp", "path", "snippets", "buffer" },
