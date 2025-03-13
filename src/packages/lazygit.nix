@@ -5,30 +5,15 @@
       editAtLine = ''$NVIM_SELF --server "$NVIM" --remote-tab {{filename}}; [ -z "$NVIM" ] || $NVIM_SELF --server "$NVIM" --remote-send ":{{line}}<CR>"'';
       editAtLineAndWait = ''$NVIM_SELF +{{line}} {{filename}}'';
       openDirInEditor = ''$NVIM_SELF --server "$NVIM" --remote-tab {{dir}}'';
-      suspend = false;
+      editInTerminal = false;
     };
-    git.commitPrefixes = builtins.listToAttrs (
-      map (projectName: {
-        name =
-          projectName;
-        value = {
-          pattern = "^\\w+\\/(\\w+-\\w+).*";
-          replace = "$1: ";
-        };
-      })
-      [
-        "finapi-cms"
-        "finapi-customer-dashboard-ui"
-        "finapi-design-system"
-        "finapi-hostpages"
-        "finapi-js-loader"
-        "finapi-js-static-resources"
-        "finapi-widget-library"
-        "web-form"
-        "web-form-ui"
-        "web-form-loader"
-      ]
-    );
+
+    git.commitPrefix = [
+      {
+        pattern = "^\\w+\\/(\\w+-\\w+).*";
+        replace = "$1: ";
+      }
+    ];
   };
 in
   pkgs.writeShellApplication {
