@@ -11,7 +11,6 @@ set hidden
 set guicursor=
 set scrolloff=0
 set signcolumn=yes
-set colorcolumn=80
 set undodir=~/.config/nvim/undodir
 set undofile
 set incsearch
@@ -26,8 +25,6 @@ set clipboard+=unnamedplus
 set completeopt=menu,menuone,noselect
 set noswapfile
 set laststatus=3
-set cursorline
-set cursorcolumn
 set re=0
 set eol
 set textwidth=80
