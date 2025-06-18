@@ -1,10 +1,15 @@
 require("todo-comments").setup({
-	signs = false,
+	signs = true,
 	highlight = {
-		before = "bg",
-		keyword = "bg",
-		after = "bg",
+		before = "",
+		keyword = "wide_bg",
+		after = "",
+	},
+	keywords = {
+		MTODO = { icon = " ", color = "info" },
 	},
 })
 
-vim.keymap.set("n", ",t", "<cmd>TodoTelescope<CR>", { silent = true, desc = "List TODOs" })
+vim.keymap.set("n", ",t", "<cmd>TodoQuickFix keywords=MTODO<CR>", { silent = true, desc = "List TODOs" })
+
+-- TODO: test

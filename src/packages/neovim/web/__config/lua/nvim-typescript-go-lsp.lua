@@ -1,0 +1,31 @@
+-- local configs = require("lspconfig.configs")
+
+-- if not configs.tsgo then
+-- 	configs.tsgo = {
+-- 		default_config = {
+-- 			cmd = { "tsgo", "--lsp", "--stdio" },
+-- 			filetypes = {
+-- 				"javascript",
+-- 				"javascriptreact",
+-- 				"javascript.jsx",
+-- 				"typescript",
+-- 				"typescriptreact",
+-- 				"typescript.tsx",
+-- 			},
+-- 			root_dir = require("lspconfig").util.root_pattern(
+-- 				"tsconfig.json",
+-- 				"pnpm-lock.yaml",
+-- 				"package-lock.json",
+-- 				"yarn.lock",
+-- 				"bun.lockb",
+-- 				".git"
+-- 			),
+-- 		},
+-- 	}
+-- end
+
+-- require("lspconfig").tsgo.setup({
+-- 	on_attach = function(client, bufnr)
+-- 		-- Setup your on_attach callback here
+-- 	end,
+-- })

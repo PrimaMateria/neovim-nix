@@ -1,8 +1,9 @@
 require("render-markdown").setup({
-	opts = {
-		file_types = { "markdown", "Avante" },
+	enabled = false,
+	file_types = { "markdown", "Avante" },
+	code = {
+		sign = "none",
 	},
-	ft = { "markdown", "Avante" },
 })
 
 vim.keymap.set("n", ",m", "<cmd>lua require('render-markdown').toggle()<CR>", { silent = true })
