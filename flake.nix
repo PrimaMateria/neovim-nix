@@ -12,6 +12,7 @@
     plugin-lsplens,
     plugin-aider,
     plugin-tiny-glimmer-nvim,
+    plugin-typescript-tools-nvim,
     ...
   }:
     utils.lib.eachDefaultSystem (
@@ -34,6 +35,7 @@
               plugin-lsplens
               plugin-aider
               plugin-tiny-glimmer-nvim
+              plugin-typescript-tools-nvim
               ;
           };
         };
@@ -74,6 +76,10 @@
     };
     plugin-tiny-glimmer-nvim = {
       url = "github:rachartier/tiny-glimmer.nvim";
+      flake = false;
+    };
+    plugin-typescript-tools-nvim = {
+      url = "github:pmizio/typescript-tools.nvim";
       flake = false;
     };
   };

@@ -4,13 +4,8 @@
 }:
 pkgs.vimUtils.buildVimPlugin {
   pname = "typescript-tools.nvim-fix";
-  version = "2025-04-07-cbf908bcb9ec1699b5baeca4c206c37cd231fbd4";
-  src = pkgs.fetchFromGitHub {
-    owner = "pmizio";
-    repo = "typescript-tools.nvim";
-    rev = "cbf908bcb9ec1699b5baeca4c206c37cd231fbd4";
-    sha256 = "sha256-T33hOoBa3/eHI/yyJk4chjPc0h4avjBI7409AUXu/E0=";
-  };
+  version = "master";
+  src = extraPlugins.plugin-typescript-tools-nvim;
   nvimSkipModule = [
     "typescript-tools.internal_commands"
     "typescript-tools.api"
