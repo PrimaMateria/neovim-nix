@@ -14,7 +14,8 @@ blink.setup({
 			auto_show_delay_ms = 500,
 			window = { border = "single" },
 		},
-		ghost_text = { enabled = true },
+		ghost_text = { enabled = false },
+		accept = { auto_brackets = { enabled = false } },
 	},
 
 	signature = { enabled = true, window = { border = "single" } },
