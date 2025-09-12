@@ -7,7 +7,7 @@ require("lualine").setup({
 		},
 	},
 	sections = {
-		lualine_c = {},
+		lualine_c = { { "filename", path = 2 } },
 		lualine_x = {
 			{
 				require("noice").api.status.message.get_hl,
