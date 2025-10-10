@@ -1,10 +1,9 @@
-local nvim_lsp = require("lspconfig")
 local blink = require("blink.cmp")
 
 local capabilities = {}
 capabilities = vim.tbl_extend("keep", capabilities, blink.get_lsp_capabilities())
 
-nvim_lsp["lua_ls"].setup({
+vim.lsp.config("lua_ls", {
 	capabilities = capabilities,
 	on_init = function(client)
 		if client.workspace_folders then
@@ -38,3 +37,5 @@ nvim_lsp["lua_ls"].setup({
 		Lua = {},
 	},
 })
+
+vim.lsp.enable("lua_ls")

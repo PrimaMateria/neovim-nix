@@ -1,10 +1,9 @@
-local nvim_lsp = require("lspconfig")
 local blink = require("blink.cmp")
 
 local capabilities = {}
 capabilities = vim.tbl_extend("keep", capabilities, blink.get_lsp_capabilities())
 
-nvim_lsp["ccls"].setup({
+vim.lsp.config("ccls", {
 	capabilities = capabilities,
 	init_options = {
 		compilationDatabaseDirectory = "build",
@@ -16,3 +15,4 @@ nvim_lsp["ccls"].setup({
 		},
 	},
 })
+vim.lsp.enable("ccls")
