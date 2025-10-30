@@ -173,11 +173,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1736719268,
-        "narHash": "sha256-77rKkPdDie28sAFfHdWGpRkLQ/GUuPR4yjrjLr1ksos=",
+        "lastModified": 1761830517,
+        "narHash": "sha256-Yb/8r/yMvTfeUy9pH3bIWtCWxRA6y++zHgJJ+wIJsiE=",
         "owner": "PrimaMateria",
         "repo": "neovim-nix-utils",
-        "rev": "a710cc2d6f3dca2e955e735bf7500d14284931a0",
+        "rev": "d9786fc73e5650260661072c544810976c4858ba",
         "type": "github"
       },
       "original": {
