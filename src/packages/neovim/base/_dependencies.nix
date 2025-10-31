@@ -12,8 +12,6 @@
   # nix
   statix
   alejandra
-
-  aider-chat
 ])
 ++ (with root.packages; [
   lazygit

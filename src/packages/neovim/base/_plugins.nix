@@ -36,9 +36,6 @@ with root.packages.vimPlugins; [
 
   # AI
   # ----------------
-  # avante-master
-  ChatGPT-nvim
-  nvim-aider
 
   # Completition
   # ----------------
