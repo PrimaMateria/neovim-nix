@@ -13,6 +13,7 @@
     plugin-aider,
     plugin-tiny-glimmer-nvim,
     plugin-typescript-tools-nvim,
+    plugin-codecompanion-copilot-enterprise-nvim,
     ...
   }:
     utils.lib.eachDefaultSystem (
@@ -36,6 +37,7 @@
               plugin-aider
               plugin-tiny-glimmer-nvim
               plugin-typescript-tools-nvim
+              plugin-codecompanion-copilot-enterprise-nvim
               ;
           };
         };
@@ -81,6 +83,10 @@
     };
     plugin-typescript-tools-nvim = {
       url = "github:pmizio/typescript-tools.nvim";
+      flake = false;
+    };
+    plugin-codecompanion-copilot-enterprise-nvim = {
+      url = "github:dyamon/codecompanion-copilot-enterprise.nvim";
       flake = false;
     };
   };

@@ -276,6 +276,22 @@
         "type": "github"
       }
     },
+    "plugin-codecompanion-copilot-enterprise-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1756710977,
+        "narHash": "sha256-io9xsiLGzsGlBfRyfc792gDRN75W329S/b2+n7gRRKg=",
+        "owner": "dyamon",
+        "repo": "codecompanion-copilot-enterprise.nvim",
+        "rev": "2e5edc4fd32775dfff578c283624ed97334a9372",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dyamon",
+        "repo": "codecompanion-copilot-enterprise.nvim",
+        "type": "github"
+      }
+    },
     "plugin-lsplens": {
       "flake": false,
       "locked": {
@@ -332,6 +348,7 @@
         "nixpkgs": "nixpkgs",
         "plugin-aider": "plugin-aider",
         "plugin-avante": "plugin-avante",
+        "plugin-codecompanion-copilot-enterprise-nvim": "plugin-codecompanion-copilot-enterprise-nvim",
         "plugin-lsplens": "plugin-lsplens",
         "plugin-tiny-glimmer-nvim": "plugin-tiny-glimmer-nvim",
         "plugin-typescript-tools-nvim": "plugin-typescript-tools-nvim",

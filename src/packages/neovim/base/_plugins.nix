@@ -36,6 +36,10 @@ with root.packages.vimPlugins; [
 
   # AI
   # ----------------
+  copilot-lsp
+  copilot-lua
+  codecompanion-nvim
+  codecompanion-copilot-enterprise-nvim
 
   # Completition
   # ----------------
