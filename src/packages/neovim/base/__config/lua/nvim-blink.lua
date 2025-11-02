@@ -4,7 +4,16 @@ blink.setup({
 	keymap = { preset = "default", ["<C-n>"] = { "show", "select_next" } },
 	snippets = { preset = "luasnip" },
 	sources = {
-		default = { "lsp", "path", "snippets", "buffer" },
+		default = { "lsp", "path", "snippets", "copilot", "buffer" },
+
+		providers = {
+			copilot = {
+				name = "copilot",
+				module = "blink-copilot",
+				score_offset = 100,
+				async = true,
+			},
+		},
 	},
 
 	completion = {
