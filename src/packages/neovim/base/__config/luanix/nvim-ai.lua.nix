@@ -55,5 +55,15 @@
       },
     },
   })
+
+  vim.keymap.set("n", "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", { desc = "Toggle CodeCompanion Chat" })
+  vim.keymap.set("v", "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", { desc = "Toggle CodeCompanion Chat" })
+  vim.keymap.set("n", "<leader>aa", "<cmd>CodeCompanionActions<cr>", { desc = "CodeCompanion Actions" })
+  vim.keymap.set("v", "<leader>aa", "<cmd>CodeCompanionActions<cr>", { desc = "CodeCompanion Actions" })
+  vim.keymap.set("n", "<leader>ai", "<cmd>CodeCompanion<cr>", { desc = "CodeCompanion Inline" })
+  vim.keymap.set("v", "<leader>ai", "<cmd>CodeCompanion<cr>", { desc = "CodeCompanion Inline" })
+  vim.keymap.set("n", "<leader>an", "<cmd>CodeCompanionChat<cr>", { desc = "New CodeCompanion Chat" })
+  vim.keymap.set("n", "<leader>ar", "<cmd>CodeCompanionChat Add<cr>", { desc = "Add to CodeCompanion Chat" })
+  vim.keymap.set("v", "<leader>ar", "<cmd>CodeCompanionChat Add<cr>", { desc = "Add selection to CodeCompanion Chat" })
 ''
 
