@@ -45,13 +45,16 @@
     },
     strategies = {
       chat = {
-          adapter = "gpt-4.1",
+        adapter = "copilot_enterprise",
+        model = "gpt-4.1",
       },
       inline = {
-          adapter = "grok-code-fast-1",
+        adapter = "copilot_enterprise",
+        model = "grok-code-fast-1",
       },
       cmd = {
-          adapter = "gpt-4.1",
+        adapter = "copilot_enterprise",
+        model = "gpt-4.1",
       },
     },
   })
