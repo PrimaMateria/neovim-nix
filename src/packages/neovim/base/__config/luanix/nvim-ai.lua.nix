@@ -19,7 +19,20 @@
     },
   })
 
+
   -- codecompanion
+
+  -- "claude-sonnet-4"
+  -- "gemini-2.5-pro"
+  -- "grok-code-fast-1"
+  -- "claude-3.5-sonnet"
+  -- "gpt-5-codex"
+  -- "gpt-4o"
+  -- "gpt-5"
+  -- "claude-sonnet-4.5"
+  -- "gpt-4.1"
+  -- "gpt-5-mini"
+
   require("codecompanion").setup({
     adapters = {
       http = {
@@ -32,19 +45,13 @@
     },
     strategies = {
       chat = {
-        -- Setup the custom adapter for each strategy. You can change default models as usual.
-        -- See https://codecompanion.olimorris.dev/configuration/adapters.html#changing-the-default-adapter
-        -- and https://codecompanion.olimorris.dev/configuration/adapters.html#changing-a-model
-        adapter = {
-          name = "copilot_enterprise",
-          model = "claude-sonnet-4",
-        },
+          adapter = "gpt-4.1",
       },
       inline = {
-        adapter = "copilot_enterprise",
+          adapter = "grok-code-fast-1",
       },
       cmd = {
-        adapter = "copilot_enterprise",
+          adapter = "gpt-4.1",
       },
     },
   })
