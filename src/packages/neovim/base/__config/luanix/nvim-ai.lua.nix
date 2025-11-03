@@ -10,6 +10,13 @@
   	auth_provider_url = gheUrl,
     -- nixpkgs node
   	copilot_node_command = "${pkgs.nodejs_22}/bin/node",
+
+    suggestion = { enabled = false },
+    panel = { enabled = false },
+    filetypes = {
+      markdown = true,
+      help = true,
+    },
   })
 
   -- codecompanion
