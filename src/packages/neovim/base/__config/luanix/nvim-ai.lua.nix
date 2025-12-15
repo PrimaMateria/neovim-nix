@@ -1,6 +1,32 @@
 # vim: ft=lua 
 { extraPackages, pkgs, }: ''
 
+  -- ENDPOINT HACK
+  -- Force CC Copilot Enterprise traffic to routed GHE endpoint
+  _G.__cc_copilot_enterprise_url = nil
+
+  do
+    local http = require("codecompanion.http")
+
+    -- keep original function CC captured
+    local orig_post = http.static.methods.post.default
+
+    http.static.methods.post.default = function(opts)
+      if opts
+        and opts.url == "https://api.githubcopilot.com/chat/completions"
+        and _G.__cc_copilot_enterprise_url
+      then
+        opts = vim.tbl_deep_extend("force", opts, {
+          url = _G.__cc_copilot_enterprise_url,
+        })
+      end
+      return orig_post(opts)
+    end
+  end
+  -- END
+
+
+  local adapters = require("codecompanion.adapters")
   local gheUrl = "https://finapi.ghe.com"
 
   -- copilot-lua
@@ -34,35 +60,31 @@
   -- "gpt-5-mini"
 
   require("codecompanion").setup({
+    opts = { log_level = "TRACE" },
+
     adapters = {
       http = {
         copilot_enterprise = function()
-            local adapter = require("codecompanion.adapters.http.copilot_enterprise")
-          adapter.opts.provider_url = gheUrl
-          return adapter
+          return adapters.extend("copilot_enterprise", {
+            opts = {
+              provider_url = "finapi.ghe.com",
+              -- prevents the model-picker / schema refresh that resets url
+              show_model_choices = false,
+            },
+          })
         end,
       },
     },
--- strategies: Table containing different AI interaction strategies.
--- Each strategy specifies the adapter and model to use.
---   chat: Uses 'copilot_enterprise' adapter with 'gpt-4.1' model for conversational interactions.
---   inline: Uses 'copilot_enterprise' adapter with 'grok-code-fast-1' model for inline code suggestions.
---   cmd: Uses 'copilot_enterprise' adapter with 'gpt-4.1' model for command-based interactions.
-strategies = {
-  chat = {
-    adapter = "copilot_enterprise",
-    model = "claude-sonnet-4.5",
-  },
-  inline = {
-    adapter = "copilot_enterprise",
-    model = "gpt-4.1",
-  },
-  cmd = {
-    adapter = "copilot_enterprise",
-    model = "gpt-4.1",
-  },
-},
+    strategies = {
+      chat = { adapter = { name = "copilot_enterprise", model = "gpt-5" } },
+      inline = { adapter = "copilot_enterprise", model = "gpt-4.1" },
+      cmd = { adapter = "copilot_enterprise", model = "gpt-4.1" },
+    },
   })
+
+
+
+
 
   -- CodeCompanion keymaps
   vim.keymap.set("n", "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", { desc = "Toggle CodeCompanion Chat" })

@@ -86,7 +86,7 @@
       flake = false;
     };
     plugin-codecompanion-copilot-enterprise-nvim = {
-      url = "github:dyamon/codecompanion-copilot-enterprise.nvim";
+      url = "/home/primamateria/dev/codecompanion-copilot-enterprise.nvim";
       flake = false;
     };
   };
