@@ -1,5 +1,10 @@
-{pkgs}:
-with pkgs; [
+{
+  pkgs,
+  root,
+}:
+with pkgs;
+with root.packages; [
   zulu
   graphviz
+  plantuml-jar
 ]

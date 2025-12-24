@@ -7,6 +7,7 @@
     neovimPackage = pkgs.neovim;
     editionsDir = ./packages/neovim;
     editionsSet = root.packages.neovim;
+    extraPackages = root.packages;
   };
 in {
   assembleNeovim = {name}:
