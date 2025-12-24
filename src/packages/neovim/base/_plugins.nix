@@ -36,9 +36,10 @@ with root.packages.vimPlugins; [
 
   # AI
   # ----------------
-  # avante-master
-  ChatGPT-nvim
-  nvim-aider
+  copilot-lua
+  codecompanion-nvim
+  codecompanion-copilot-enterprise-nvim
+  blink-copilot
 
   # Completition
   # ----------------
