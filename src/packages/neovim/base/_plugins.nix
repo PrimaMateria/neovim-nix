@@ -47,6 +47,7 @@ with root.packages.vimPlugins; [
 
   # Language Server Protocol
   # ----------------
+  nvim-treesitter
   lsplens # references
   lspsaga-nvim
   nvim-lspconfig
