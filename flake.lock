@@ -199,6 +199,22 @@
         "type": "github"
       }
     },
+    "plugin-resolve-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1769364340,
+        "narHash": "sha256-BuGUDSD/RdzcpFrQ51M48XabNAwyQEZvQG8xOPZPZcA=",
+        "owner": "spacedentist",
+        "repo": "resolve.nvim",
+        "rev": "1ed8bcc9ce7d43a0e8e05d0001c9cadb822d95a8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "spacedentist",
+        "repo": "resolve.nvim",
+        "type": "github"
+      }
+    },
     "plugin-tiny-glimmer-nvim": {
       "flake": false,
       "locked": {
@@ -241,6 +257,7 @@
         "plugin-avante": "plugin-avante",
         "plugin-codecompanion-copilot-enterprise-nvim": "plugin-codecompanion-copilot-enterprise-nvim",
         "plugin-lsplens": "plugin-lsplens",
+        "plugin-resolve-nvim": "plugin-resolve-nvim",
         "plugin-tiny-glimmer-nvim": "plugin-tiny-glimmer-nvim",
         "plugin-typescript-tools-nvim": "plugin-typescript-tools-nvim",
         "utils": "utils_2"

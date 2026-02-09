@@ -29,6 +29,7 @@ with root.packages.vimPlugins; [
   vim-fugitive
   vim-gitgutter
   diffview-nvim
+  resolve-nvim
 
   # Snippets
   # ----------------
