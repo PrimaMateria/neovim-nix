@@ -8,7 +8,7 @@ telescope.setup({
 		path_display = {
 			"truncate",
 		},
-		file_ignore_patterns = { "^.git/" },
+		file_ignore_patterns = { "^.git/", "__old/*" },
 	},
 	pickers = {
 		find_files = {
@@ -21,7 +21,7 @@ telescope.setup({
 			show_scores = false,
 			show_unindexed = true,
 			default_workspace = "CWD",
-			ignore_patterns = { "*.git/*", "*node_modules/*", "*dist/*", "*build/*" },
+			ignore_patterns = { "*.git/*", "*node_modules/*", "*dist/*", "*build/*", "__old/*" },
 			sorter = require("telescope.config").values.file_sorter(),
 		},
 		fzf = {

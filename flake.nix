@@ -14,6 +14,7 @@
     plugin-tiny-glimmer-nvim,
     plugin-typescript-tools-nvim,
     plugin-codecompanion-copilot-enterprise-nvim,
+    plugin-resolve-nvim,
     ...
   }:
     utils.lib.eachDefaultSystem (
@@ -38,6 +39,7 @@
               plugin-tiny-glimmer-nvim
               plugin-typescript-tools-nvim
               plugin-codecompanion-copilot-enterprise-nvim
+              plugin-resolve-nvim
               ;
           };
         };
@@ -86,7 +88,11 @@
       flake = false;
     };
     plugin-codecompanion-copilot-enterprise-nvim = {
-      url = "github:dyamon/codecompanion-copilot-enterprise.nvim";
+      url = "/home/primamateria/dev/codecompanion-copilot-enterprise.nvim";
+      flake = false;
+    };
+    plugin-resolve-nvim = {
+      url = "github:spacedentist/resolve.nvim";
       flake = false;
     };
   };

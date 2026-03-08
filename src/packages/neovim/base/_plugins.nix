@@ -29,6 +29,7 @@ with root.packages.vimPlugins; [
   vim-fugitive
   vim-gitgutter
   diffview-nvim
+  resolve-nvim
 
   # Snippets
   # ----------------
@@ -47,6 +48,7 @@ with root.packages.vimPlugins; [
 
   # Language Server Protocol
   # ----------------
+  nvim-treesitter
   lsplens # references
   lspsaga-nvim
   nvim-lspconfig

@@ -19,6 +19,21 @@ require("lualine").setup({
 		lualine_a = { {
 			"tabs",
 			mode = 2,
+			cond = function()
+				return vim.fn.tabpagenr("$") > 1
+			end,
 		} },
+	},
+	winbar = {
+		lualine_a = {},
+		lualine_b = { { "filename", path = 0 } },
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = {},
+	},
+	inactive_winbar = {
+		lualine_b = { { "filename", path = 0 } },
+		lualine_z = {},
 	},
 })
