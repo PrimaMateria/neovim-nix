@@ -69,4 +69,7 @@ augroup spellon
   autocmd FileType typescript setlocal spell
 augroup END
 
-
+augroup TermFix
+  autocmd!
+  autocmd TermOpen * let $TERM = "screen-256color"
+augroup END
