@@ -76,9 +76,9 @@
       },
     },
     strategies = {
-      chat = { adapter = { name = "copilot_enterprise", model = "gpt-5" } },
-      inline = { adapter = "copilot_enterprise", model = "gpt-4.1" },
-      cmd = { adapter = "copilot_enterprise", model = "gpt-4.1" },
+      chat = { adapter = { name = "copilot_enterprise", model = "claude-sonnet-4.6" } },
+      inline = { adapter = "copilot_enterprise", model = "claude-sonnet-4.6" },
+      cmd = { adapter = "copilot_enterprise", model = "claude-sonnet-4.6" },
     },
   })
 
