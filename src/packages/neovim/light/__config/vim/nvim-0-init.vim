@@ -60,6 +60,7 @@ augroup theme
   autocmd ColorScheme * highlight Pmenu guibg=#1d2021 guifg=#ebdbb2
   autocmd ColorScheme * highlight NormalFloat guifg=#ebdbb2
   autocmd ColorScheme * highlight Comment guifg=#bbbbbb
+  autocmd ColorScheme * highlight DiffText guibg=#ff8800 guifg=#000000 gui=bold
 augroup END
 
 " Turn on spell for chosen filetypes
