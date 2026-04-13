@@ -8,4 +8,5 @@ with root.packages.vimPlugins; [
   debugprint-nvim
   # typescript-tools-nvim-fix
   nvim-vtsls
+  csvview-nvim
 ]
