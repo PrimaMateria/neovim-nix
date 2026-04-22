@@ -88,7 +88,7 @@
       flake = false;
     };
     plugin-codecompanion-copilot-enterprise-nvim = {
-      url = "/home/primamateria/dev/codecompanion-copilot-enterprise.nvim";
+      url = "github:primamateria/codecompanion-copilot-enterprise.nvim";
       flake = false;
     };
     plugin-resolve-nvim = {

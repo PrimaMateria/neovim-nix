@@ -173,14 +173,17 @@
     "plugin-codecompanion-copilot-enterprise-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1764934945,
-        "narHash": "sha256-6WCYBP169HZ3e6qXWZUto7NPL4CGrcWrvBSIVsc82FY=",
-        "path": "/home/primamateria/dev/codecompanion-copilot-enterprise.nvim",
-        "type": "path"
+        "lastModified": 1764934162,
+        "narHash": "sha256-RsC1J0AWq6FDI5WCvpu+nmM+KaYPFfQnKU9U8BRiFwI=",
+        "owner": "primamateria",
+        "repo": "codecompanion-copilot-enterprise.nvim",
+        "rev": "81f70ecfd9fa74fd33f1eddb578414e604986b1e",
+        "type": "github"
       },
       "original": {
-        "path": "/home/primamateria/dev/codecompanion-copilot-enterprise.nvim",
-        "type": "path"
+        "owner": "primamateria",
+        "repo": "codecompanion-copilot-enterprise.nvim",
+        "type": "github"
       }
     },
     "plugin-lsplens": {
