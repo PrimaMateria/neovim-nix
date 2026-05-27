@@ -13,6 +13,19 @@ telescope.setup({
 	pickers = {
 		find_files = {
 			hidden = true,
+			disable_devicons = true,
+		},
+		live_grep = {
+			disable_devicons = true,
+		},
+		grep_string = {
+			disable_devicons = true,
+		},
+		lsp_definitions = {
+			disable_devicons = true,
+		},
+		lsp_references = {
+			disable_devicons = true,
 		},
 	},
 	extensions = {
@@ -23,6 +36,7 @@ telescope.setup({
 			default_workspace = "CWD",
 			ignore_patterns = { "*.git/*", "*node_modules/*", "*dist/*", "*build/*", "__old/*" },
 			sorter = require("telescope.config").values.file_sorter(),
+			disable_devicons = true,
 		},
 		fzf = {
 			fuzzy = true,

@@ -5,6 +5,7 @@ require("oil").setup({
 	},
 	cleanup_delay_ms = false,
 	skip_confirm_for_simple_edits = true,
+	columns = {},
 })
 
 local wk = require("which-key")
