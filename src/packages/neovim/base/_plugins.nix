@@ -45,6 +45,7 @@ with root.packages.vimPlugins; [
   # Completition
   # ----------------
   blink-cmp
+  blink-emoji-nvim
 
   # Language Server Protocol
   # ----------------
