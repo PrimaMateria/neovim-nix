@@ -15,6 +15,7 @@ with root.packages.vimPlugins; [
 
   # Navigation
   # ----------------
+  flash-nvim
   harpoon
   nvim-tree-lua
   vim-tmux-navigator
