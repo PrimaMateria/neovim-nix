@@ -1,9 +1,16 @@
-require("render-markdown").setup({
-	enabled = false,
-	file_types = { "markdown", "Avante" },
-	code = {
-		sign = "none",
+local wk = require("which-key")
+local markview = require("markview")
+
+markview.setup({
+	preview = {
+		enable = false,
+		modes = { "n", "no", "c" },
+		hybrid_modes = {},
 	},
 })
 
-vim.keymap.set("n", ",m", "<cmd>lua require('render-markdown').toggle()<CR>", { silent = true })
+vim.keymap.set("n", ",m", "<cmd>Markview toggle<CR>", { silent = true })
+
+wk.add({
+	{ ",m", desc = "Toggle markdown" },
+})

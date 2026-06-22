@@ -11,7 +11,7 @@ with root.packages.vimPlugins; [
   nvim-web-devicons
   vim-illuminate # highlight word under cursor
   todo-comments-nvim
-  render-markdown-nvim
+  markview-nvim
   trouble-nvim
 
   # Navigation
@@ -64,4 +64,8 @@ with root.packages.vimPlugins; [
   # Commenting
   # ----------------
   vim-commentary
+
+  # Reading
+  # ----------------
+  rsvp-nvim
 ]

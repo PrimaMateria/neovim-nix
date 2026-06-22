@@ -15,6 +15,7 @@
     plugin-typescript-tools-nvim,
     plugin-codecompanion-copilot-enterprise-nvim,
     plugin-resolve-nvim,
+    plugin-rsvp-nvim,
     ...
   }:
     utils.lib.eachDefaultSystem (
@@ -40,6 +41,7 @@
               plugin-typescript-tools-nvim
               plugin-codecompanion-copilot-enterprise-nvim
               plugin-resolve-nvim
+              plugin-rsvp-nvim
               ;
           };
         };
@@ -93,6 +95,10 @@
     };
     plugin-resolve-nvim = {
       url = "github:spacedentist/resolve.nvim";
+      flake = false;
+    };
+    plugin-rsvp-nvim = {
+      url = "github:kivanceski/rsvp.nvim";
       flake = false;
     };
   };

@@ -218,6 +218,22 @@
         "type": "github"
       }
     },
+    "plugin-rsvp-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1771334964,
+        "narHash": "sha256-o7z8gahqGA6Ni9IAb4itj9WPocZBRyOqUFJ60lqOlJg=",
+        "owner": "kivanceski",
+        "repo": "rsvp.nvim",
+        "rev": "fcf2665ba3dc221b8cb7d12560b89da18c653909",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kivanceski",
+        "repo": "rsvp.nvim",
+        "type": "github"
+      }
+    },
     "plugin-tiny-glimmer-nvim": {
       "flake": false,
       "locked": {
@@ -261,6 +277,7 @@
         "plugin-codecompanion-copilot-enterprise-nvim": "plugin-codecompanion-copilot-enterprise-nvim",
         "plugin-lsplens": "plugin-lsplens",
         "plugin-resolve-nvim": "plugin-resolve-nvim",
+        "plugin-rsvp-nvim": "plugin-rsvp-nvim",
         "plugin-tiny-glimmer-nvim": "plugin-tiny-glimmer-nvim",
         "plugin-typescript-tools-nvim": "plugin-typescript-tools-nvim",
         "utils": "utils_2"
