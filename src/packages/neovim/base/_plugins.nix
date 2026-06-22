@@ -50,6 +50,8 @@ with root.packages.vimPlugins; [
   # Language Server Protocol
   # ----------------
   nvim-treesitter
+  nvim-ufo
+  promise-async
   lsplens # references
   lspsaga-nvim
   nvim-lspconfig
