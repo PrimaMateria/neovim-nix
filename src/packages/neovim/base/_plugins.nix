@@ -27,7 +27,7 @@ with root.packages.vimPlugins; [
   # ----------------
   lazygit-nvim
   vim-fugitive
-  vim-gitgutter
+  gitsigns-nvim
   diffview-nvim
   resolve-nvim
 
