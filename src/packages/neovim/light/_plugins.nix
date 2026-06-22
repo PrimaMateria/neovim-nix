@@ -17,6 +17,7 @@ with root.packages.vimPlugins; [
   # ----------------
   harpoon
   nvim-tree-lua
+  vim-tmux-navigator
   telescope-frecency-nvim
   telescope-fzf-native-nvim
   telescope-nvim
