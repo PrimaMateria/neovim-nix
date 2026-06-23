@@ -1,10 +1,37 @@
 # Neovim Config Audit
 
-**Full plugin inventory:** base16, lualine, noice, nvim-notify, which-key, tiny-glimmer, harpoon, nvim-tree, vim-tmux-navigator, telescope (+frecency, fzf), vim-abolish, tabular, snacks-nvim, indent-blankline, colorizer, web-devicons, illuminate, todo-comments, render-markdown, trouble, spectre, oil, vim-dirdiff, lazygit, fugitive, ~~gitgutter~~ **gitsigns**, diffview, resolve, luasnip, copilot, codecompanion, blink-cmp, treesitter, lsplens, lspsaga, lspconfig, nvim-lint, conform, vim-commentary, ts-context-commentstring, debugprint, nvim-vtsls, csvview.
+**Full plugin inventory:** base16, lualine, noice, nvim-notify, which-key, tiny-glimmer, harpoon, nvim-tree, vim-tmux-navigator, telescope (+frecency, fzf), vim-abolish, tabular, snacks-nvim, indent-blankline, colorizer, web-devicons, illuminate, todo-comments, ~~render-markdown~~ **markview**, trouble, spectre, oil, vim-dirdiff, lazygit, fugitive, ~~gitgutter~~ **gitsigns**, diffview, resolve, luasnip, copilot, codecompanion, blink-cmp, treesitter, lsplens, lspsaga, lspconfig, nvim-lint, conform, vim-commentary, ts-context-commentstring, debugprint, nvim-vtsls, csvview.
 
 ---
 
 ## Done
+
+### rsvp.nvim (custom derivation)
+- `flake.nix` — added `plugin-rsvp-nvim` input (github:kivanceski/rsvp.nvim)
+- `src/packages/vimPlugins/rsvp-nvim.nix` — custom derivation
+- `base/_plugins.nix` — added `rsvp-nvim`
+- `base/__config/lua/nvim-rsvp.lua` — new config; 250 WPM, 1 context word, `,R` to start (normal = whole buffer, visual = selection)
+
+### markview.nvim (replaces render-markdown-nvim)
+- `base/_plugins.nix` — swapped `render-markdown-nvim` for `markview-nvim`
+- `base/__config/lua/nvim-render-markdown.lua` — replaced config; starts disabled, toggle stays on `,m`
+- `hybrid_modes = {}` — fully rendered in normal mode (no raw-text flash on current line); insert mode shows raw for editing
+
+### nvim-ufo + promise-async
+- `base/_plugins.nix` — added `nvim-ufo`, `promise-async`
+- `base/__config/lua/nvim-ufo.lua` — new config; providers: LSP → treesitter fallback; virtual text shows folded line count; `K` now peeks fold first, falls back to Lspsaga hover
+- `base/__config/lua/nvim-treesitter.lua` — removed fold setup (ufo owns it now)
+- `base/__config/lua/nvim-lspsaga.lua` — removed `K` binding (moved to ufo)
+
+| Key | Action |
+|-----|--------|
+| `zR` | Open all folds |
+| `zM` | Close all folds |
+| `zr` | Open folds except kinds |
+| `zm` | Close folds by level |
+| `K` | Peek fold (or hover doc if not on a fold) |
+| `za` | Toggle fold under cursor (built-in) |
+| `zo` / `zc` | Open / close fold (built-in) |
 
 ### flash.nvim
 - `light/_plugins.nix` — added `flash-nvim`
