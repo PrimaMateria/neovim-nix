@@ -1,10 +1,14 @@
 # Neovim Config Audit
 
-**Full plugin inventory:** base16, lualine, noice, nvim-notify, which-key, tiny-glimmer, harpoon, nvim-tree, vim-tmux-navigator, telescope (+frecency, fzf), vim-abolish, tabular, snacks-nvim, indent-blankline, colorizer, web-devicons, illuminate, todo-comments, ~~render-markdown~~ **markview**, trouble, spectre, oil, vim-dirdiff, lazygit, fugitive, ~~gitgutter~~ **gitsigns**, diffview, resolve, luasnip, copilot, codecompanion, blink-cmp, treesitter, lsplens, lspsaga, lspconfig, nvim-lint, conform, vim-commentary, ts-context-commentstring, debugprint, nvim-vtsls, csvview.
+**Full plugin inventory:** base16, lualine, noice, nvim-notify, which-key, tiny-glimmer, harpoon, nvim-tree, vim-tmux-navigator, telescope (+frecency, fzf), vim-abolish, tabular, snacks-nvim, indent-blankline, colorizer, web-devicons, illuminate, todo-comments, ~~render-markdown~~ **markview**, trouble, ~~spectre~~ **grug-far**, oil, vim-dirdiff, lazygit, fugitive, ~~gitgutter~~ **gitsigns**, diffview, resolve, luasnip, copilot, codecompanion, blink-cmp, treesitter, lsplens, lspsaga, lspconfig, nvim-lint, conform, vim-commentary, ts-context-commentstring, debugprint, nvim-vtsls, csvview.
 
 ---
 
 ## Done
+
+### grug-far.nvim (replaces nvim-spectre)
+- `base/_plugins.nix` — swapped `nvim-spectre` for `grug-far-nvim`
+- `base/__config/lua/nvim-spectre.lua` — replaced config; keymap stays on `,as`; visual mode pre-fills search with word under cursor
 
 ### rsvp.nvim (custom derivation)
 - `flake.nix` — added `plugin-rsvp-nvim` input (github:kivanceski/rsvp.nvim)

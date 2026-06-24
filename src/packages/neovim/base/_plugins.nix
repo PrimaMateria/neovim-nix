@@ -19,7 +19,7 @@ with root.packages.vimPlugins; [
 
   # Refactoring
   # ----------------
-  nvim-spectre # search & repace
+  grug-far-nvim # search & replace
   oil-nvim
   vim-dirdiff
 
