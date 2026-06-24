@@ -15,4 +15,9 @@
 ])
 ++ (with root.packages; [
   lazygit
+  plantuml-jar
+])
+++ (with pkgs; [
+  zulu
+  graphviz
 ])

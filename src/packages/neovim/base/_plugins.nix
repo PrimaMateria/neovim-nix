@@ -65,6 +65,12 @@ with root.packages.vimPlugins; [
   # ----------------
   vim-commentary
 
+  # PlantUML
+  # ----------------
+  plantuml-previewer-vim
+  open-browser-vim
+  plantuml-syntax
+
   # Reading
   # ----------------
   rsvp-nvim
