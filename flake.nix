@@ -98,7 +98,7 @@
       flake = false;
     };
     plugin-rsvp-nvim = {
-      url = "github:kivanceski/rsvp.nvim";
+      url = "github:PrimaMateria/rsvp.nvim/feat/adaptive-timing";
       flake = false;
     };
   };

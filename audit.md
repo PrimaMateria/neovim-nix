@@ -1,10 +1,19 @@
 # Neovim Config Audit
 
-**Full plugin inventory:** base16, lualine, noice, nvim-notify, which-key, tiny-glimmer, harpoon, nvim-tree, vim-tmux-navigator, telescope (+frecency, fzf), vim-abolish, tabular, snacks-nvim, indent-blankline, colorizer, web-devicons, illuminate, todo-comments, ~~render-markdown~~ **markview**, trouble, ~~spectre~~ **grug-far**, oil, vim-dirdiff, lazygit, fugitive, ~~gitgutter~~ **gitsigns**, diffview, resolve, luasnip, copilot, codecompanion, blink-cmp, treesitter, lsplens, lspsaga, lspconfig, nvim-lint, conform, vim-commentary, ts-context-commentstring, debugprint, nvim-vtsls, csvview.
+**Full plugin inventory:** base16, lualine, noice, nvim-notify, which-key, tiny-glimmer, harpoon, nvim-tree, vim-tmux-navigator, telescope (+frecency, fzf), vim-abolish, tabular, snacks-nvim, indent-blankline, colorizer, web-devicons, illuminate, todo-comments, ~~render-markdown~~ **markview**, trouble, ~~spectre~~ **grug-far**, oil, vim-dirdiff, lazygit, fugitive, ~~gitgutter~~ **gitsigns**, diffview, resolve, luasnip, copilot, codecompanion, blink-cmp, treesitter, lsplens, lspsaga, lspconfig, nvim-lint, conform, vim-commentary, ts-context-commentstring, debugprint, nvim-vtsls, csvview, **rsvp-nvim**, plantuml-previewer, **nvim-ufo**, **flash**, **markview**.
 
 ---
 
 ## Done
+
+### PlantUML in markdown
+- `base/_dependencies.nix` — added `plantuml-jar`, `zulu`, `graphviz`
+- `base/_plugins.nix` — added `plantuml-previewer-vim`, `open-browser-vim`, `plantuml-syntax`
+- `base/__config/luanix/nvim-plantuml.lua.nix` — jar path interpolated from Nix store; extracts fenced ` ```plantuml ` block under cursor, writes to `/tmp/nvim-puml-preview.puml`, opens browser preview on first call, subsequent calls update the file (watcher auto-refreshes)
+
+| Key | Action |
+|-----|--------|
+| `,p` | Preview plantuml block under cursor |
 
 ### grug-far.nvim (replaces nvim-spectre)
 - `base/_plugins.nix` — swapped `nvim-spectre` for `grug-far-nvim`
@@ -14,7 +23,16 @@
 - `flake.nix` — added `plugin-rsvp-nvim` input (github:kivanceski/rsvp.nvim)
 - `src/packages/vimPlugins/rsvp-nvim.nix` — custom derivation
 - `base/_plugins.nix` — added `rsvp-nvim`
-- `base/__config/lua/nvim-rsvp.lua` — new config; 250 WPM, 1 context word, `,R` to start (normal = whole buffer, visual = selection)
+- `base/__config/lua/nvim-rsvp.lua` — 250 WPM, 1 context word, `auto_run = false` (opens paused); normal `,R` reads whole buffer, visual `,R` reads selection via `'<,'>Rsvp`
+
+| Key | Action |
+|-----|--------|
+| `,R` | Start RSVP reader (normal = buffer, visual = selection) |
+| `Space` | Play / pause |
+| `H` / `L` | Step word back / forward |
+| `<` / `>` | Decrease / increase WPM by 25 |
+| `g?` | Show help |
+| `q` / `Esc` | Close |
 
 ### markview.nvim (replaces render-markdown-nvim)
 - `base/_plugins.nix` — swapped `render-markdown-nvim` for `markview-nvim`

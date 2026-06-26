@@ -221,15 +221,16 @@
     "plugin-rsvp-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1771334964,
-        "narHash": "sha256-o7z8gahqGA6Ni9IAb4itj9WPocZBRyOqUFJ60lqOlJg=",
-        "owner": "kivanceski",
+        "lastModified": 1782459868,
+        "narHash": "sha256-S754/GfXIHH8dMkak+M2PxfHhAd6Ac/U90AjYWobpf8=",
+        "owner": "PrimaMateria",
         "repo": "rsvp.nvim",
-        "rev": "fcf2665ba3dc221b8cb7d12560b89da18c653909",
+        "rev": "12dbe4e935d93fd7853d1439f43b49e8faf3c3f1",
         "type": "github"
       },
       "original": {
-        "owner": "kivanceski",
+        "owner": "PrimaMateria",
+        "ref": "feat/adaptive-timing",
         "repo": "rsvp.nvim",
         "type": "github"
       }
