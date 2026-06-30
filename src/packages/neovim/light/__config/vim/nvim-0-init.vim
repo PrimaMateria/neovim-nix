@@ -74,4 +74,5 @@ augroup END
 augroup TermFix
   autocmd!
   autocmd TermOpen * let $TERM = "screen-256color"
+  autocmd TermOpen * setlocal number relativenumber
 augroup END
