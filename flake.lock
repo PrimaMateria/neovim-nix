@@ -221,18 +221,14 @@
     "plugin-rsvp-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1782459868,
-        "narHash": "sha256-S754/GfXIHH8dMkak+M2PxfHhAd6Ac/U90AjYWobpf8=",
-        "owner": "PrimaMateria",
-        "repo": "rsvp.nvim",
-        "rev": "12dbe4e935d93fd7853d1439f43b49e8faf3c3f1",
-        "type": "github"
+        "lastModified": 1782904121,
+        "narHash": "sha256-UTyC2Id5ZodwHl+X7pdYNlSNMCS8v8NQLzR/3yLrV7o=",
+        "path": "/home/primamateria/dev/rsvp.nvim",
+        "type": "path"
       },
       "original": {
-        "owner": "PrimaMateria",
-        "ref": "feat/adaptive-timing",
-        "repo": "rsvp.nvim",
-        "type": "github"
+        "path": "/home/primamateria/dev/rsvp.nvim",
+        "type": "path"
       }
     },
     "plugin-tiny-glimmer-nvim": {
