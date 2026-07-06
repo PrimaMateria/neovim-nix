@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+FLAVOR="python"
+source "$(dirname "$0")/_runner.sh" "$@"

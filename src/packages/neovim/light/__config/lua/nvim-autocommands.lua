@@ -1,3 +1,16 @@
+local wk = require("which-key")
+
+vim.keymap.set("n", ",r", function()
+	local id = vim.env.NVIM_INSTANCE_ID or "default"
+	local flavor = vim.env.NVIM_FLAVOR or "nvim"
+	vim.cmd("mksession! /tmp/nvim-session-" .. flavor .. "-" .. id .. ".vim")
+	local f = io.open("/tmp/nvim-rebuild-" .. flavor .. "-" .. id, "w")
+	if f then f:close() end
+	vim.cmd("qa!")
+end, { silent = true })
+
+wk.add({ { ",r", desc = "Save session & rebuild-restart" } })
+
 -- Keep cursor where it was after VISUAL yank
 vim.keymap.set("x", "y", "ygv<Esc>", { desc = "Yank and stay put" })
 

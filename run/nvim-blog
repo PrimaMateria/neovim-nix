@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+FLAVOR="blog"
+source "$(dirname "$0")/_runner.sh" "$@"
