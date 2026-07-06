@@ -6,6 +6,7 @@ vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 vim.o.foldcolumn = "1"
+vim.api.nvim_set_hl(0, "FoldColumn", { fg = vim.g.base16_gui02 })
 
 local function providerSelector(bufnr)
 	local function fallback(err, provider)
