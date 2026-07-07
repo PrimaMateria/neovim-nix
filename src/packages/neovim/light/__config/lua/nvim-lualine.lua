@@ -26,14 +26,14 @@ require("lualine").setup({
 	},
 	winbar = {
 		lualine_a = {},
-		lualine_b = { { "filename", path = 0 } },
+		lualine_b = { { "filename", path = 0, file_status = false } },
 		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
 	},
 	inactive_winbar = {
-		lualine_b = { { "filename", path = 0 } },
+		lualine_b = { { "filename", path = 0, file_status = false } },
 		lualine_z = {},
 	},
 })

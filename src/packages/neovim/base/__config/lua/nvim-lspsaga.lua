@@ -23,7 +23,6 @@ vim.diagnostic.config({
 	virtual_lines = false,
 })
 
-vim.keymap.set({ "n", "t" }, "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { silent = true })
 vim.keymap.set("n", ",ep", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 vim.keymap.set("n", ",en", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 vim.keymap.set("n", ",ar", "<cmd>Lspsaga rename<CR>", { silent = true })
