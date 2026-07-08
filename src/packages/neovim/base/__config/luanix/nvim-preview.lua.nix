@@ -20,7 +20,6 @@
     end
 
     if not start_line then
-      vim.notify("No plantuml block under cursor", vim.log.levels.WARN)
       return nil
     end
 
@@ -32,8 +31,7 @@
       end
     end
 
-    if not end_line then
-      vim.notify("Plantuml block not closed", vim.log.levels.WARN)
+    if not end_line or cursor_line > end_line then
       return nil
     end
 
@@ -44,9 +42,40 @@
     return content
   end
 
-  local function preview_puml()
+  local function extract_image_path()
+    local line = vim.api.nvim_get_current_line()
+    return line:match("!%[.-%]%(([^%s%)]+)%)")
+  end
+
+  local function preview_image(path)
+    if not path:match("^https?://") then
+      if not path:match("^/") then
+        path = vim.fn.expand("%:p:h") .. "/" .. path
+      end
+      path = vim.fn.resolve(path)
+      if vim.fn.filereadable(path) == 0 then
+        vim.notify("Image file not found: " .. path, vim.log.levels.WARN)
+        return
+      end
+      path = vim.fn.trim(vim.fn.system({ "wslpath", "-w", path }))
+    end
+
+    vim.fn.jobstart({ "firefox", path }, { detach = true })
+    vim.notify("Opening image preview", vim.log.levels.INFO)
+  end
+
+  local function preview()
+    local image_path = extract_image_path()
+    if image_path then
+      preview_image(image_path)
+      return
+    end
+
     local content = extract_puml_block()
-    if not content then return end
+    if not content then
+      vim.notify("No plantuml block or image link under cursor", vim.log.levels.WARN)
+      return
+    end
 
     local orig_win = vim.api.nvim_get_current_win()
 
@@ -68,9 +97,9 @@
     vim.notify("PlantUML updated", vim.log.levels.INFO)
   end
 
-  vim.keymap.set("n", ",p", preview_puml, { silent = true })
+  vim.keymap.set("n", ",p", preview, { silent = true })
 
   wk.add({
-    { ",p", desc = "Preview plantuml block" },
+    { ",p", desc = "Preview" },
   })
 ''
