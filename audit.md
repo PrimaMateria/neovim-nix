@@ -1,6 +1,6 @@
 # Neovim Config Audit
 
-**Full plugin inventory:** base16, lualine, noice, nvim-notify, which-key, tiny-glimmer, harpoon, nvim-tree, vim-tmux-navigator, telescope (+frecency, fzf), vim-abolish, tabular, snacks-nvim, indent-blankline, colorizer, web-devicons, illuminate, todo-comments, ~~render-markdown~~ **markview**, trouble, ~~spectre~~ **grug-far**, oil, vim-dirdiff, lazygit, fugitive, ~~gitgutter~~ **gitsigns**, diffview, resolve, luasnip, copilot, codecompanion, blink-cmp, treesitter, lsplens, lspsaga, lspconfig, nvim-lint, conform, vim-commentary, ts-context-commentstring, debugprint, nvim-vtsls, csvview, **rsvp-nvim**, plantuml-previewer, **nvim-ufo**, **flash**, **markview**.
+**Full plugin inventory:** base16, lualine, noice, nvim-notify, which-key, tiny-glimmer, nvim-tree, vim-tmux-navigator, telescope (+frecency, fzf), vim-abolish, tabular, snacks-nvim, indent-blankline, colorizer, web-devicons, illuminate, todo-comments, ~~render-markdown~~ **markview**, trouble, ~~spectre~~ **grug-far**, oil, vim-dirdiff, lazygit, fugitive, ~~gitgutter~~ **gitsigns**, diffview, resolve, luasnip, copilot, codecompanion, blink-cmp, treesitter, lsplens, lspsaga, lspconfig, nvim-lint, conform, vim-commentary, ts-context-commentstring, debugprint, nvim-vtsls, csvview, **rsvp-nvim**, plantuml-previewer, **nvim-ufo**, **flash**, **markview**.
 
 ---
 
@@ -65,6 +65,20 @@
 | `S` | n, x, o | Treesitter-aware selection |
 | `r` | o | Remote action (operate on distant text without moving) |
 | `R` | o, x | Treesitter search across buffer |
+
+### Terminal consolidation (replaces harpoon + Lspsaga term_toggle)
+- `light/_plugins.nix` — removed `harpoon`
+- `light/__config/lua/nvim-harpoon.lua` — deleted
+- `base/__config/lua/nvim-lspsaga.lua` — removed `<C-t>` term_toggle keymap
+- `light/__config/lua/nvim-terminal.lua` — new config file
+  - `<leader>t{t,q,w,e,r}` and `<leader>tc` swap the current window's buffer to a persistent terminal buffer (mirrors old `harpoon.term.gotoTerminal` — no new split is created)
+  - `<C-t>` is the odd one out: a genuine floating scratch terminal via `snacks.terminal`, with a rounded border
+
+| Key | Action |
+|-----|--------|
+| `<leader>tt` / `tq` / `tw` / `te` / `tr` | 5 general-purpose terminals, reused in place |
+| `<leader>tc` | Dedicated Claude CLI terminal (always the same buffer) |
+| `<C-t>` | Quick floating scratch terminal (rounded border) |
 
 ### gitsigns.nvim (replaces vim-gitgutter)
 - `base/_plugins.nix` — swapped `vim-gitgutter` for `gitsigns-nvim`
@@ -136,7 +150,7 @@ spectre has had a messy history (broken regex modes, awkward UX). grug-far is a 
 | `snacks.lazygit`  | lazygit-nvim                          |
 | `snacks.notifier` | nvim-notify                           |
 | `snacks.dashboard`| nothing (no dashboard currently)      |
-| `snacks.terminal` | no float terminal currently           |
+| `snacks.terminal` | ~~no float terminal currently~~ **now in use** |
 | `snacks.picker`   | could supplement telescope            |
 | `snacks.input`    | improves `vim.ui.input` (rename dialogs, etc.) |
 
