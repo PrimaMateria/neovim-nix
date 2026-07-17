@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Rebuilds the result-{flavor} cache for every Neovim flavor in the flake.
+set -euo pipefail
+
+FLAKE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+FLAVORS=(base blog c light pmwebdev puml python rust web)
+
+for FLAVOR in "${FLAVORS[@]}"; do
+  echo "→ Building nvim-${FLAVOR}..."
+  nix build "$FLAKE_DIR#neovim.${FLAVOR}" --out-link "$FLAKE_DIR/result-${FLAVOR}"
+done
+
+echo "→ All flavors up to date."

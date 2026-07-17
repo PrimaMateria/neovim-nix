@@ -95,6 +95,7 @@ isolated session and rebuild flag based on its shell PID.
 | `nvim-python` | Launcher for the `python` flavor |
 | `nvim-rust` | Launcher for the `rust` flavor |
 | `nvim-web` | Launcher for the `web` flavor |
+| `update-all` | Rebuilds the `result-{flavor}` cache for every flavor |
 
 ## Result symlinks
 
