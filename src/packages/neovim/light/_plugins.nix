@@ -16,7 +16,6 @@ with root.packages.vimPlugins; [
   # Navigation
   # ----------------
   flash-nvim
-  nvim-tree-lua
   vim-tmux-navigator
   telescope-frecency-nvim
   telescope-fzf-native-nvim
