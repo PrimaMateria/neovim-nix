@@ -18,5 +18,6 @@ require("nvim-tree").setup({
 	},
 })
 
+-- <C-n> was rebound to the floating note (see nvim-notes.lua).
 local opt = { noremap = true }
-vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", opt)
+vim.api.nvim_set_keymap("n", "<leader>n", ":NvimTreeFindFileToggle<CR>", opt)
