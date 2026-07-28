@@ -124,11 +124,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1784109920,
-        "narHash": "sha256-rPO9oH+qPnuNh9fOkrx0Z7pb6es3CiVQ0zT3euVmAZc=",
+        "lastModified": 1784292193,
+        "narHash": "sha256-Urerk3qOXc/UYILMhFjINDOuUhzbmG0qo2H12gNP+34=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2232ce6058eb4f6310376e003d175804ac945906",
+        "rev": "bc779f236c4f4dc06f8a09659fba487dedf484e5",
         "type": "github"
       },
       "original": {
@@ -221,11 +221,11 @@
     "plugin-rsvp-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1784028762,
-        "narHash": "sha256-yk556q4/yD/02vsnrbUzlNdsUU4UQo2Mf/SiS7NSLTY=",
+        "lastModified": 1784529399,
+        "narHash": "sha256-MPXvau2tCwaXHx4Jz+uP8eVKqJe6n8j+dvTYHjQvoeU=",
         "owner": "PrimaMateria",
         "repo": "rsvp.nvim",
-        "rev": "abfa27c0a9e3c297b8c5e5e30438c8ad753123f6",
+        "rev": "aea0fbb060338d24178155c3d1d96bc4bf0d6a1a",
         "type": "github"
       },
       "original": {

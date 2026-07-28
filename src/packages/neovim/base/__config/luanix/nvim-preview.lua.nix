@@ -65,6 +65,11 @@
   end
 
   local function preview()
+    if vim.bo.filetype == "plantuml" then
+      vim.cmd("PlantumlOpen")
+      return
+    end
+
     local image_path = extract_image_path()
     if image_path then
       preview_image(image_path)
