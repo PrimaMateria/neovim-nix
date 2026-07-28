@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = "Diffview*",
 	callback = function(ev)
 		-- close the whole Diffview tab
-		vim.keymap.set("n", "gx", "<cmd>tabclose<cr>", {
+		vim.keymap.set("n", "gq", "<cmd>tabclose<cr>", {
 			buffer = ev.buf,
 			silent = true,
 			desc = "Close Diffview tab",
