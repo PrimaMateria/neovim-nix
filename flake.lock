@@ -138,54 +138,6 @@
         "type": "github"
       }
     },
-    "plugin-aider": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1761640116,
-        "narHash": "sha256-LHSDfn9I+Ff83u8DZlom7fgZNwqSZ1h72y6NJq0eKTw=",
-        "owner": "GeorgesAlkhouri",
-        "repo": "nvim-aider",
-        "rev": "c8a4f952937d54f17dc23bd378e9e3b373f502b2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "GeorgesAlkhouri",
-        "repo": "nvim-aider",
-        "type": "github"
-      }
-    },
-    "plugin-avante": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1787306921,
-        "narHash": "sha256-u89X6y9YL63UCdxeyA98DM2USsudeCbyPbfX7mpSdb0=",
-        "owner": "yetone",
-        "repo": "avante.nvim",
-        "rev": "317a16d44f964863ef0dcb47474a06dd8ed3d52a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "yetone",
-        "repo": "avante.nvim",
-        "type": "github"
-      }
-    },
-    "plugin-codecompanion-copilot-enterprise-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1764934162,
-        "narHash": "sha256-RsC1J0AWq6FDI5WCvpu+nmM+KaYPFfQnKU9U8BRiFwI=",
-        "owner": "primamateria",
-        "repo": "codecompanion-copilot-enterprise.nvim",
-        "rev": "81f70ecfd9fa74fd33f1eddb578414e604986b1e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "primamateria",
-        "repo": "codecompanion-copilot-enterprise.nvim",
-        "type": "github"
-      }
-    },
     "plugin-lsplens": {
       "flake": false,
       "locked": {
@@ -272,9 +224,6 @@
         "neovim-nix-utils": "neovim-nix-utils",
         "neovimNightlyOverlay": "neovimNightlyOverlay",
         "nixpkgs": "nixpkgs",
-        "plugin-aider": "plugin-aider",
-        "plugin-avante": "plugin-avante",
-        "plugin-codecompanion-copilot-enterprise-nvim": "plugin-codecompanion-copilot-enterprise-nvim",
         "plugin-lsplens": "plugin-lsplens",
         "plugin-resolve-nvim": "plugin-resolve-nvim",
         "plugin-rsvp-nvim": "plugin-rsvp-nvim",

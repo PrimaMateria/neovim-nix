@@ -4,15 +4,9 @@ blink.setup({
 	keymap = { preset = "default", ["<C-n>"] = { "show", "select_next" } },
 	snippets = { preset = "luasnip" },
 	sources = {
-		default = { "lsp", "path", "snippets", "copilot", "buffer", "emoji" },
+		default = { "lsp", "path", "snippets", "buffer", "emoji" },
 
 		providers = {
-			copilot = {
-				name = "copilot",
-				module = "blink-copilot",
-				score_offset = -5,
-				async = true,
-			},
 			emoji = {
 				module = "blink-emoji",
 				name = "Emoji",

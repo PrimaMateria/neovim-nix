@@ -1,6 +1,6 @@
 # Neovim Config Audit
 
-**Full plugin inventory:** base16, lualine, noice, nvim-notify, which-key, tiny-glimmer, nvim-tree, vim-tmux-navigator, telescope (+frecency, fzf), vim-abolish, tabular, snacks-nvim, indent-blankline, colorizer, web-devicons, illuminate, todo-comments, ~~render-markdown~~ **markview**, trouble, ~~spectre~~ **grug-far**, oil, vim-dirdiff, lazygit, fugitive, ~~gitgutter~~ **gitsigns**, diffview, resolve, luasnip, copilot, codecompanion, blink-cmp, treesitter, lsplens, lspsaga, lspconfig, nvim-lint, conform, vim-commentary, ts-context-commentstring, debugprint, nvim-vtsls, csvview, **rsvp-nvim**, plantuml-previewer, **nvim-ufo**, **flash**, **markview**.
+**Full plugin inventory:** base16, lualine, noice, nvim-notify, which-key, tiny-glimmer, nvim-tree, vim-tmux-navigator, telescope (+frecency, fzf), vim-abolish, tabular, snacks-nvim, indent-blankline, colorizer, web-devicons, illuminate, todo-comments, ~~render-markdown~~ **markview**, trouble, ~~spectre~~ **grug-far**, oil, vim-dirdiff, lazygit, fugitive, ~~gitgutter~~ **gitsigns**, diffview, resolve, luasnip, blink-cmp, treesitter, lsplens, lspsaga, lspconfig, nvim-lint, conform, vim-commentary, ts-context-commentstring, debugprint, nvim-vtsls, csvview, **rsvp-nvim**, plantuml-previewer, **nvim-ufo**, **flash**, **markview**.
 
 ---
 

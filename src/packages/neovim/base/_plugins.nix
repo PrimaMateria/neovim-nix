@@ -35,13 +35,6 @@ with root.packages.vimPlugins; [
   # ----------------
   luasnip
 
-  # AI
-  # ----------------
-  copilot-lua
-  codecompanion-nvim
-  codecompanion-copilot-enterprise-nvim
-  blink-copilot
-
   # Completition
   # ----------------
   blink-cmp

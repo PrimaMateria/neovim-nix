@@ -8,12 +8,9 @@
     haumea,
     neovimNightlyOverlay,
     neovim-nix-utils,
-    plugin-avante,
     plugin-lsplens,
-    plugin-aider,
     plugin-tiny-glimmer-nvim,
     plugin-typescript-tools-nvim,
-    plugin-codecompanion-copilot-enterprise-nvim,
     plugin-resolve-nvim,
     plugin-rsvp-nvim,
     ...
@@ -34,12 +31,9 @@
           inherit (pkgs.lib) debug;
           extraPlugins = {
             inherit
-              plugin-avante
               plugin-lsplens
-              plugin-aider
               plugin-tiny-glimmer-nvim
               plugin-typescript-tools-nvim
-              plugin-codecompanion-copilot-enterprise-nvim
               plugin-resolve-nvim
               plugin-rsvp-nvim
               ;
@@ -69,16 +63,8 @@
     };
   };
   inputs = {
-    plugin-avante = {
-      url = "github:yetone/avante.nvim";
-      flake = false;
-    };
     plugin-lsplens = {
       url = "github:VidocqH/lsp-lens.nvim";
-      flake = false;
-    };
-    plugin-aider = {
-      url = "github:GeorgesAlkhouri/nvim-aider";
       flake = false;
     };
     plugin-tiny-glimmer-nvim = {
@@ -87,10 +73,6 @@
     };
     plugin-typescript-tools-nvim = {
       url = "github:pmizio/typescript-tools.nvim";
-      flake = false;
-    };
-    plugin-codecompanion-copilot-enterprise-nvim = {
-      url = "github:primamateria/codecompanion-copilot-enterprise.nvim";
       flake = false;
     };
     plugin-resolve-nvim = {
