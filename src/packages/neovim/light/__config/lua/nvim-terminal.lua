@@ -5,10 +5,47 @@ local wk = require("which-key")
 -- opening a new split, mirroring the old harpoon.term.gotoTerminal().
 local bufs = {}
 
+local function find_named(name)
+	local target = vim.fn.fnamemodify(name, ":p")
+	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+		if vim.api.nvim_buf_get_name(buf) == target then
+			return buf
+		end
+	end
+end
+
+-- A buffer may already hold the slot's name: either the slot's terminal from
+-- before a config reload (adopt it), or an empty placeholder left over by a
+-- restored session (wipe it). Without this, naming the fresh terminal fails
+-- with E95, the slot is never registered, and every press spawns another one.
+local function claim_name(name)
+	local buf = find_named(name)
+	if not buf then
+		return name
+	end
+	if vim.bo[buf].buftype == "terminal" then
+		return name, buf
+	end
+	if not vim.bo[buf].modified and vim.fn.filereadable(vim.api.nvim_buf_get_name(buf)) == 0 then
+		vim.api.nvim_buf_delete(buf, { force = true })
+		return name
+	end
+	-- a real file goes by that name; leave the terminal unnamed rather than clash
+	return nil
+end
+
 local function get_buf(id, cmd, name)
 	local buf = bufs[id]
 	if buf and vim.api.nvim_buf_is_valid(buf) then
 		return buf
+	end
+	local existing
+	if name then
+		name, existing = claim_name(name)
+		if existing then
+			bufs[id] = existing
+			return existing
+		end
 	end
 	local current = vim.api.nvim_get_current_buf()
 	vim.cmd(cmd and ("terminal " .. cmd) or "terminal")
@@ -16,9 +53,11 @@ local function get_buf(id, cmd, name)
 	vim.bo[buf].buflisted = false
 	vim.bo[buf].bufhidden = "hide"
 	if name then
-		vim.api.nvim_buf_set_name(buf, name)
+		pcall(vim.api.nvim_buf_set_name, buf, name)
 	end
-	vim.api.nvim_set_current_buf(current)
+	if vim.api.nvim_buf_is_valid(current) then
+		vim.api.nvim_set_current_buf(current)
+	end
 	bufs[id] = buf
 	return buf
 end

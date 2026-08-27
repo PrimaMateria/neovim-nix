@@ -19,6 +19,9 @@ set splitbelow
 set splitright
 set relativenumber
 set sessionoptions+=tabpages,globals
+" Terminals can't be meaningfully restored; mksession would only leave
+" behind empty placeholder buffers holding the terminal buffer names
+set sessionoptions-=terminal
 set ignorecase
 set shell=bash\ -l
 set clipboard+=unnamedplus

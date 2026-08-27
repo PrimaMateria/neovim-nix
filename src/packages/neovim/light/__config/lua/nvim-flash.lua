@@ -3,18 +3,19 @@ local flash = require("flash")
 
 flash.setup({
 	modes = {
+		-- don't hijack f/F/t/T
 		char = {
-			keys = { "f", "F", "t", "T" },
+			enabled = false,
+		},
+		-- don't hijack / and ?
+		search = {
+			enabled = false,
 		},
 	},
 })
 
-vim.keymap.set({ "n", "x", "o" }, "s", function() flash.jump() end, { desc = "Flash jump" })
-vim.keymap.set({ "n", "x", "o" }, "S", function() flash.treesitter() end, { desc = "Flash treesitter" })
-vim.keymap.set("o", "r", function() flash.remote() end, { desc = "Flash remote" })
-vim.keymap.set({ "o", "x" }, "R", function() flash.treesitter_search() end, { desc = "Flash treesitter search" })
+vim.keymap.set({ "n", "x", "o" }, "<C-s>", function() flash.jump() end, { desc = "Flash jump" })
 
 wk.add({
-	{ "s", desc = "Flash jump" },
-	{ "S", desc = "Flash treesitter" },
+	{ "<C-s>", desc = "Flash jump" },
 })
