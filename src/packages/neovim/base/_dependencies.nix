@@ -21,3 +21,11 @@
   zulu
   graphviz
 ])
+++ (with pkgs; [
+  # tts.nvim
+  curl # openai backend
+  mpv # audio playback
+])
+++ (with root.packages; [
+  piper-tts # local tts backend
+])

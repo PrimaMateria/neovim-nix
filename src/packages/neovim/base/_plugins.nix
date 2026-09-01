@@ -67,4 +67,5 @@ with root.packages.vimPlugins; [
   # Reading
   # ----------------
   rsvp-nvim
+  tts-nvim
 ]

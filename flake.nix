@@ -13,6 +13,7 @@
     plugin-typescript-tools-nvim,
     plugin-resolve-nvim,
     plugin-rsvp-nvim,
+    plugin-tts-nvim,
     ...
   }:
     utils.lib.eachDefaultSystem (
@@ -36,6 +37,7 @@
               plugin-typescript-tools-nvim
               plugin-resolve-nvim
               plugin-rsvp-nvim
+              plugin-tts-nvim
               ;
           };
         };
@@ -82,6 +84,10 @@
     plugin-rsvp-nvim = {
       url = "github:PrimaMateria/rsvp.nvim";
       # url = "/home/primamateria/dev/rsvp.nvim";
+      flake = false;
+    };
+    plugin-tts-nvim = {
+      url = "github:chriswritescode-dev/tts.nvim";
       flake = false;
     };
   };

@@ -202,6 +202,22 @@
         "type": "github"
       }
     },
+    "plugin-tts-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1787187559,
+        "narHash": "sha256-46WHR8Ki0NRPoVfJJU7ic/zaOD08EWA3CftTJPg8QZY=",
+        "owner": "chriswritescode-dev",
+        "repo": "tts.nvim",
+        "rev": "9261b6d69425c7b3236c49b85702741e069b413c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chriswritescode-dev",
+        "repo": "tts.nvim",
+        "type": "github"
+      }
+    },
     "plugin-typescript-tools-nvim": {
       "flake": false,
       "locked": {
@@ -228,6 +244,7 @@
         "plugin-resolve-nvim": "plugin-resolve-nvim",
         "plugin-rsvp-nvim": "plugin-rsvp-nvim",
         "plugin-tiny-glimmer-nvim": "plugin-tiny-glimmer-nvim",
+        "plugin-tts-nvim": "plugin-tts-nvim",
         "plugin-typescript-tools-nvim": "plugin-typescript-tools-nvim",
         "utils": "utils_2"
       }
