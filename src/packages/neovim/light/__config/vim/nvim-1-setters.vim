@@ -8,7 +8,7 @@ set secure
 set termguicolors
 set nohlsearch
 set hidden
-set guicursor=
+set guicursor=a:block-blinkon0
 set scrolloff=0
 set signcolumn=yes
 set undodir=~/.config/nvim/undodir
