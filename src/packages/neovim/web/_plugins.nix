@@ -9,4 +9,5 @@ with root.packages.vimPlugins; [
   # typescript-tools-nvim-fix
   nvim-vtsls
   csvview-nvim
+  rest-nvim
 ]

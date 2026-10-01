@@ -7,4 +7,5 @@ with treesitterPlugins; [
   jsdoc
   scss
   tsx
+  http
 ]
