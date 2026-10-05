@@ -5,6 +5,7 @@ require("diffview").setup({
 })
 
 vim.keymap.set("n", ",h", "<cmd>DiffviewFileHistory %<CR>", { silent = true, desc = "Diffview file history" })
+vim.keymap.set("n", ",l", "<cmd>DiffviewOpen HEAD^1..HEAD<CR>", { silent = true, desc = "Diffview last commit" })
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "Diffview*",
