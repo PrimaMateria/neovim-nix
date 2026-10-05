@@ -28,4 +28,5 @@
 ])
 ++ (with root.packages; [
   piper-tts # local tts backend
+  codediff-watcher # instant refresh for codediff.nvim
 ])
