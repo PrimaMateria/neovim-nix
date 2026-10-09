@@ -70,6 +70,14 @@ augroup spellon
   autocmd FileType typescript setlocal spell
 augroup END
 
+" Man ftplugin sets nonumber norelativenumber; re-enable them.
+" Soft-wrap man pages so the number column doesn't cause double wrapping.
+let g:man_hardwrap = 0
+augroup ManNumbers
+  autocmd!
+  autocmd FileType man setlocal number relativenumber
+augroup END
+
 augroup TermFix
   autocmd!
   autocmd TermOpen * let $TERM = "screen-256color"
