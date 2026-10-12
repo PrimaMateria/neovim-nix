@@ -5,8 +5,6 @@ let mapleader = " "
 let maplocalleader = " "
 " inoremap <C-j><C-j> <C-\><C-n>init
 " tnoremap <C-j><C-j> <C-\><C-n>
-tnoremap <C-]><C-[> <C-\><C-n>
-inoremap <C-]><C-[> <C-\><C-n>
 
 " Remap Ctrl+q to start recording a macro
 nnoremap <C-q> q
