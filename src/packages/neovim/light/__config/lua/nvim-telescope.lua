@@ -56,6 +56,7 @@ vim.api.nvim_set_keymap("n", "gh", ":lua require('telescope.builtin').lsp_refere
 vim.api.nvim_set_keymap("n", "<leader>`", ":lua require('telescope.builtin').live_grep()<CR>", opt)
 vim.api.nvim_set_keymap("n", '<leader>"', ":lua require('telescope.builtin').grep_string()<CR>", opt)
 vim.api.nvim_set_keymap("n", "<leader><leader>", ":lua require('telescope').extensions.frecency.frecency()<CR>", opt)
+vim.api.nvim_set_keymap("n", "<leader>m", ":lua require('telescope.builtin').man_pages()<CR>", opt)
 
 wk.add({
 	{ "gd", desc = "Go to definitions" },
