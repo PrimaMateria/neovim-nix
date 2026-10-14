@@ -138,6 +138,22 @@
         "type": "github"
       }
     },
+    "plugin-atlas-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791809467,
+        "narHash": "sha256-Hjl8SsHNtiZ3lqbg1ZVMeipzHBW0/HX7Q3o8OZ8/zOc=",
+        "owner": "emrearmagan",
+        "repo": "atlas.nvim",
+        "rev": "fb40953462ff922c1084f1338072588c6e0eb0bf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "emrearmagan",
+        "repo": "atlas.nvim",
+        "type": "github"
+      }
+    },
     "plugin-lsplens": {
       "flake": false,
       "locked": {
@@ -240,6 +256,7 @@
         "neovim-nix-utils": "neovim-nix-utils",
         "neovimNightlyOverlay": "neovimNightlyOverlay",
         "nixpkgs": "nixpkgs",
+        "plugin-atlas-nvim": "plugin-atlas-nvim",
         "plugin-lsplens": "plugin-lsplens",
         "plugin-resolve-nvim": "plugin-resolve-nvim",
         "plugin-rsvp-nvim": "plugin-rsvp-nvim",

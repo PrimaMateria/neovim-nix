@@ -14,6 +14,7 @@
     plugin-resolve-nvim,
     plugin-rsvp-nvim,
     plugin-tts-nvim,
+    plugin-atlas-nvim,
     ...
   }:
     utils.lib.eachDefaultSystem (
@@ -38,6 +39,7 @@
               plugin-resolve-nvim
               plugin-rsvp-nvim
               plugin-tts-nvim
+              plugin-atlas-nvim
               ;
           };
         };
@@ -88,6 +90,10 @@
     };
     plugin-tts-nvim = {
       url = "github:chriswritescode-dev/tts.nvim";
+      flake = false;
+    };
+    plugin-atlas-nvim = {
+      url = "github:emrearmagan/atlas.nvim";
       flake = false;
     };
   };

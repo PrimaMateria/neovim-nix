@@ -30,6 +30,7 @@ with root.packages.vimPlugins; [
   gitsigns-nvim
   diffview-plus-nvim
   resolve-nvim
+  atlas-nvim # PRs & issues (Bitbucket, Jira)
 
   # Snippets
   # ----------------
