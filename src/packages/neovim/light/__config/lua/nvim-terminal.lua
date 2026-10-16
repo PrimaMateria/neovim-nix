@@ -109,3 +109,10 @@ wk.add({
 	{ "<leader>tr", desc = "Terminal ε" },
 	{ "<leader>tg", desc = "Claude" },
 })
+
+local M = {
+	claude_buf = function()
+		get_buf("claude", "claude", "claude")
+	end,
+}
+package.loaded["primamateria.terminals"] = M
