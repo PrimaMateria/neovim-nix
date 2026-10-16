@@ -75,6 +75,21 @@ require("atlas").setup({
 	},
 })
 
+-- Default reviewers include me, and Bitbucket rejects PR creation with
+-- "author cannot be included as a reviewer" (only visible in atlas.log).
+local bitbucket_write = require("atlas.pulls.providers.bitbucket").capabilities.write
+local fetch_reviewer_candidates = bitbucket_write.fetch_reviewer_candidates
+bitbucket_write.fetch_reviewer_candidates = function(opts, on_done)
+	return fetch_reviewer_candidates(opts, function(reviewers, err)
+		if reviewers then
+			reviewers = vim.tbl_filter(function(reviewer)
+				return reviewer.provider_id ~= bitbucket_uuid
+			end, reviewers)
+		end
+		on_done(reviewers, err)
+	end)
+end
+
 vim.keymap.set("n", ",jp", "<cmd>Atlas pulls bitbucket<CR>", { silent = true, desc = "Pull requests" })
 vim.keymap.set("n", ",ji", "<cmd>Atlas issues jira<CR>", { silent = true, desc = "Jira issues" })
 vim.keymap.set("n", ",jr", "<cmd>Atlas review<CR>", { silent = true, desc = "Review PR" })
