@@ -14,6 +14,10 @@ with root.packages.vimPlugins; [
   markview-nvim
   trouble-nvim
 
+  # Debugging
+  # ----------------
+  nvim-luapad
+
   # Navigation
   # ----------------
 
