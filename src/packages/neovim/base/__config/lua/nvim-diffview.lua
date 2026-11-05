@@ -10,11 +10,18 @@ require("diffview").setup({
 		-- Open claude in the footer window so I can directly discuss the review
 		view_opened = function(view)
 			local dummy_buf = vim.api.nvim_create_buf(false, true)
+			vim.bo[dummy_buf].bufhidden = "wipe"
 			local footer_win = vim.api.nvim_open_win(dummy_buf, true, { split = "below", win = -1, height = 15 })
 			local claude_buf = terminals.claude_buf()
 
 			vim.api.nvim_win_set_buf(footer_win, claude_buf)
 			vim.wo[footer_win][0].winfixheight = true
+
+			vim.api.nvim_win_call(footer_win, function()
+				vim.cmd.normal({ "Gzb", bang = true })
+			end)
+
+			view.panel:focus()
 		end,
 	},
 })
