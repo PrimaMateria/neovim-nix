@@ -141,11 +141,11 @@
     "plugin-atlas-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1793908070,
-        "narHash": "sha256-cIliJzaQ+gklpzcMdQ35ljKVJXLDhbvChf3dxR97k8E=",
+        "lastModified": 1794751519,
+        "narHash": "sha256-N5ncUF1WWBzPv000MgoYZrvhWCOgezAGfV94kwthFoY=",
         "owner": "emrearmagan",
         "repo": "atlas.nvim",
-        "rev": "07b019b8c31a0ec9b7903a98aa11f5ffbf2ac355",
+        "rev": "f67d5ce9341652ad64dac843b5ce730f1f0466f2",
         "type": "github"
       },
       "original": {
