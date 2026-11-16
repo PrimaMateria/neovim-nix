@@ -21,7 +21,16 @@ require("diffview").setup({
 				vim.cmd.normal({ "Gzb", bang = true })
 			end)
 
-			view.panel:focus()
+			if view.panel:is_open() then
+				view.panel:focus()
+			else
+				-- Files load async; focus the diff once the first diff buffer lands in a window
+				DiffviewGlobal.emitter:once("diff_buf_win_enter", function()
+					vim.schedule(function()
+						view.cur_layout:get_main_win():focus()
+					end)
+				end)
+			end
 		end,
 	},
 })
